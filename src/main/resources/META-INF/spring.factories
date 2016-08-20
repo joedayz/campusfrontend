@@ -1,0 +1,4 @@
+#resources/META-INF/spring.factories
+#bootstrap in your thymeleaf 3 config
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  pe.joedayz.campus.config.ThymeleafConfig

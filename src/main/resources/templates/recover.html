@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head lang="es">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Campus | JOEDAYZ ACADEMY</title>
+
+    <link href="../../../static/css/bootstrap.min.css"  th:href="@{css/bootstrap.min.css}"  rel="stylesheet">
+    <link href="../../static/font-awesome/css/font-awesome.css"  th:href="@{font-awesome/css/font-awesome.css}" rel="stylesheet">
+
+
+    <link href="../../static/css/animate.css"  th:href="@{css/animate.css}" rel="stylesheet">
+    <link href="../../static/css/style.css"  th:href="@{css/style.css}" rel="stylesheet">
+
+    <!--<script src="../../static/js/lib/jquery.min.js" th:src="@{js/lib/jquery.min.js}"></script>-->
+    <script src="../../static/js/jquery-2.1.1.js" th:src="@{js/jquery-2.1.1.js}"></script>
+    <script src="../../static/js/lib/kendo.all.min.js" th:src="@{js/lib/kendo.all.min.js}"></script>
+
+    <script src="../../static/js/module/login.js" th:src="@{js/module/login.js}"></script>
+    <script src="../../static/js/module/common.js" th:src="@{js/module/common.js}"></script>
+
+    <script src="../../static/js/sammy-latest.min.js" th:src="@{js/sammy-latest.min.js}"></script>
+
+<style>
+.container-table {
+	height: 100%;
+	display: table;
+}
+
+.vertical-center-row {
+	/*display: table-cell;*/
+	vertical-align: middle;
+}
+</style>
+
+<style>
+.popup-notification {
+	width: 400px;
+	height: 100px;
+}
+
+.popup-notification h3 {
+	font-size: 1em;
+	padding: 20px 10px 5px;
+	/*padding: 32px 10px 5px;*/
+}
+.popup-notification img {
+	float: left;
+	margin: 30px 15px 30px 30px;
+}
+
+.k-notification {
+	border: 0;
+}
+
+.k-notification-info.k-group {
+	background: rgba(0%, 0%, 0%, .7);
+	color: #fff;
+}
+.k-notification-error.k-group {
+	background: rgba(100%, 0%, 0%, .7);
+	color: #ffffff;
+}
+
+.k-notification-success.k-group {
+	background: rgba(0%, 60%, 0%, .7);
+	color: #fff;
+}
+</style>
+<body>
+	<span id="popupNotification"></span>
+	<script id="infoTemplate" type="text/x-kendo-template">
+    <div class="popup-notification">
+        <img src="img/info-icon.png" />
+        <h3>#= title #</h3>
+        <p>#= message #</p>
+    </div>
+</script>
+
+	<script id="errorTemplate" type="text/x-kendo-template">
+    <div class="popup-notification">
+        <img src="img/error-icon.png" />
+        <h3>#= title #</h3>
+        <p>#= message #</p>
+    </div>
+</script>
+
+	<script id="successTemplate" type="text/x-kendo-template">
+    <div class="popup-notification">
+        <img src="img/success-icon.png" />
+        <h3>#= title #</h3>
+        <p>#= message #</p>
+    </div>
+</script>
+
+
+
+	<script>
+
+		var popupNotification = $("#popupNotification").kendoNotification({
+			position : {
+				pinned : true,
+				top : 30,
+				right : 30
+			},
+        autoHideAfter: 3000,
+        animation: false,
+			stacking : "down",
+			templates : [ {
+				type : "info",
+				template : $("#infoTemplate").html()
+			}, {
+				type : "error",
+				template : $("#errorTemplate").html()
+			}, {
+				type : "success",
+				template : $("#successTemplate").html()
+			} ]
+
+		}).data("kendoNotification");
+    /*
+     var popupNotification = $("#popupNotification").kendoNotification( {
+     position: {
+     top: 30
+     },
+     //width: 300,
+     //height: auto,
+     //    minWidth: 100,
+     //maxWidth: 300,
+     autoHideAfter: 3000,
+     //button: true,
+     // appendTo: "#container"
+     }).data("kendoNotification");
+     */
+
+	</script>
+
+
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<div class="loading"></div>
+
+		<div id="page-wrapper" class="gray-bg">
+			<div class="wrapper wrapper-content animated fadeInRight">
+				<div class="row">
+
+					<div class="container container-table">
+						<div class="jumbotron">
+							<div class="row vertical-center-row">
+								<div class="col-lg-12">
+									<div class="ibox" th:fragment="partial-view">
+										<script>
+											$(document).ready(function() {
+												RecoverModule.initModule();
+											});
+										</script>
+										<div class="ibox-title">
+                                    <h5>Password Recovery <small>We'll send you an e-mail with a link to reset your password.</small></h5>
+										</div>
+										<div id="recoverBindArea" class="ibox-content">
+											<div class="row">
+                                        <div class="col-sm-6 b-r"><h3 class="m-t-none m-b">Please enter your user name</h3>
+                                            <!--<p>Sign in today for more expirience.</p>-->
+													<form role="form">
+                                                <div class="form-group"><input type="text" placeholder="Enter username" class="form-control" data-bind="value: username" maxlength="20"></div>
+                                                <!--<div class="form-group"><label>Password</label> <input type="password" placeholder="Password" class="form-control" data-bind="value: password"></div>-->
+														<div>
+                                                    <button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="button" data-bind="events: { click: onRecoverClick }"><strong>Send Recovery E-mail</strong></button>
+														</div>
+													</form>
+												</div>
+                                        <div class="col-sm-6"><h4>Sign in to your account</h4>
+                                            <!--<p>Go to Login:</p>-->
+													<p class="text-center">
+														<a href="/#/login"><i class="fa fa-sign-in big-icon"></i></a>
+													</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="messageDialog">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="col-sm-12" id="errors"></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+
+<script src="../../static/js/bootstrap.min.js" th:src="@{js/bootstrap.min.js}"></script>
+<script src="../../static/js/plugins/metisMenu/jquery.metisMenu.js" th:src="@{js/plugins/metisMenu/jquery.metisMenu.js}"></script>
+<script src="../../static/js/plugins/slimscroll/jquery.slimscroll.min.js" th:src="@{js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
+
+	<script src="../../static/js/inspinia.js" th:src="@{js/inspinia.js}"></script>
+<script src="../../static/js/plugins/pace/pace.min.js" th:src="@{js/plugins/pace/pace.min.js}"></script>
+
+</body>
+</html>

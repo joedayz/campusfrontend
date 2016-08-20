@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head lang="es">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Campus | JOEDAYZ ACADEMY</title>
+
+    <link href="../../../../static/css/kendo.common.min.css"  th:href="@{css/kendo.common.min.css}"  rel="stylesheet">
+    <!--link href="../../../../static/css/kendo.default.min.css"  th:href="@{css/kendo.default.min.css}"  rel="stylesheet"-->
+
+    <link href="../../../../static/css/kendo.common-material.min.css"  th:href="@{css/kendo.common-material.min.css}"  rel="stylesheet">
+    <link href="../../../../static/css/kendo.material.min.css"  th:href="@{css/kendo.material.min.css}"  rel="stylesheet">
+
+    <link href="../../../../static/css/plugins/dataTables/datatables.min.css"  th:href="@{css/plugins/dataTables/datatables.min.css}"  rel="stylesheet">
+
+
+    <link href="../../../static/css/bootstrap.min.css"  th:href="@{css/bootstrap.min.css}"  rel="stylesheet">
+    <link href="../../static/font-awesome/css/font-awesome.css"  th:href="@{font-awesome/css/font-awesome.css}" rel="stylesheet">
+
+
+    <link href="../../static/css/animate.css"  th:href="@{css/animate.css}" rel="stylesheet">
+    <link href="../../static/css/style.css"  th:href="@{css/style.css}" rel="stylesheet">
+
+    <!--<script src="../../static/js/lib/jquery.min.js" th:src="@{js/lib/jquery.min.js}"></script>-->
+    <script src="../../static/js/jquery-2.1.1.js" th:src="@{js/jquery-2.1.1.js}"></script>
+    <script src="../../static/js/jquery-dateFormat.js" th:src="@{js/jquery-dateFormat.js}"></script>
+    <script src="../../static/js/jquery-marsk.js" th:src="@{js/jquery-marsk.js}"></script>
+
+<script src="../../static/js/bootstrap.js" th:src="@{js/bootstrap.js}"></script>
+
+    <script src="../../static/js/bootstrap.min.js" th:src="@{js/bootstrap.min.js}"></script>
+
+
+    <script src="../../static/js/lib/bootbox.js" th:src="@{js/lib/bootbox.js}"></script>
+
+    <script src="../../static/js/sammy-latest.min.js" th:src="@{js/sammy-latest.min.js}"></script>
+
+    <script src="../../static/js/lib/kendo.all.min.js" th:src="@{js/lib/kendo.all.min.js}"></script>
+
+
+
+    <script src="../../static/js/module/common.js" th:src="@{js/module/common.js}"></script>
+    <script src="../../static/js/module/login.js" th:src="@{js/module/login.js}"></script>
+
+
+<script src="../../../static/js/module/temas-curso.js" th:src="@{js/module/temas-curso.js}"></script>
+
+</head>
+
+<style>
+
+
+    .k-list-all .k-list-optionlabel{
+        padding-left: 10% !important;
+    }
+
+.popup-notification {
+	width: 400px;
+	height: 100px;
+}
+    .k-animation-container {
+        z-index: 10003 !important;
+    }
+
+.col-height {
+	height: 100% !important;
+}
+
+.msg-aling-title-left {
+	margin-left: 0px !important;
+	padding-left: 0px !important;
+	float: left;
+}
+
+.msg-aling-text-left {
+	margin-left: 0px !important;
+	padding-left: 0px !important;
+	float: left;
+	text-align: left;
+}
+
+
+.popup-notification h3 {
+	font-size: 1em;
+	padding: 20px 10px 5px;
+	/*padding: 32px 10px 5px;*/
+}
+.popup-notification img {
+	float: left;
+	margin: 30px 15px 30px 30px;
+}
+
+    .k-grid tr.k-state-selected{
+        background-color: #00a2eb !important;
+    }
+
+.k-notification {
+	border: 0;
+	border-radius: 5px;
+}
+
+.k-notification-info.k-group {
+	background: rgba(0%, 0%, 0%, .7);
+	color: #fff;
+}
+
+.k-widget.k-notification.k-notification-error {
+	background: #ed5565;
+	color: #ffffff;
+}
+
+.k-notification-success.k-group {
+	background: rgba(0%, 60%, 0%, .7);
+	color: #fff;
+}
+
+
+.notificationRouted {
+	background-color: #bbdefb !important;
+	color: #2b98f3 !important;
+	border-color: #bbdefb !important;
+
+
+    }
+
+    .errorCombo{
+        background: rgb(251, 227, 228)!important;
+        border: 1px solid #fbc2c4 !important;
+        color: #8a1f11 !important;
+
+}
+
+.modalClassZ {
+	z-index: 200000 !important;
+}
+
+.k-overlayZ {
+	z-index: 199999 !important;
+}
+
+    .hideModal{
+        display: none !important;
+    }
+
+    .showModal{
+        display: block !important;
+    }
+
+
+    /*Remove Text from grid button*/
+
+  /*   td a.k-button-icontext {
+         font-size: 0px;
+     }
+*/
+
+</style>
+<body>
+
+<div id="confirmationWnd"></div>
+
+<script type="text/x-kendo-template" id="confirmationWndTemplate">
+    <strong>#= message #</strong></p>
+    <button class="k-button" id="yesButton">Yes</button>
+    <button class="k-button" id="noButton"> No</button>
+</script>
+
+	<span id="popupNotification"></span>
+	<script id="infoTemplate" type="text/x-kendo-template">
+    <div class="popup-notification">
+        <img src="img/info-icon.png" />
+        <h3>#= title #</h3>
+        <p>#= message #</p>
+    </div>
+</script>
+
+	<script id="errorTemplate" type="text/x-kendo-template">
+    <div class="popup-notification">
+        <img src="img/error-icon.png" />
+        <h3>#= title #</h3>
+        <p>#= message #</p>
+    </div>
+</script>
+
+	<script id="successTemplate" type="text/x-kendo-template">
+    <div class="popup-notification">
+        <img src="img/success-icon.png" />
+        <h3>#= title #</h3>
+        <p>#= message #</p>
+    </div>
+</script>
+
+	<script id="infoRoutedTemplate" type="text/x-kendo-template">
+    <div class="popup-notification notificationRouted"  style="height: 145px;">
+        <div class="col-sm-12 col-height text-center">
+            <div class="col-sm-1 col-height">
+            <i class="fa fa-cogs " style="font-size: 27px;margin-top: 37px;"></i>
+            </div>
+            <div class="col-sm-7 col-height">
+                <h3 class="msg-aling-title-left">#= title #</h3>
+                <p class="msg-aling-text-left">#= message #</p>
+            </div>
+        </div>
+    </div>
+</script>
+
+
+
+
+	<script>
+
+
+
+
+		$(document).ready(function() {
+			Sammy('#appzone', function() {
+
+			}).run('#/curso.novedades');
+		});
+
+		var popupNotification = $("#popupNotification").kendoNotification({
+			position : {
+				pinned : false,
+				top : 30,
+				right : 30
+			},
+        autoHideAfter: 3000,
+        animation: false,
+			stacking : "down",
+			templates : [ {
+				type : "info",
+				template : $("#infoTemplate").html()
+			}, {
+				type : "inforouted",
+				template : $("#infoRoutedTemplate").html()
+			}, {
+				type : "error",
+				template : $("#errorTemplate").html()
+			}, {
+				type : "success",
+				template : $("#successTemplate").html()
+			} ]
+
+		}).data("kendoNotification");
+
+
+		var idleTime = 0;
+    var timeout =  [[${sessionTimeOutMinutes}]];
+    var isRememberMeAuthenticated = [[${isRememberMeAuthenticated}]];
+    var hasRembermeCheck = [[${hasRembermeCheck}]];
+		$(document).ready(function() {
+			//Increment the idle time counter every minute.
+        var idleInterval = setInterval(timerIncrement, timeout * 1000); // 1 minute
+
+			$(this).keypress(function(e) {
+				idleTime = 0;
+			});
+		});
+
+
+		function timerIncrement() {
+			idleTime = idleTime + 1;
+
+        if (idleTime > timeout - 2) { // 20 minutes
+
+            var seconds =  timeout;
+
+				$(".k-overlay").addClass("k-overlayZ");
+
+            bootbox.dialog({
+                message: "Your session will be expired in " + seconds + " seconds, would you like to extend the time?",
+							title : "Warning",
+							closeButton : false,
+							className : "modalClassZ",
+							buttons : {
+								success : {
+									label : "Yes",
+									className : "btn-success",
+									callback : function() {
+										$.ajax({
+											url : "/ping/poke/",
+											type : "get",
+											contentType : "application/json",
+											success : function(result) {
+                                    $(".k-overlay").removeClass("k-overlayZ");
+												idleTime = 0;
+											}
+										});
+									}
+								},
+								danger : {
+									label : "No",
+									className : "btn-danger",
+									callback : function() {
+                            var location = "/logout";
+                            window.location=location;
+									}
+								}
+							}
+						});
+
+			}
+
+        if(idleTime > timeout-1 ) {
+            var location = "/logout";
+            if (isRememberMeAuthenticated || hasRembermeCheck){
+                location = "/";
+            }
+            window.location=location;
+			}
+
+		}
+
+
+
+	</script>
+
+	<div id="wrapper">
+
+		<div th:replace="fragments/menu"></div>
+
+
+
+		<div id="page-wrapper" class="gray-bg">
+			<div class="row border-bottom">
+            <nav class="navbar navbar-static-top " role="navigation" style="margin-bottom: 0">
+					<div class="navbar-header">
+						<div class="form-group" style="display: table">
+                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+						</div>
+					</div>
+					<ul class="nav navbar-top-links navbar-left">
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-truck"></i> JoeDayz Academy
+                        </a>
+                    </li>
+					</ul>
+
+					<ul class="nav navbar-top-links navbar-right">
+                    <li>
+                        <a href="/logout">
+                            <i class="fa fa-sign-out"></i> Log out
+                        </a>
+                    </li>
+					</ul>
+
+				</nav>
+			</div>
+			<div class="loading"></div>
+        <div id="appzone" class="wrapper wrapper-content animated fadeInRight">
+
+				<div class="row">
+					<div class="container">
+						<div class="jumbotron">
+                        <img src="../../static/img/pricing-cover.jpg" width="1000" th:src="@{img/pricing-cover.jpg}"/>
+                        <h1>JoeDayz Academy</h1>
+                        <h2>Bienvenidos</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer">
+				<div class="pull-right">
+					Campus Version <strong>[[${build}]].[[${revision}]]-[[${timestamp}]]</strong>.
+				</div>
+				<div>
+					<strong>Copyright</strong> JOEDAYZ ACADEMY &copy; 2016
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+
+
+	<!-- Mainly scripts -->
+<!--<script src="../../static/js/jquery-2.1.1.js" th:src="@{js/jquery-2.1.1.js}"></script>-->
+<script src="../../static/js/bootstrap.min.js" th:src="@{js/bootstrap.min.js}"></script>
+<script src="../../static/js/plugins/metisMenu/jquery.metisMenu.js" th:src="@{js/plugins/metisMenu/jquery.metisMenu.js}"></script>
+<script src="../../static/js/plugins/slimscroll/jquery.slimscroll.min.js" th:src="@{js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
+<script src="../../static/js/plugins/dataTables/datatables.min.js" th:src="@{js/plugins/dataTables/datatables.min.js}"></script>
+
+<!-- Custom and plugin javascript -->
+	<script src="../../static/js/inspinia.js" th:src="@{js/inspinia.js}"></script>
+<script src="../../static/js/plugins/pace/pace.min.js" th:src="@{js/plugins/pace/pace.min.js}"></script>
+
+
+</body>
+
+</html>
