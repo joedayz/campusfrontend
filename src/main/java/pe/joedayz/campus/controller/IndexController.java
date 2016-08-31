@@ -5,6 +5,7 @@ import static java.util.Arrays.asList;
 
 import java.util.List;
 import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.google.common.base.Joiner;
 
 import pe.joedayz.campus.dto.ModuleDto;
-import pe.joedayz.campus.dto.OfficeDto;
 import pe.joedayz.campus.dto.UserDto;
 import pe.joedayz.campus.rest.BackendRestInvoker;
 import pe.joedayz.campus.service.impl.UserServiceImpl;
@@ -58,7 +58,7 @@ public class IndexController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String username = ((UserDetails) auth.getPrincipal()).getUsername();
 
-        BackendRestInvoker restInvoker = new BackendRestInvoker<List<OfficeDto>>(server,port);
+        BackendRestInvoker restInvoker = new BackendRestInvoker<List<UserDto>>(server,port);
         ResponseEntity<UserDto> responseEntity=
                 restInvoker.sendGet("/user/findByName?username=" + ((UserDetails)auth.getPrincipal()).getUsername(), UserDto.class);
         UserDto userDto=responseEntity.getBody();
@@ -94,7 +94,7 @@ public class IndexController {
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
 	private List<ModuleDto> buildPageInfo(String username) {
-        BackendRestInvoker restInvoker = new BackendRestInvoker<List<OfficeDto>>(server,port);
+        BackendRestInvoker restInvoker = new BackendRestInvoker<List<ModuleDto>>(server,port);
 
         ResponseEntity<ModuleDto[]> responseEntity2 =
                 restInvoker.sendGet("/module/allowedModules?username=" + username, ModuleDto[].class);

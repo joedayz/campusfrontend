@@ -8,7 +8,9 @@
     </appender>
 
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-
+        <!--<filter class="ch.qos.logback.classic.filter.ThresholdFilter">-->
+            <!--<level>INFO</level>-->
+        <!--</filter>-->
 
         <!-->file>/var/log/java/campus.log</file -->
 		<file>campus.log</file>
@@ -26,11 +28,10 @@
         </encoder>
     </appender>
 
-    <logger name="com.acme" level="DEBUG" />
+    <logger name="pe.joedayz" level="DEBUG" />
     <logger name="org.springframework" level="INFO" />
     <logger name="org.springframework.transaction" level="INFO" />
-    <logger name="org.springframework.security" level="DEBUG" /> <!-- to debug security related issues (DEBUG) -->
-    <logger name="org.springframework.web.servlet.mvc" level="INFO" /> <!-- some serialization issues are at trace level here: org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod -->
+    <logger name="org.springframework.security" level="DEBUG" /> <logger name="org.springframework.web.servlet.mvc" level="INFO" /> <!-- some serialization issues are at trace level here: org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod -->
 
     <root level="info">
         <appender-ref ref="STDOUT" />

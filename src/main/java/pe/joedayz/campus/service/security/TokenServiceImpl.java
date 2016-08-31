@@ -1,6 +1,8 @@
 package pe.joedayz.campus.service.security;
 
-import java.util.Date;
+import pe.joedayz.campus.dto.PageableResult;
+import pe.joedayz.campus.rest.BackendRestInvoker;
+
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,8 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.web.authentication.rememberme.PersistentRememberMeToken;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 
-import pe.joedayz.campus.dto.PageableResult;
-import pe.joedayz.campus.rest.BackendRestInvoker;
+import java.util.Date;
 
 /**
  * Invokes the backend to perform activities for the remember-me component
@@ -79,4 +80,5 @@ public class TokenServiceImpl implements PersistentTokenRepository  {
             LOGGER.error("Error getting persistent token for series", e);
         }
     }
+
 }

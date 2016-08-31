@@ -28,7 +28,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 
 import pe.joedayz.campus.dto.ModuleDto;
-import pe.joedayz.campus.dto.OfficeDto;
 import pe.joedayz.campus.dto.UserDto;
 import pe.joedayz.campus.rest.BackendRestInvoker;
 import pe.joedayz.campus.security.RESTAuthenticationEntryPoint;
@@ -80,7 +79,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 public UserDetails loadUserByUsername(String username)
                         throws UsernameNotFoundException {
                     LOGGER.info("Authentication process init for user {}", username);
-                    BackendRestInvoker restInvoker= new BackendRestInvoker<List<OfficeDto>>(server, port);
+                    BackendRestInvoker restInvoker= new BackendRestInvoker<List<UserDto>>(server, port);
                     ResponseEntity<UserDto> responseEntity=
                             restInvoker.sendGet("/user/findByName?username=" + username, UserDto.class);
 
@@ -103,7 +102,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     if (userDto != null) {
 
                         ResponseEntity<ModuleDto[]> responseEntity2 =
-                                restInvoker.sendGet("/module/allowedModules?username=" + userDto.getUserName(), ModuleDto[].class);
+                                restInvoker.sendGet("/module/permissionModules?username=" + userDto.getUserName(), ModuleDto[].class);
 
                         ModuleDto[] allowedModules = responseEntity2.getBody();
 
@@ -174,7 +173,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/backend/post/security/**", "/login", "/recover", "/reset-password", "/css/**", "/img/**", "/js/**", "/fonts/**", "/font-awesome/**").permitAll();
 
-        BackendRestInvoker restInvoker= new BackendRestInvoker<List<OfficeDto>>(server,port);
+        BackendRestInvoker restInvoker= new BackendRestInvoker<List<ModuleDto>>(server,port);
         ResponseEntity<ModuleDto[]> responseEntity=
                 restInvoker.sendGet("/module/visibleModules", ModuleDto[].class);
 

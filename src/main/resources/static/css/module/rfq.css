@@ -166,7 +166,7 @@
     height: 95%;
     padding: 2.5%;
 }
-
+/*
 .wizard > .content > .body ul
 {
     list-style: disc !important;
@@ -176,7 +176,7 @@
 {
     display: list-item;
 }
-
+*/
 .wizard > .content > .body > iframe
 {
     border: 0 none;
@@ -382,14 +382,47 @@
     width: 49% !important;
     float: left !important;;
 }
+ .formcolumnLane{ /* column div inside form */
+    width: 79% !important;
+    float: left !important;;
+}
+ .formcolumnAll{ /* column div inside form */
+    float: left !important;
+    width: 100%;
+}
+ .formcolumn34{ /* column div inside form */
+    float: left !important;
+    width: 75%;
+}
+ .formcolumn25{ /* column div inside form */
+     float: left !important;
+     width: 25% !important;
+}
+.formcolumn25 > label{ /* column div inside form */
+    display: block;
+}
+
+.formcolumn5{ /* column div inside form */
+     float: left !important;
+     width: 15% !important;
+}
+.formcolumn5 > label{ /* column div inside form */
+    display: block;
+}
+
+ .formcolumn50{ /* column div inside form */
+     float: left !important;
+     width: 50% !important;
+}
+.formcolumn50 > label{ /* column div inside form */
+    display: block;
+}
 
  .formcolumn:first-of-type{
     margin-right: 2% !important;; /* 2% margin after first column */
 }
 
  .formcolumn label, #contactform .formcolumn fieldset{
-    font: bold 0.8em Verdana !important;; /* font size is 12.8px, or 16 x 0.8 */
-    text-transform: uppercase !important;;
     display: block !important;
     margin-top: 2em !important;
     margin-bottom: 3px !important;

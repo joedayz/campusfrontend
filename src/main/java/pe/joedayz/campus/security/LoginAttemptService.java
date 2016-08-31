@@ -15,7 +15,7 @@ import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 
-import pe.joedayz.campus.dto.OfficeDto;
+import pe.joedayz.campus.dto.UserDto;
 import pe.joedayz.campus.rest.BackendRestInvoker;
 
 /**
@@ -61,7 +61,7 @@ public class LoginAttemptService {
 
         if (attempts == 2){
             logger.warn("Blocking user for too may auth request: " + username);
-            BackendRestInvoker restInvoker= new BackendRestInvoker<List<OfficeDto>>(server, port);
+            BackendRestInvoker restInvoker= new BackendRestInvoker<List<UserDto>>(server, port);
 
             ResponseEntity<String> responseEntity = restInvoker.sendPost("/user/locked", username, String.class);
 

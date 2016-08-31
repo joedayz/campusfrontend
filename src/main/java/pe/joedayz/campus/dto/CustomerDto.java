@@ -1,69 +1,71 @@
 package pe.joedayz.campus.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by acme on 27/04/2016.
  */
-public class CustomerDto {
+public class CustomerDto extends AuditDto {
 
-    private Long customerId;
-    private String customerName;
-    private Long officeId;
-    private String officeName;
-    private Long salesAccountManagerId;
-    private String salesAccountManagerName;
+	private Long customerId;
+	private String code;
+	private String customerName;
+	private String status;
 
-    public CustomerDto() {
-    }
+	private Integer rowVersion;
 
-    public CustomerDto(String id, String code, String customerName) {
-        this.customerName = customerName;
-    }
+	private List<StatusProcessDto> statusProcessDtoList;
 
-    public Long getCustomerId() {
-        return customerId;
-    }
+	public CustomerDto() {
+		this.statusProcessDtoList = new ArrayList<>();
+	}
+	public Integer getRowVersion() {
+		return rowVersion;
+	}
 
-    public void setCustomerId(Long customerId) {
-        this.customerId = customerId;
-    }
+	public void setRowVersion(Integer rowVersion) {
+		this.rowVersion = rowVersion;
+	}
 
-    public String getCustomerName() {
-        return customerName;
-    }
+	public Long getCustomerId() {
+		return customerId;
+	}
 
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
-    }
+	public void setCustomerId(Long customerId) {
+		this.customerId = customerId;
+	}
 
-    public Long getOfficeId() {
-        return officeId;
-    }
+	public String getCode() {
+		return code;
+	}
 
-    public void setOfficeId(Long officeId) {
-        this.officeId = officeId;
-    }
+	public void setCode(String code) {
+		this.code = code;
+	}
 
-    public String getOfficeName() {
-        return officeName;
-    }
+	public String getCustomerName() {
+		return customerName;
+	}
 
-    public void setOfficeName(String officeName) {
-        this.officeName = officeName;
-    }
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
 
-    public Long getSalesAccountManagerId() {
-        return salesAccountManagerId;
-    }
+	public String getStatus() {
+		return status;
+	}
 
-    public void setSalesAccountManagerId(Long salesAccountManagerId) {
-        this.salesAccountManagerId = salesAccountManagerId;
-    }
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
-    public String getSalesAccountManagerName() {
-        return salesAccountManagerName;
-    }
+	public void addErrorStatus(String s) {
 
-    public void setSalesAccountManagerName(String salesAccountManagerName) {
-        this.salesAccountManagerName = salesAccountManagerName;
-    }
+		StatusProcessDto statusProcessDto = new StatusProcessDto();
+		statusProcessDto.setStatus("Error");
+		statusProcessDto.setMessage(s);
+		statusProcessDtoList.add(statusProcessDto);
+	}
+
 }

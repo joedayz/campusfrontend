@@ -20,7 +20,7 @@ public class RestTemplateFactory {
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.setInterceptors(Collections.singletonList(new HttpRequestInterceptor()));
         restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-
+        restTemplate.setErrorHandler(new RestTemplateResponseErrorHandler());
 
         return restTemplate;
     }
@@ -31,7 +31,7 @@ public class RestTemplateFactory {
         restTemplate.setInterceptors(Collections.singletonList(new HttpRequestInterceptor()));
         restTemplate.getMessageConverters()
                 .add(0, new StringHttpMessageConverter(Charset.forName("UTF-8")));
-
+        restTemplate.setErrorHandler(new RestTemplateResponseErrorHandler());
 
         return restTemplate;
     }
@@ -40,6 +40,7 @@ public class RestTemplateFactory {
         RestTemplate restTemplate= new RestTemplate();
         restTemplate.setInterceptors(Collections.singletonList(new HttpRequestFileInterceptor()));
         restTemplate.getMessageConverters().add(new ByteArrayHttpMessageConverter());
+        restTemplate.setErrorHandler(new RestTemplateResponseErrorHandler());
         return restTemplate;
     }
 }

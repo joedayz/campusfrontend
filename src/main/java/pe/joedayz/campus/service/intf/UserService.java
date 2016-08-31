@@ -14,4 +14,6 @@ public interface UserService {
      boolean hasAny(RoleEnum role);
 
      UserDto getUserSession();
+
+     boolean hasPersistentToken(String username);
 }

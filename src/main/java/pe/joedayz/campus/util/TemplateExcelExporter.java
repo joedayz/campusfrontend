@@ -304,6 +304,29 @@ public class TemplateExcelExporter {
         cell.setCellValue(isXSS() ? new XSSFRichTextString(value) : new HSSFRichTextString(value));
     }
 
+    public void addColumn2Value(int index, String value, CellStyle style) {
+        Cell cell = row.createCell(index);
+         if (style != null) {
+            cell.setCellStyle(style);
+            cell.setCellType(Cell.CELL_TYPE_STRING);
+        }
+         cell.setCellValue(isXSS() ? new XSSFRichTextString(value) : new HSSFRichTextString(value));
+    }
+
+
+    public void addColumnValue(int index, CellStyle style) {
+        Cell cell = row.createCell(index);
+       if (style != null) {
+            cell.setCellStyle(style);
+            cell.setCellType(Cell.CELL_TYPE_STRING);
+        }
+       // String nullVal=null;
+      //  cell.setCellValue(null);
+    }
+
+
+
+
     public void addColumnValue(int index, Date value, CellStyle style) {
         Cell cell = row.createCell(index);
 
@@ -337,6 +360,7 @@ public class TemplateExcelExporter {
             cell.setCellType(Cell.CELL_TYPE_STRING);
         }
         cell.setCellValue(isXSS() ? new XSSFRichTextString(value) : new HSSFRichTextString(value));
+
     }
 
     public void addColumnValue(int index, BigDecimal value) {
@@ -434,6 +458,13 @@ public class TemplateExcelExporter {
     public File writeExcelToFile(File file) throws IOException {
         wb.write(new FileOutputStream(file));
         return file;
+    }
+
+    public byte[] getExcelAsByteArray() throws IOException{
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        wb.write(byteArrayOutputStream);
+        //byteArrayOutputStream.close();
+        return byteArrayOutputStream.toByteArray();
     }
 
     public CellStyle getStyle(int type, String pattern,HSSFColor fondoColor, HSSFColor fontColor, boolean bold) {
@@ -812,4 +843,10 @@ public class TemplateExcelExporter {
         return str;
     }
 
+    public void autoSizeColumn(int i) {
+        CellStyle cs = wb.createCellStyle();
+        cs.setWrapText(true);
+        Cell cell = row.getCell(i);
+        cell.setCellStyle(cs);
+    }
 }

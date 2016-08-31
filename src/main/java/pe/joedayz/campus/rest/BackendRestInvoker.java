@@ -27,6 +27,8 @@ import org.springframework.web.client.RestTemplate;
 //@RestController
 public class BackendRestInvoker<T> {
 
+    private static final Logger log = LoggerFactory.getLogger(BackendRestInvoker.class);
+    
 	@Value("${backend.server}")
 	private String server;
 
@@ -35,34 +37,104 @@ public class BackendRestInvoker<T> {
 
     private static String SESSION_USER_NAME="SESSION_USER_NAME";
 
+    static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
     public BackendRestInvoker(String serverName, int port){
         server=serverName;
         this.port=port;
     }
 
-
-
-    public ResponseEntity<T> sendPost(String prUrl,Object requestObject,Class<T> typeParameterClass) {
+    public ResponseEntity<T> sendPost(String prUrl,Object requestObject,ParameterizedTypeReference typeRef) {
         RestTemplate restTemplate = RestTemplateFactory.restTemplate();
-//        restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
         HttpHeaders headers=configHttpHeader();
-//        HttpHeaders headers = new HttpHeaders();
-//        headers.setAccept(Collections.singletonList(new MediaType("application","json")));
+
 
         URI uri = null;
         try {
             uri = new URI(getBackenPath()+prUrl);
             HttpEntity<?> requestEntity = new HttpEntity<>(requestObject,headers);
-            ResponseEntity<T> responseEntity = restTemplate.exchange(uri, HttpMethod.POST, requestEntity, typeParameterClass);
+
+            ResponseEntity<T> responseEntity = restTemplate.exchange(uri, HttpMethod.POST, requestEntity, typeRef);
+
 
             return responseEntity;
         } catch (URISyntaxException e) {
             //TODO lanzar excepcion
             //throw new Exception(e);
+            log.error(e.getMessage(), e);
         }
 
         return null;
+
+    }
+
+    public ResponseEntity<T> sendPost(String prUrl,Object requestObject,Class<T> typeParameterClass) {
+        RestTemplate restTemplate = RestTemplateFactory.restTemplate();
+        HttpHeaders headers=configHttpHeader();
+
+
+        URI uri = null;
+        try {
+            uri = new URI(getBackenPath()+prUrl);
+            HttpEntity<?> requestEntity = new HttpEntity<>(requestObject,headers);
+
+            ResponseEntity<T> responseEntity = restTemplate.exchange(uri, HttpMethod.POST, requestEntity, typeParameterClass);
+
+
+            return responseEntity;
+        } catch (URISyntaxException e) {
+            //TODO lanzar excepcion
+            //throw new Exception(e);
+            log.error(e.getMessage(), e);
+        }
+
+        return null;
+
+    }
+
+    public T post(String prUrl,Object requestObject,Class<T> typeParameterClass) {
+        RestTemplate restTemplate = RestTemplateFactory.restTemplate();
+        HttpHeaders headers=configHttpHeader();
+
+
+        URI uri = null;
+        try {
+            uri = new URI(getBackenPath()+prUrl);
+            HttpEntity<?> requestEntity = new HttpEntity<>(requestObject,headers);
+
+            ResponseEntity<String> responseEntity = restTemplate.exchange(uri, HttpMethod.POST, requestEntity, String.class);
+
+            if (RestUtil.isError(responseEntity.getStatusCode()) ) {
+                VndErrors vndErrors=OBJECT_MAPPER.readValue(responseEntity.getBody(), VndErrors.class);
+                Iterator<VndErrors.VndError> errors=vndErrors.iterator();
+                String message="";
+                while (errors.hasNext() ) {
+                    VndErrors.VndError error=errors.next();
+                    if(!"".equals(message)){
+                        message=message+";";
+                    }
+                    message=message+error.getMessage();
+                }
+
+                throw new GenericRestException("ERROR",message );
+            } else {
+                OBJECT_MAPPER.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
+                if(responseEntity.getBody()==null){
+
+                    return   (T)responseEntity;
+
+                }
+                T responseBody = OBJECT_MAPPER.readValue(responseEntity.getBody(), typeParameterClass);
+                return responseBody;
+            }
+
+        } catch (Exception e) {
+            log.error(e.getMessage(), e);
+            throw new GenericRestException("ERROR",e.getMessage() );
+        }
+
+//        return null;
 
     }
 
@@ -79,10 +151,12 @@ public class BackendRestInvoker<T> {
             HttpEntity requestEntity = new HttpEntity(headers);
             ResponseEntity<T> responseEntity = restTemplate.exchange(uri, HttpMethod.GET, requestEntity, typeParameterClass);
 
+
             return responseEntity;
         } catch (URISyntaxException e) {
             //TODO lanzar excepcion
             //throw new Exception(e);
+            log.error(e.getMessage(), e);
         }
 
 
@@ -120,6 +194,7 @@ public class BackendRestInvoker<T> {
         } catch (URISyntaxException e) {
 //TODO lanzar excepcion
             //throw new Exception(e);
+            log.error(e.getMessage(), e);
         }
 
 
@@ -146,6 +221,7 @@ public class BackendRestInvoker<T> {
         } catch (URISyntaxException e) {
 //TODO lanzar excepcion
             //throw new Exception(e);
+            log.error(e.getMessage(), e);
         }
 
 
@@ -156,25 +232,14 @@ public class BackendRestInvoker<T> {
 
     public ResponseEntity<T> sendGet(String prUrl,Object requestObject,ParameterizedTypeReference typeRef)  {
 
-//        ParameterizedTypeReference<T> typeRef=new ParameterizedTypeReference<T>() {
-//
-//
-//        };
-
         RestTemplate restTemplate = RestTemplateFactory.restTemplate();
-//        restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-        //HttpHeaders headers = new HttpHeaders();
         HttpHeaders headers=configHttpHeader();
-
 
         String queryParams=toQueryParams(requestObject);
 
-
         URI uri= null;
         try {
-//            uri = new URI(prUrl+queryParams);
             uri = new URI(getBackenPath()+prUrl+queryParams);
-            //uri = new URI(backendUrl+prUrl+queryParams);
             HttpEntity requestEntity = new HttpEntity(headers);
 
             ResponseEntity<T> responseEntity = restTemplate.exchange(uri, HttpMethod.GET, requestEntity, typeRef);
@@ -183,6 +248,7 @@ public class BackendRestInvoker<T> {
         } catch (URISyntaxException e) {
 //TODO lanzar excepcion
             //throw new Exception(e);
+            log.error(e.getMessage(), e);
         }
 
 
@@ -211,7 +277,7 @@ public class BackendRestInvoker<T> {
             try {
                 f.setAccessible(true);
                 Object value=f.get(requestObject);
-                if(value!=null){
+                if(value!=null && !(value instanceof List) ){
                     if(queryParams.length()==0)queryParams.append("?");
                     else queryParams.append("&");
                     queryParams.append(f.getName()).append("=").append(value);
@@ -248,10 +314,12 @@ public class BackendRestInvoker<T> {
                        }
                     });
         } catch (URISyntaxException e) {
-            e.printStackTrace();
+          //e.printStackTrace();
+          log.error(e.getMessage(), e);
         }
 
         return null;
-
     }
+
+
 }

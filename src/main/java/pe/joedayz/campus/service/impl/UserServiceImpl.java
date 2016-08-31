@@ -4,8 +4,12 @@ package pe.joedayz.campus.service.impl;
 import static java.util.Arrays.asList;
 import static java.util.stream.Collectors.toList;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,13 +19,16 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
+import pe.joedayz.campus.dto.PageableResult;
 import pe.joedayz.campus.dto.UserDto;
 import pe.joedayz.campus.enums.RoleEnum;
 import pe.joedayz.campus.rest.BackendRestInvoker;
 import pe.joedayz.campus.service.intf.UserService;
 
+
 @Service
 public class UserServiceImpl implements UserService {
+    protected final Logger LOG = LoggerFactory.getLogger(getClass());
 
     @Value("${backend.server}")
     private String server;
@@ -72,18 +79,30 @@ public class UserServiceImpl implements UserService {
         return result;
     }
 
+    public static final String NO_PERMISSION = "N";
+    public static final String READ_PERMISSION = "R";
+    public static final String WRITE_PERMISSION = "W";
+
     public String getPermissionType(String moduleCode) {
         boolean result = false;
+        List<String> permissionsForModule = new ArrayList<>();
         for (GrantedAuthority authority : SecurityContextHolder.getContext().getAuthentication().getAuthorities()) {
             String userRole = authority.getAuthority();
 
             if (userRole != null && userRole.contains(moduleCode)){
-                return userRole.substring(0, 1);
+                permissionsForModule.add(userRole.substring(0, 1));
+            }
             }
 
+        if (permissionsForModule.isEmpty()) {
+            return NO_PERMISSION;
         }
 
-        return "N";
+        Optional<String> hasWritePermission = permissionsForModule.stream()
+                .filter(permission -> WRITE_PERMISSION.equals(permission))
+                .findFirst();
+
+        return hasWritePermission.orElse(READ_PERMISSION);
             }
 
     public boolean hasAccess(String moduleCode){
@@ -109,4 +128,22 @@ public class UserServiceImpl implements UserService {
         List<String> codeRoles = roles.stream().map(r -> r.getCode()).collect(toList());
         return hasRole(codeRoles.toArray(new String[codeRoles.size()]));
     }
+
+    @Override
+    public boolean hasPersistentToken(String username) {
+        try {
+            BackendRestInvoker restInvoker = new BackendRestInvoker<PageableResult>(server, port);
+            ResponseEntity<String> responseEntity = restInvoker.sendGet("/token/getPersistentToken?username="+username, String.class);
+            String token = responseEntity.getBody();
+            if (token.contains("NoToken")){
+                return false;
+            }
+            LOG.info("User has persistent token: " + token);
+            return true;
+        } catch(Exception e){
+            LOG.error("Error getting persistent token for user " + username, e);
+        }
+        return false;
+    }
+
 }

@@ -7,10 +7,12 @@ import java.util.List;
 
 
 public class ModuleDto {
+	
     private String name;
     private String url;
     private String code;
     private String permissionType;
+    private String visible;
 
     private List<ModuleDto> subModules = new ArrayList<>();
 
@@ -62,6 +64,14 @@ public class ModuleDto {
         this.code = code;
     }
 
+    public String getVisible() {
+        return visible;
+    }
+
+    public void setVisible(String visible) {
+        this.visible = visible;
+    }
+
     @Override
     public String toString() {
         return "ModuleDto{" +
@@ -72,4 +82,5 @@ public class ModuleDto {
                 ", subModules=" + (subModules == null ? "[]" : Joiner.on(",").join(subModules)) +
                 '}';
     }
+    
 }

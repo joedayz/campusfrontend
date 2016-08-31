@@ -10,7 +10,7 @@ import pe.joedayz.campus.enums.RoleEnum;
  */
 public class UserDto {
 
-    private long id;
+    private Long id;
     private String login;
     private String firstName;
     private String lastName;
@@ -18,13 +18,20 @@ public class UserDto {
     private String password;
     private String status;
 
-    List<RolDto> rolList = new ArrayList<>();
 
-    public long getId() {
+    private String title;
+    private String email;
+    private String confirmPassword;
+    private String newPassword;
+    
+    List<RolDto> rolList = new ArrayList<>();
+    List<RoleViewDto> roleList= new ArrayList<>();
+    
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -102,5 +109,46 @@ public class UserDto {
                 return true;
         }
         return false;
+    }
+    
+        public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+    
+        public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
+
+   public List<RoleViewDto> getRoleList() {
+        return roleList;
+    }
+
+    public void setRoleList(List<RoleViewDto> roleList) {
+        this.roleList = roleList;
+    }
+    
+    
+    public String getNewPassword() {
+        return newPassword;
+    }
+
+    public void setNewPassword(String newPassword) {
+        this.newPassword = newPassword;
     }
 }

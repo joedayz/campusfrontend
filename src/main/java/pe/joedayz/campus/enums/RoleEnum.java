@@ -6,10 +6,8 @@ import java.util.List;
 
 public enum RoleEnum {
     SYSTEM("ADMIN","System Administrator"),
-    PRICING_ANALYST("PRIAN","Pricing Analyst"),
-    SALES_ACCOUNT_MANAGER("SAACM","Sales Account Manager"),
-    PRICING_MANAGER("PRIMA","Pricing Manager"),
-    BLOCKED_AT_OFFICE("BAOFF","Blocked At Office"),
+    PROFESOR("PROFESOR","Profesor"),
+    ALUMNO("ALUMNO","Alumno"),
     ;
 
     private String code;

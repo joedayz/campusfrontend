@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import pe.joedayz.campus.dto.AutoCompleteFilterDto;
 import pe.joedayz.campus.dto.CustomerDto;
-import pe.joedayz.campus.dto.OfficeDto;
 import pe.joedayz.campus.dto.UserDto;
 
 @RestController
@@ -27,7 +26,7 @@ public class UserController {
 	@RequestMapping(value="/find", method=RequestMethod.GET, produces="application/json")
 	public UserDto findByUsername(@RequestParam("username") String username) {
 
-		BackendRestInvoker restInvoker= new BackendRestInvoker<List<OfficeDto>>(server,port);
+		BackendRestInvoker restInvoker= new BackendRestInvoker<List<UserDto>>(server,port);
 
 		ResponseEntity<UserDto> responseEntity=
 				restInvoker.sendGet("/user/findByName?username=" + username, UserDto.class);

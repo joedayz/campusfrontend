@@ -7,6 +7,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
@@ -14,7 +15,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 @RestController
 @RequestMapping("/backend")
@@ -33,15 +36,23 @@ public class BackendController {
 	public String mirrorRest(HttpMethod method, HttpServletRequest request,
 							 HttpServletResponse response) throws URISyntaxException
 	{
-		String url = stripMainContext(request.getRequestURI());
-		URI uri = new URI("http", null, server, port, url, request.getQueryString(), null);
 
-//		RestTemplate restTemplate = new RestTemplate();
-		RestTemplate restTemplate = RestTemplateFactory.restTemplate();
-		ResponseEntity<String> responseEntity =
-				restTemplate.getForEntity(uri, String.class);
+		String url = stripMainContext(request.getRequestURI());
+		String params=request.getQueryString();
+
+		if(StringUtils.hasText(params)){
+			params=params.replaceAll("%2520", " ");
+			params=params.replaceAll(" ", "%20");
+
+			url=url+"?"+params;
+		}
+
+		BackendRestInvoker<String> invoker= new BackendRestInvoker<>(server,port);
+
+		ResponseEntity<String> responseEntity =invoker.sendGet(url, String.class);
 
 		return responseEntity.getBody();
+
 	}
 
 	/**
@@ -64,28 +75,15 @@ public class BackendController {
 
 		RestTemplate restTemplate = RestTemplateFactory.restStringTemplate();
 
-//		RestTemplate restTemplate = new RestTemplate();
-
-		MultiValueMap<String, String> headers =
-				new LinkedMultiValueMap<String, String>();
+		MultiValueMap<String, String> headers = new LinkedMultiValueMap<String, String>();
 		headers.add("Content-Type", "application/json");
-		//HttpHeaders headers=configHttpHeader();
 		HttpEntity<String> entity = new HttpEntity<String>(body, headers);
 
 		ResponseEntity<String> responseEntity = restTemplate.exchange(uri, HttpMethod.POST, entity, String.class);
 
 		return responseEntity.getBody();
 	}
-/*
-	private HttpHeaders configHttpHeader( ){
-		HttpHeaders headers = new HttpHeaders();
 
-//		headers.set(SESSION_USER_NAME,getCurrentSessionUser());
-		headers.setAccept(Collections.singletonList(new MediaType("application","json")));
-
-		return headers;
-	}
-*/
 	private String getCurrentSessionUser(){
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String username = ((UserDetails) auth.getPrincipal()).getUsername();
