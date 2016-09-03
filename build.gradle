@@ -48,8 +48,6 @@ dependencies {
 	compile('org.thymeleaf:thymeleaf-spring4:3.0.0.BETA03')
 	compile('com.google.guava:guava:19.0')
 
-	compile('org.springframework.cloud:spring-cloud-starter-config:1.0.3.RELEASE')
-
 	// poi
 	compile('org.apache.poi:poi-ooxml:3.10.1')
 

@@ -167,7 +167,7 @@ h5 {
   transition: all 0.4s;
 }
 .nav > li.active {
-  border-left: 4px solid #19aa8d;
+  border-left: 4px solid #37997c;
   background: #293846;
 }
 .nav.nav-second-level > li.active {
@@ -591,7 +591,7 @@ body.canvas-menu.mini-navbar nav.navbar-static-side {
   border-radius: 3px;
 }
 .float-e-margins .btn {
-  margin-bottom: 5px;
+  /*margin-bottom: 5px;*/
 }
 .btn-w-m {
   min-width: 120px;
@@ -1709,7 +1709,7 @@ div.dt-button-info {
   display: none;
 }
 .pace .pace-progress {
-  background: #1ab394;
+  background: #37997c;
   position: fixed;
   z-index: 2040;
   top: 0;
@@ -1833,7 +1833,7 @@ div.dt-button-info {
   background-color: #FFFFFF;
   background-image: none;
   border: 1px solid #e5e6e7;
-  border-radius: 1px;
+  border-radius: 2px;
   color: inherit;
   display: block;
   padding: 6px 12px;
@@ -3722,7 +3722,7 @@ code {
 }
 .ibox {
   clear: both;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   margin-top: 0;
   padding: 0;
 }
@@ -8236,3 +8236,228 @@ body.md-skin {
     margin: 0;
   }
 }
+
+/* Custom Styles*/
+
+.z-depth-1, nav, .card-panel, .card, .toast, .btn, .btn-large, .btn-floating, .dropdown-content, .collapsible, .side-nav {
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+}
+
+.k-autocomplete .k-input{
+	height: 1.95em;
+    line-height: 1.95em;
+}
+
+.margin-bottom-5
+{
+	margin-bottom: 5px !important;
+}
+
+.margin-bottom-8
+{
+	margin-bottom: 8px !important;
+}
+
+.margin-bottom-10
+{
+	margin-bottom: 10px !important;
+}
+.margin-top-10
+{
+	margin-top: 10px !important;
+}
+
+
+.autocomplete-icon {
+    position: absolute;
+    /* height: 1.75em; */
+    line-height: 2.3em;
+    right: 1.8em;
+    top: .30em;
+}
+
+.k-grid-header th.k-header {
+    padding-left: 1.1em;
+}
+
+.k-grid-header, .k-grid-header th.k-header {
+    font-weight: 600;
+    color: #676a6c;
+    font-size: 13px;
+    vertical-align: middle;
+    
+}
+/*
+
+.k-grid .k-alt {
+    background-color: rgba(26, 179, 148, 0.08);
+}
+.k-grid .k-alt:hover {
+    background-color: rgba(26, 179, 148, 0.08);
+}
+*/
+
+.k-grid tr:hover {
+    background-color: rgba(26, 179, 148, 0.08);
+}
+.k-grid-content tr td {
+    border-left: solid 1px #e6e6e6;
+}
+.link{
+	display: block;	
+	color: #37997c;
+}
+.link:hover, .link:active, .link:focus{
+	color: #137357;
+}
+.nav-tabs>li>a {
+    border-radius: 0;
+    color: #545454;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 9px 15px 10px;
+    text-transform: uppercase;
+}
+.nav-tabs>li.active>a {
+    box-shadow: 0 -3px 0 #37997c;
+    border-top-width: 0!important;
+    margin-top: 1px!important;
+    color: #37997c;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+    cursor: default;
+}
+.nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    color: #37997c;
+    border-radius: 0;
+}
+.nav-tabs>li>a:focus, .nav-tabs>li>a:hover {
+    background-color: rgba(26, 179, 148, 0.10);
+    color: #37997c;
+}
+.nav-tabs.bordered+.tab-content {
+    border: none;
+    border-top: none;
+    padding: 20px 15px;
+}
+.k-list-optionlabel {
+	padding-left: 11px !important;
+}
+.k-pager-numbers .k-state-selected {
+    border-color: #37997c transparent transparent;
+    color: #37997c;
+}
+.k-dropdown .k-state-default {
+    border-color: #f5f5f5;
+    background-color: #f5f5f5;
+}
+.k-widget.k-dropdown.k-header
+{
+	border: solid thin #eeeeee;
+}
+.k-list-all .k-list-optionlabel {
+    padding-left: 10px !important;
+}
+.page-header {
+    border-bottom: 0;
+    padding:0;
+    margin: 0px 0px 20px;
+    color: #37997c;
+}
+.page-header h1{
+	margin: 0;
+	font-weight: 400;
+}
+.btn-min-width {
+	min-width: 96px;
+}
+
+.control-label{
+	font-weight: 400;
+}
+.no-margin-bottom{
+	margin-bottom: 0px !important;
+}
+.company-logo{
+	padding-top: 5px !important;
+	padding-bottom: 5px !important;
+}
+
+.company-logo img.v1{
+	width: 300px;
+}
+
+.company-logo img.v2{
+	width: 260px;
+}
+
+
+
+.login-page {
+	margin: 0px !important;
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url(../img/login_background.png) repeat center top;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.login-page .login-container {
+	background-color: white;
+	width: 400px !important;
+	box-sizing: border-box;
+	border-radius: 2px;
+	top: 50px;
+    position: relative;
+}
+
+.login-page .login-logo {
+	text-align: center;
+	box-sizing: border-box;
+	padding: 15px 0px;
+}
+
+.login-page .login-body {
+	padding: 5px 15px 15px 10px;	
+}
+
+.login-page .login-body .form-group {
+	position: relative
+}
+
+.login-page .login-body i {
+	font-size: 20px;
+	position: absolute;
+	right: 10px;
+	top: 22%;
+}
+
+.login-page .login-body input, .login-page .login-body button {
+	outline: 0 !important;
+}
+
+.login-page button {
+	width: 100% !important;
+}
+
+.login-page .login-recover {
+	text-align: center;
+	margin-top: 10px;
+}
+
+.login-page .login-recover a {
+	color: #727272 !important;
+	font-weight: 600;
+}
+
+.k-autocomplete {
+	padding-right: 28px;
+}
+
+.k-autocomplete .k-input {
+	border-right: solid thin #f0f0f0;
+}
+

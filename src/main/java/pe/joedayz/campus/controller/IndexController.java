@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.RememberMeAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -49,12 +50,17 @@ public class IndexController {
     @Value("${revision}")
     private String revision;
 
+    @Value("${spring.sessionTimeOutMinutes}")
+    private int sessionTimeOutMinutes;
+
     @Autowired
     UserServiceImpl userService;
 
-    @SuppressWarnings({ "unchecked", "rawtypes" })
 	@RequestMapping("/")
     ModelAndView index(){
+
+        LOG.info("Is Remember me autenticated {} ", isRememberMeAuthenticated());
+
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String username = ((UserDetails) auth.getPrincipal()).getUsername();
 
@@ -69,8 +75,10 @@ public class IndexController {
 
 
 
+
         ModelAndView mav = new ModelAndView("index");
-        mav.addObject("pages", buildPageInfo(username));
+        mav.addObject("pages", buildPageInfo(username)); //build menu
+        mav.addObject("allModules", buildAllPagesInfo(username)); //build navigation rules
         mav.addObject("username", username);
         mav.addObject("completeName", String.format("%s %s", userDto.getFirstName(), userDto.getLastName()));
         mav.addObject("initials", getInitials(userDto.getFirstName(), userDto.getLastName()));
@@ -78,30 +86,63 @@ public class IndexController {
         mav.addObject("build", build);
         mav.addObject("timestamp", timestamp);
         mav.addObject("revision", revision);
+        mav.addObject("sessionTimeOutMinutes", sessionTimeOutMinutes);
+        mav.addObject("isRememberMeAuthenticated", isRememberMeAuthenticated());
+        mav.addObject("hasRembermeCheck", userService.hasPersistentToken(username));
 
         mav.addObject("arrayEnums", responseEnum.getBody());
 
+
         return mav;
     }
-       
+
+    private boolean isRememberMeAuthenticated() {
+
+        Authentication authentication =
+                SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null) {
+            return false;
+        }
+
+        return RememberMeAuthenticationToken.class.isAssignableFrom(authentication.getClass());
+    }
+
     private String getInitials(String firstName, String lastName) {
         if (StringUtils.isEmpty(firstName)) {
-            return "PS"; //Pricing System
+            return "CJ"; //Campus JoeDayz
         }
         String lastInitial = StringUtils.isEmpty(lastName) ? "" : lastName.substring(0, 1);
         return firstName.substring(0, 1) + lastInitial;
     }
 
-    @SuppressWarnings({ "unchecked", "rawtypes" })
 	private List<ModuleDto> buildPageInfo(String username) {
         BackendRestInvoker restInvoker = new BackendRestInvoker<List<ModuleDto>>(server,port);
 
         ResponseEntity<ModuleDto[]> responseEntity2 =
                 restInvoker.sendGet("/module/allowedModules?username=" + username, ModuleDto[].class);
 
-        ModuleDto[] allowedModules = responseEntity2.getBody();
+        ModuleDto[] allowedVisbleModules = responseEntity2.getBody();
 
-        LOG.info("Allowed modules: " + Joiner.on(",").join(allowedModules));
+//        Arrays.stream(allowedVisbleModules).forEach(m -> LOG.info("Permission type for module {}: {}", m.getCode(),
+//                userService.getPermissionType(m.getCode())));
+
+        LOG.info("Allowed modules: " + Joiner.on(",").join(allowedVisbleModules));
+
+//        LOG.info("Permissions Q05: " + userService.hasROAccess("Q05"));
+//        LOG.info("Permissions Q02: " + userService.hasROAccess("Q02"));
+//        LOG.info("Permissions Q06: " + userService.hasROAccess("Q06"));
+//        LOG.info("Permissions D03: " + userService.hasROAccess("D03"));
+
+        return asList(allowedVisbleModules);
+    }
+
+    private List<ModuleDto> buildAllPagesInfo(String username) {
+        BackendRestInvoker restInvoker = new BackendRestInvoker<List<ModuleDto>>(server,port);
+
+        ResponseEntity<ModuleDto[]> responseEntity2 =
+                restInvoker.sendGet("/module/allModulesWithPermission?username=" + username, ModuleDto[].class);
+
+        ModuleDto[] allowedModules = responseEntity2.getBody();
 
         return asList(allowedModules);
     }

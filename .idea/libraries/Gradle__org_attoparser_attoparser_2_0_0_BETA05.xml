@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.attoparser:attoparser:2.0.0.BETA05">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.attoparser/attoparser/2.0.0.BETA05/c120212f5727d3d5ef27b9ff02230e096c772bd5/attoparser-2.0.0.BETA05.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.attoparser/attoparser/2.0.0.BETA05/f23f758227db89abb0bc170493142bd80614b1f8/attoparser-2.0.0.BETA05-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

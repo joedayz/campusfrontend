@@ -15,7 +15,7 @@ public class CampusApplication extends WebMvcConfigurerAdapter {
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
 
-		registry.addViewController("/login").setViewName("login");
+
 		registry.addViewController("/recover").setViewName("recover::partial-view");
 
 	}

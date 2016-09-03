@@ -43,7 +43,8 @@ public class CursoController {
         UserDto userDto=userService.getUserSession();
         List<RoleEnum> roles= new ArrayList<>();
 
-        roles.add(RoleEnum.PRICING_MANAGER);
+        roles.add(RoleEnum.ALUMNO);
+        roles.add(RoleEnum.PROFESOR);
         roles.add(RoleEnum.SYSTEM);
 
         boolean viewFilter=userService.hasAny(roles);

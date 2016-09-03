@@ -8,8 +8,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class ResetPasswordController {
-    @Value("${spring.min-passwd-length}")
-    private String minPassLength;
+    //@Value("${spring.min-passwd-length}")
+    private String minPassLength="50";
 
     @RequestMapping("/reset-password")
     ModelAndView index(){

@@ -1,24 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="GradleLocalSettings">
-    <option name="modificationStamps">
-      <map>
-        <entry key="$PROJECT_DIR$/../Celtic_Pricing_Backend" value="1472267214000" />
-        <entry key="$PROJECT_DIR$/../SpringiA4_SourceCode/Chapter_05/Spittr" value="2830261148000" />
-        <entry key="$PROJECT_DIR$/../cosapi/frame3-prueba" value="2939559233000" />
-        <entry key="$PROJECT_DIR$/../gs-crud-with-vaadin/complete" value="1469773112000" />
-      </map>
-    </option>
-    <option name="externalProjectsViewState">
-      <projects_view />
-    </option>
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="Bundled (Maven 3)" />
-      </MavenGeneralSettings>
-    </option>
+  <component name="EntryPointsManager">
+    <entry_points version="2.0" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />

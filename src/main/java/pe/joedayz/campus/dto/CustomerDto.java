@@ -67,5 +67,4 @@ public class CustomerDto extends AuditDto {
 		statusProcessDto.setMessage(s);
 		statusProcessDtoList.add(statusProcessDto);
 	}
-
 }

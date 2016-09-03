@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pricing | Celtic INTERNATIONAL</title>
+
+    <link href="../../../static/css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" rel="stylesheet">
+    <link href="../../../static/font-awesome/css/font-awesome.css" th:href="@{font-awesome/css/font-awesome.css}" rel="stylesheet">
+
+    <link href="../../../static/css/kendo.common.min.css"  th:href="@{css/kendo.common.min.css}"  rel="stylesheet">
+    <!--link href="../../../static/css/kendo.default.min.css"  th:href="@{css/kendo.default.min.css}"  rel="stylesheet"-->
+
+    <link href="../../../static/css/animate.css" th:href="@{css/animate.css}" rel="stylesheet">
+    <link href="../../../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet">
+
+    <script src="../../../static/js/jquery-2.1.1.js" th:src="@{js/jquery-2.1.1.js}"></script>
+
+    <!--script src="../../../static/js/lib/jquery.min.js" th:src="@{js/lib/jquery.min.js}"></script-->
+    <script src="../../../static/js/sammy-latest.min.js" th:src="@{js/sammy-latest.min.js}"></script>
+
+
+    <script src="../../../static/js/lib/kendo.all.min.js" th:src="@{js/lib/kendo.all.min.js}"></script>
+    <script src="../../../static/js/module/common.js" th:src="@{js/module/common.js}"></script>
+    <script src="../../../static/js/module/user.js" th:src="@{js/module/user.js}"></script>
+
+</head>
+<body>
+
+<div class="row" th:fragment="partial-view" id="addUser">
+
+    <script th:inline="javascript">
+            var offices= /*[[${offices}]]*/ [];
+            var roles= /*[[${roles}]]*/ [];
+            var userModel=/*[[${userModel}]]*/ null;
+            var isEdit=/*[[${isEdit}]]*/ true;
+            readOnlyModule=/*[[${readOnlyModule}]]*/false;
+            UserModule.init(userModel,isEdit);
+            SecurityModule.securityPermission(readOnlyModule);
+
+    </script>
+	
+	<div class="page-header">
+		<h1><span th:text="${title}"></span></h1>
+	</div>
+
+    <div class="row">
+       <div class="col-lg-12">
+         <div class="ibox float-e-margins">
+           
+            
+            <div class="ibox-content">
+            	<form id="mergeUser" method="get" class="form-horizontal">
+            		<div class="form-group">
+						<div class="col-sm-12 text-right">
+							<button type="button" class="btn btn-default"
+								data-bind="visible: isVisible, enabled: isEnabled, events: { click: onBackToSearchClick }">
+								<span class="fa fa-reply"></span> BACK TO SEARCH
+							</button>
+							<button type="button" class="btn btn-success action-updateable"
+								data-bind="visible: isVisible, enabled: isEnabled, events: { click: onSaveClick }">
+								<span class="ic-save"></span> SAVE
+							</button>
+						</div>
+					</div>
+            
+                    <fieldset>
+                        <legend>
+                        	<div class="ibox-title"> 
+                        		<h5>Basic Information</h5>
+                        	</div>
+                        </legend>
+                        
+                        <div class="row">
+							<div class="col-sm-10">
+								<div class="form-group">
+									<label class="col-sm-3 control-label">Username<span style="color: red">*</span></label>
+									<div class="col-sm-3">
+										<input id="userName" 
+											class="k-textbox k-input username cleanError" 
+											data-bind="value: modelView.userName" maxlength="30" style="width: 100%;"/>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-sm-10">
+								<div class="form-group">
+									<label class="col-sm-3 control-label">Title</label>
+									<div class="col-sm-3">
+										<input id="title"  
+											class="k-textbox k-input alpha" 
+											data-bind="value: modelView.title" maxlength="30" style="width: 100%;"/>
+									</div>
+									<label class="col-sm-3 control-label">Manager<span style="color: red">*</span></label>
+									<div class="col-sm-3">
+										<input id="manager" 
+											class="alpha" data-bind="value: modelView.manager" style="width: 100%;"/><i class="ic-search autocomplete-icon"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-sm-10">
+								<div class="form-group">
+									<label class="col-sm-3 control-label">First Name<span style="color: red">*</span></label>
+									<div class="col-sm-3">
+										<input id="firstName" 
+											class="k-textbox k-input alpha cleanError" 
+											data-bind="value: modelView.firstName" maxlength="60" style="width: 100%;"/>
+									</div>
+									<label class="col-sm-3 control-label">Email<span style="color: red">*</span></label>
+									<div class="col-sm-3">
+										<input id="email" 
+											class="k-textbox k-input cleanError" 
+											data-bind="value: modelView.email" maxlength="80" style="width: 100%;"/>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-sm-10">
+								<div class="form-group">
+									<label class="col-sm-3 control-label">Last Name<span style="color: red">*</span></label>
+									<div class="col-sm-3">
+										 <input id="lastName" 
+											 class="k-textbox k-input alpha cleanError" 
+											 data-bind="value: modelView.lastName" maxlength="60" style="width: 100%;"/>
+									</div>
+									<label class="col-sm-3 control-label">Status<span style="color: red">*</span></label>
+									<div class="col-sm-3">
+										<input id="status" style="width: 100%;" data-bind="value: modelView.status"/>
+									</div>
+								</div>
+							</div>
+						</div>
+                        
+                </fieldset>
+                <fieldset>
+                    <legend>
+	                    <div class="ibox-title"> 
+	                    	<h5>Change Password</h5> 
+	                    </div>
+                    </legend>
+                    
+                    <div class="row">
+							<div class="col-sm-10">
+								<div class="form-group">
+									<label class="col-sm-3 control-label">Password<span style="color: red">*</span></label>
+									<div class="col-sm-3">
+										 <input type="password" id="password" 
+											 class="k-textbox k-input alphanumericNormal cleanError" 
+											 data-bind="value: modelView.password" maxlength="30"/>
+									</div>
+									<label class="col-sm-3 control-label">Confirm Password<span style="color: red">*</span></label>
+									<div class="col-sm-3">
+										<input type="password" id="confirmPassword" 
+											class="k-textbox k-input alphanumericNormal cleanError" 
+											data-bind="value: modelView.confirmPassword" maxlength="30"/>
+									</div>
+								</div>
+							</div>
+						</div>
+                </fieldset>
+                
+                <fieldset>
+                    <legend>
+	                    <div class="ibox-title"> 
+	                    	<h5>Offices & Roles</h5> 
+	                    </div>
+                    </legend>
+                
+                
+                <div class="row">
+					<div class="col-sm-12">
+						<div>
+						
+							<ul class="nav nav-tabs bordered">
+							   <li class="active">
+							     <a href="#offices" data-toggle="tab">Offices</a>
+							   </li>
+							   <li>
+							     <a href="#roles" data-toggle="tab">Roles</a>
+								</li>
+							</ul>
+							
+							<div class="tab-content">
+								<div id="offices" class="tab-pane active">
+									<div class="row">
+                                        <div class="col-md-6">
+                                            <label class="col-md-2 control-label">Office:</label>
+                                            <div class="col-md-10">
+                                                <input id="office"  data-bind="value: modelView.officeId" style="width: 100%;" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 text-right">
+                                            <button type="button" class="btn btn-primary action-updateable"
+												data-bind="visible: isVisible, enabled: isEnabled, events: { click: onAddOfficeClick }">
+												<span class="fa fa-plus"></span> ASSIGN
+											</button>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+
+                                            <div class="table-responsive">
+                                                <table class="table table-striped table-bordered table-hover dataTables-example" id="officesTable" >
+                                                    <thead>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th data-field="name">Office</th>
+                                                        <th data-field="state">State</th>
+                                                        <th data-field="city">City</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                </table>
+                                            </div>
+
+                                        </div>
+                                    </div>
+								</div>
+								
+								<div id="roles" class="tab-pane">
+									<div class="row">
+                                        <div class="col-md-6">
+                                            <label class="col-md-2 control-label">Roles:</label>
+                                            <div class="col-md-10">
+                                                <input id="role"data-bind="value: modelView.roleId" style="width: 100%;"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 text-right">
+                                            <button type="button" class="btn btn-primary action-updateable"
+												data-bind="visible: isVisible, enabled: isEnabled, events: { click: onAddRoleClick }">
+												<span class="fa fa-plus"></span>ASSIGN
+											</button>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+
+                                            <div class="table-responsive">
+                                                <table class="table table-striped table-bordered table-hover dataTables-example" id="rolesTable" >
+                                                    <thead>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th data-field="roleName">Name</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                </table>
+                                            </div>
+
+                                        </div>
+                                    </div>
+								
+								</div>
+								
+							</div>
+						
+						</div>
+					</div>
+				</div>
+				
+			</fieldset>
+				
+             </form>
+           </div>
+            
+        </div>
+      </div>
+   </div>
+
+<style>
+    .row{
+        padding-bottom: .6em;
+    }
+
+</style>
+
+
+</div>
+
+
+
+<!-- Mainly scripts -->
+<!--<script src="../../static/js/jquery-2.1.1.js" th:src="@{js/jquery-2.1.1.js}"></script>-->
+<script src="../../../static/js/bootstrap.min.js" th:src="@{js/bootstrap.min.js}"></script>
+<script src="../../../static/js/plugins/metisMenu/jquery.metisMenu.js" th:src="@{js/plugins/metisMenu/jquery.metisMenu.js}"></script>
+<script src="../../../static/js/plugins/slimscroll/jquery.slimscroll.min.js" th:src="@{js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="../../../static/js/inspinia.js" th:src="@{js/inspinia.js}"></script>
+<script src="../../../static/js/plugins/pace/pace.min.js" th:src="@{js/plugins/pace/pace.min.js}"></script>
+
+
+</body>
+</html>

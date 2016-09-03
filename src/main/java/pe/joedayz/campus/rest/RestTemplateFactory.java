@@ -10,6 +10,7 @@ import org.springframework.web.client.RestTemplate;
 
 import pe.joedayz.campus.security.HttpRequestFileInterceptor;
 import pe.joedayz.campus.security.HttpRequestInterceptor;
+import pe.joedayz.campus.util.RestTemplateResponseErrorHandler;
 
 /**
  * Created by awusr on 24/05/2016.
