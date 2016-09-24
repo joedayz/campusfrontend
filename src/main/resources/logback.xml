@@ -12,12 +12,12 @@
             <!--<level>INFO</level>-->
         <!--</filter>-->
 
-        <!-->file>/var/log/java/campus.log</file -->
-		<file>campus.log</file>
+        <file>/var/log/java/campus-fe.log</file>
+		<!--file>campus.log</file-->
 
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- daily rollover -->
-            <fileNamePattern>campus.%d{yyyy-MM-dd}.zip</fileNamePattern>
+            <fileNamePattern>campus-fe.%d{yyyy-MM-dd}.zip</fileNamePattern>
 
             <!-- keep 7 days' worth of history -->
             <maxHistory>7</maxHistory>

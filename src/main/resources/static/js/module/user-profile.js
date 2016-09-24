@@ -14,17 +14,17 @@ var UserProfileModule=(function(){
 			isEnabled : true,
             onBackToSearchClick: function () {
                 CommonModule.navigationStart("#/user.profile");
-                CommonModule.navigateTo("#/rfq.pending");
+                CommonModule.navigateTo("#/curso.novedades");
             },
             onSaveClick: function () {
                 var filterObj = this.get('modelView');
 
                 if(!validateForm(filterObj)){
-                    CommonModule.showNotificationError("Please fill in all the required fields");
+                    CommonModule.showNotificationError("Por favor, complete todos los campos requeridos");
                     return false;
                 }
                 if(!validEmail(filterObj.email)){
-                    CommonModule.showNotificationError("Please enter a valid Email");
+                    CommonModule.showNotificationError("Por favor, ingrese un Email valido");
                     return false;
                 }
 
@@ -64,11 +64,6 @@ var UserProfileModule=(function(){
     function validData(model){
         var valid = true;
 
-        if((model.manager!=null && model.manager!='') && model.managerId==null){
-            $("#manager").parent().children().addClass("errorCombo");
-            valid=false;
-        }
-
         if(model.confirmPassword!=null && !(model.password!=null && model.password!='') ){
             $("#confirmPassword").parent().children().addClass("errorCombo");
             valid=false;
@@ -94,23 +89,23 @@ var UserProfileModule=(function(){
         if(!(model.password==null && model.newPassword==null && model.confirmPassword==null)){
 
             if(model.password==null){
-                CommonModule.showNotificationError("Current Password is required");
+                CommonModule.showNotificationError("El Password actual es requerido");
                 valid=false;
             }
             else if(model.newPassword!=null && model.confirmPassword==null){
-                CommonModule.showNotificationError("Please confirm new Password");
+                CommonModule.showNotificationError("Por favor, confirmar nuevo password");
                 valid=false;
             }
             else if(model.password!=null && model.newPassword==null){
-                CommonModule.showNotificationError("Please enter the new Password or clean 'Password' field");
+                CommonModule.showNotificationError("Por favor, ingresar el nuevo Password o limpiar el campo 'Password'");
                 valid = false;
             }
             else if(model.newPassword.length < 6){
-                CommonModule.showNotificationError("Minimum Length of the Password is 6 characters");
+                CommonModule.showNotificationError("La longitud mínima del Password es de 6 caracteres");
                 valid = false;
             }
             else if(model.newPassword!= model.confirmPassword){
-                CommonModule.showNotificationError("Please enter matching passwords");
+                CommonModule.showNotificationError("Por favor, los passwords deben coincidir");
                 valid=false;
             }
 
@@ -121,11 +116,11 @@ var UserProfileModule=(function(){
  
    function onSaveClickCallBack (result) {
        if(result != -1){
-           CommonModule.showNotificationSuccess("User Profile was edited successfully");
-           CommonModule.navigateTo("#/rfq.pending");
+           CommonModule.showNotificationSuccess("El Profile del usuario fue modificado satisfactoriamente");
+           CommonModule.navigateTo("#/curso.novedades");
        }
        else{
-           CommonModule.showNotificationError("The password you have entered is not correct");
+           CommonModule.showNotificationError("El password que has ingresado no es correcto");
        }
     }
     
