@@ -25,7 +25,7 @@ import com.google.common.base.Joiner;
 import pe.joedayz.campus.dto.ModuleDto;
 import pe.joedayz.campus.dto.UserDto;
 import pe.joedayz.campus.rest.BackendRestInvoker;
-import pe.joedayz.campus.service.impl.UserServiceImpl;
+import pe.joedayz.campus.service.intf.UserService;
 
 
 @Controller
@@ -54,7 +54,7 @@ public class IndexController {
     private int sessionTimeOutMinutes;
 
     @Autowired
-    UserServiceImpl userService;
+    UserService userService;
 
 	@RequestMapping("/")
     ModelAndView index(){
@@ -123,15 +123,7 @@ public class IndexController {
 
         ModuleDto[] allowedVisbleModules = responseEntity2.getBody();
 
-//        Arrays.stream(allowedVisbleModules).forEach(m -> LOG.info("Permission type for module {}: {}", m.getCode(),
-//                userService.getPermissionType(m.getCode())));
-
         LOG.info("Allowed modules: " + Joiner.on(",").join(allowedVisbleModules));
-
-//        LOG.info("Permissions Q05: " + userService.hasROAccess("Q05"));
-//        LOG.info("Permissions Q02: " + userService.hasROAccess("Q02"));
-//        LOG.info("Permissions Q06: " + userService.hasROAccess("Q06"));
-//        LOG.info("Permissions D03: " + userService.hasROAccess("D03"));
 
         return asList(allowedVisbleModules);
     }

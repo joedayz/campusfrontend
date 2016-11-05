@@ -1,6 +1,5 @@
 package pe.joedayz.campus.rest;
 
-
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.net.URI;
@@ -29,305 +28,281 @@ import org.springframework.web.client.RestTemplate;
 import pe.joedayz.campus.exception.GenericRestException;
 import pe.joedayz.campus.util.RestUtil;
 
-/**
- * Created by awusr on 04/05/2016.
- */
-//@RestController
 public class BackendRestInvoker<T> {
 
-    private static final Logger log = LoggerFactory.getLogger(BackendRestInvoker.class);
-    
+	private static final Logger log = LoggerFactory.getLogger(BackendRestInvoker.class);
+
 	@Value("${backend.server}")
 	private String server;
 
 	@Value("${backend.port}")
 	private int port;
 
-    private static String SESSION_USER_NAME="SESSION_USER_NAME";
+	private static String SESSION_USER_NAME = "SESSION_USER_NAME";
 
-    static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
+	static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
-    public BackendRestInvoker(String serverName, int port){
-        server=serverName;
-        this.port=port;
-    }
+	public BackendRestInvoker(String serverName, int port) {
+		server = serverName;
+		this.port = port;
+	}
 
-    public ResponseEntity<T> sendPost(String prUrl,Object requestObject,ParameterizedTypeReference typeRef) {
-        RestTemplate restTemplate = RestTemplateFactory.restTemplate();
-        HttpHeaders headers=configHttpHeader();
+	public ResponseEntity<T> sendPost(String prUrl, Object requestObject, ParameterizedTypeReference typeRef) {
+		RestTemplate restTemplate = RestTemplateFactory.restTemplate();
+		HttpHeaders headers = configHttpHeader();
 
+		URI uri = null;
+		try {
+			uri = new URI(getBackenPath() + prUrl);
+			HttpEntity<?> requestEntity = new HttpEntity<>(requestObject, headers);
 
-        URI uri = null;
-        try {
-            uri = new URI(getBackenPath()+prUrl);
-            HttpEntity<?> requestEntity = new HttpEntity<>(requestObject,headers);
+			ResponseEntity<T> responseEntity = restTemplate.exchange(uri, HttpMethod.POST, requestEntity, typeRef);
 
-            ResponseEntity<T> responseEntity = restTemplate.exchange(uri, HttpMethod.POST, requestEntity, typeRef);
+			return responseEntity;
+		} catch (URISyntaxException e) {
+			// TODO lanzar excepcion
+			// throw new Exception(e);
+			log.error(e.getMessage(), e);
+		}
 
+		return null;
 
-            return responseEntity;
-        } catch (URISyntaxException e) {
-            //TODO lanzar excepcion
-            //throw new Exception(e);
-            log.error(e.getMessage(), e);
-        }
+	}
 
-        return null;
+	public ResponseEntity<T> sendPost(String prUrl, Object requestObject, Class<T> typeParameterClass) {
+		RestTemplate restTemplate = RestTemplateFactory.restTemplate();
+		HttpHeaders headers = configHttpHeader();
 
-    }
+		URI uri = null;
+		try {
+			uri = new URI(getBackenPath() + prUrl);
+			HttpEntity<?> requestEntity = new HttpEntity<>(requestObject, headers);
 
-    public ResponseEntity<T> sendPost(String prUrl,Object requestObject,Class<T> typeParameterClass) {
-        RestTemplate restTemplate = RestTemplateFactory.restTemplate();
-        HttpHeaders headers=configHttpHeader();
+			ResponseEntity<T> responseEntity = restTemplate.exchange(uri, HttpMethod.POST, requestEntity,
+					typeParameterClass);
 
+			return responseEntity;
+		} catch (URISyntaxException e) {
+			// TODO lanzar excepcion
+			// throw new Exception(e);
+			log.error(e.getMessage(), e);
+		}
 
-        URI uri = null;
-        try {
-            uri = new URI(getBackenPath()+prUrl);
-            HttpEntity<?> requestEntity = new HttpEntity<>(requestObject,headers);
+		return null;
 
-            ResponseEntity<T> responseEntity = restTemplate.exchange(uri, HttpMethod.POST, requestEntity, typeParameterClass);
+	}
 
+	public T post(String prUrl, Object requestObject, Class<T> typeParameterClass) {
+		RestTemplate restTemplate = RestTemplateFactory.restTemplate();
+		HttpHeaders headers = configHttpHeader();
 
-            return responseEntity;
-        } catch (URISyntaxException e) {
-            //TODO lanzar excepcion
-            //throw new Exception(e);
-            log.error(e.getMessage(), e);
-        }
+		URI uri = null;
+		try {
+			uri = new URI(getBackenPath() + prUrl);
+			HttpEntity<?> requestEntity = new HttpEntity<>(requestObject, headers);
 
-        return null;
+			ResponseEntity<String> responseEntity = restTemplate.exchange(uri, HttpMethod.POST, requestEntity,
+					String.class);
 
-    }
+			if (RestUtil.isError(responseEntity.getStatusCode())) {
+				VndErrors vndErrors = OBJECT_MAPPER.readValue(responseEntity.getBody(), VndErrors.class);
+				Iterator<VndErrors.VndError> errors = vndErrors.iterator();
+				String message = "";
+				while (errors.hasNext()) {
+					VndErrors.VndError error = errors.next();
+					if (!"".equals(message)) {
+						message = message + ";";
+					}
+					message = message + error.getMessage();
+				}
 
-    public T post(String prUrl,Object requestObject,Class<T> typeParameterClass) {
-        RestTemplate restTemplate = RestTemplateFactory.restTemplate();
-        HttpHeaders headers=configHttpHeader();
+				throw new GenericRestException("ERROR", message);
+			} else {
+				OBJECT_MAPPER.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
+				if (responseEntity.getBody() == null) {
 
-        URI uri = null;
-        try {
-            uri = new URI(getBackenPath()+prUrl);
-            HttpEntity<?> requestEntity = new HttpEntity<>(requestObject,headers);
+					return (T) responseEntity;
 
-            ResponseEntity<String> responseEntity = restTemplate.exchange(uri, HttpMethod.POST, requestEntity, String.class);
+				}
+				T responseBody = OBJECT_MAPPER.readValue(responseEntity.getBody(), typeParameterClass);
+				return responseBody;
+			}
 
-            if (RestUtil.isError(responseEntity.getStatusCode()) ) {
-                VndErrors vndErrors=OBJECT_MAPPER.readValue(responseEntity.getBody(), VndErrors.class);
-                Iterator<VndErrors.VndError> errors=vndErrors.iterator();
-                String message="";
-                while (errors.hasNext() ) {
-                    VndErrors.VndError error=errors.next();
-                    if(!"".equals(message)){
-                        message=message+";";
-                    }
-                    message=message+error.getMessage();
-                }
+		} catch (Exception e) {
+			log.error(e.getMessage(), e);
+			throw new GenericRestException("ERROR", e.getMessage());
+		}
 
-                throw new GenericRestException("ERROR",message );
-            } else {
-                OBJECT_MAPPER.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+		// return null;
 
-                if(responseEntity.getBody()==null){
+	}
 
-                    return   (T)responseEntity;
+	public ResponseEntity<T> sendGet(String prUrl, Class<T> typeParameterClass) {
+		RestTemplate restTemplate = RestTemplateFactory.restTemplate();
 
-                }
-                T responseBody = OBJECT_MAPPER.readValue(responseEntity.getBody(), typeParameterClass);
-                return responseBody;
-            }
+		HttpHeaders headers = configHttpHeader();
+		URI uri = null;
+		try {
+			uri = new URI(getBackenPath() + prUrl);
+			HttpEntity requestEntity = new HttpEntity(headers);
+			ResponseEntity<T> responseEntity = restTemplate.exchange(uri, HttpMethod.GET, requestEntity,
+					typeParameterClass);
 
-        } catch (Exception e) {
-            log.error(e.getMessage(), e);
-            throw new GenericRestException("ERROR",e.getMessage() );
-        }
+			return responseEntity;
+		} catch (URISyntaxException e) {
 
-//        return null;
+			log.error(e.getMessage(), e);
+		}
 
-    }
+		return null;
 
+	}
 
-    public ResponseEntity<T> sendGet(String prUrl,Class<T> typeParameterClass) {
-        RestTemplate restTemplate = RestTemplateFactory.restTemplate();
-//        restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-//        HttpHeaders headers = new HttpHeaders();
-//        headers.setAccept(Collections.singletonList(new MediaType("application","json")));
-        HttpHeaders headers=configHttpHeader();
-        URI uri= null;
-        try {
-            uri = new URI(getBackenPath()+prUrl);
-            HttpEntity requestEntity = new HttpEntity(headers);
-            ResponseEntity<T> responseEntity = restTemplate.exchange(uri, HttpMethod.GET, requestEntity, typeParameterClass);
+	public ResponseEntity<List<T>> sendGetList(String prUrl, Object requestObject, Class<T> typeParameterClass) {
 
+		ParameterizedTypeReference<List<T>> typeRef = new ParameterizedTypeReference<List<T>>() {
 
-            return responseEntity;
-        } catch (URISyntaxException e) {
-            //TODO lanzar excepcion
-            //throw new Exception(e);
-            log.error(e.getMessage(), e);
-        }
+		};
 
+		RestTemplate restTemplate = RestTemplateFactory.restTemplate();
 
-        return null;
+		HttpHeaders headers = configHttpHeader();
 
-    }
+		String queryParams = toQueryParams(requestObject);
 
+		URI uri = null;
+		try {
 
-    public ResponseEntity<List<T>> sendGetList(String prUrl,Object requestObject,Class<T> typeParameterClass) {
+			uri = new URI(getBackenPath() + prUrl + queryParams);
 
-        ParameterizedTypeReference<List<T>> typeRef=new ParameterizedTypeReference<List<T>>() {
+			HttpEntity requestEntity = new HttpEntity(headers);
 
+			ResponseEntity<List<T>> responseEntity = restTemplate.exchange(uri, HttpMethod.GET, requestEntity, typeRef);
 
-        };
+			return responseEntity;
+		} catch (URISyntaxException e) {
 
-        RestTemplate restTemplate = RestTemplateFactory.restTemplate();
-//        restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-        //HttpHeaders headers = new HttpHeaders();
-        HttpHeaders headers=configHttpHeader();
-        //headers.setAccept(Collections.singletonList(new MediaType("application","json")));
+			log.error(e.getMessage(), e);
+		}
 
-        String queryParams=toQueryParams(requestObject);
+		return null;
 
+	}
 
-        URI uri= null;
-        try {
-//            uri = new URI(prUrl+queryParams);
-            uri = new URI(getBackenPath()+prUrl+queryParams);
-            //uri = new URI(backendUrl+prUrl+queryParams);
-            HttpEntity requestEntity = new HttpEntity(headers);
+	public ResponseEntity<T> sendGet(String prUrl, ParameterizedTypeReference typeRef) {
 
-            ResponseEntity<List<T>> responseEntity = restTemplate.exchange(uri, HttpMethod.GET, requestEntity, typeRef);
+		RestTemplate restTemplate = RestTemplateFactory.restTemplate();
 
-            return responseEntity;
-        } catch (URISyntaxException e) {
-//TODO lanzar excepcion
-            //throw new Exception(e);
-            log.error(e.getMessage(), e);
-        }
+		HttpHeaders headers = configHttpHeader();
 
+		URI uri = null;
+		try {
 
-        return null;
+			uri = new URI(getBackenPath() + prUrl);
+			HttpEntity requestEntity = new HttpEntity(headers);
 
-    }
+			ResponseEntity<T> responseEntity = restTemplate.exchange(uri, HttpMethod.GET, requestEntity, typeRef);
 
-    public ResponseEntity<T> sendGet(String prUrl,ParameterizedTypeReference typeRef)  {
+			return responseEntity;
+		} catch (URISyntaxException e) {
 
-        RestTemplate restTemplate = RestTemplateFactory.restTemplate();
+			log.error(e.getMessage(), e);
+		}
 
-        HttpHeaders headers=configHttpHeader();
+		return null;
 
+	}
 
-        URI uri= null;
-        try {
+	public ResponseEntity<T> sendGet(String prUrl, Object requestObject, ParameterizedTypeReference typeRef) {
 
-            uri = new URI(getBackenPath()+prUrl);
-            HttpEntity requestEntity = new HttpEntity(headers);
+		RestTemplate restTemplate = RestTemplateFactory.restTemplate();
+		HttpHeaders headers = configHttpHeader();
 
-            ResponseEntity<T> responseEntity = restTemplate.exchange(uri, HttpMethod.GET, requestEntity, typeRef);
+		String queryParams = toQueryParams(requestObject);
 
-            return responseEntity;
-        } catch (URISyntaxException e) {
-//TODO lanzar excepcion
-            //throw new Exception(e);
-            log.error(e.getMessage(), e);
-        }
+		URI uri = null;
+		try {
+			uri = new URI(getBackenPath() + prUrl + queryParams);
+			HttpEntity requestEntity = new HttpEntity(headers);
 
+			ResponseEntity<T> responseEntity = restTemplate.exchange(uri, HttpMethod.GET, requestEntity, typeRef);
 
-        return null;
+			return responseEntity;
+		} catch (URISyntaxException e) {
+			// TODO lanzar excepcion
+			// throw new Exception(e);
+			log.error(e.getMessage(), e);
+		}
 
-    }
+		return null;
 
+	}
 
-    public ResponseEntity<T> sendGet(String prUrl,Object requestObject,ParameterizedTypeReference typeRef)  {
+	private HttpHeaders configHttpHeader() {
+		HttpHeaders headers = new HttpHeaders();
 
-        RestTemplate restTemplate = RestTemplateFactory.restTemplate();
-        HttpHeaders headers=configHttpHeader();
+		List<MediaType> acceptedMediaTypes = new ArrayList<MediaType>();
+		acceptedMediaTypes.add(new MediaType("application", "json"));
+		headers.setAccept(Collections.singletonList(new MediaType("application", "json")));
+		return headers;
+	}
 
-        String queryParams=toQueryParams(requestObject);
+	private String getBackenPath() {
+		return "http://" + server + ":" + port;
+	}
 
-        URI uri= null;
-        try {
-            uri = new URI(getBackenPath()+prUrl+queryParams);
-            HttpEntity requestEntity = new HttpEntity(headers);
+	private String toQueryParams(Object requestObject) {
+		StringBuilder queryParams = new StringBuilder();
 
-            ResponseEntity<T> responseEntity = restTemplate.exchange(uri, HttpMethod.GET, requestEntity, typeRef);
+		Field[] fields = requestObject.getClass().getDeclaredFields();
+		for (Field f : fields) {
+			try {
+				f.setAccessible(true);
+				Object value = f.get(requestObject);
+				if (value != null && !(value instanceof List)) {
+					if (queryParams.length() == 0)
+						queryParams.append("?");
+					else
+						queryParams.append("&");
+					queryParams.append(f.getName()).append("=").append(value);
+				}
 
-            return responseEntity;
-        } catch (URISyntaxException e) {
-//TODO lanzar excepcion
-            //throw new Exception(e);
-            log.error(e.getMessage(), e);
-        }
+			} catch (IllegalAccessException e) {
+				e.printStackTrace();
+			}
 
+		}
+		String params = queryParams.toString();
 
-        return null;
+		params = params.replaceAll(" ", "%20");
+		return params;
+	}
 
-    }
+	public byte[] sendGetFile(String prUrl, Object requestObject) {
 
-    private HttpHeaders configHttpHeader( ){
-        HttpHeaders headers = new HttpHeaders();
+		RestTemplate restTemplate = RestTemplateFactory.restFilesTemplate();
+		URI uri = null;
+		String queryParams = "";
+		if (requestObject != null) {
+			queryParams = toQueryParams(requestObject);
+		}
+		try {
+			uri = new URI(getBackenPath() + prUrl + queryParams);
 
-       List<MediaType> acceptedMediaTypes= new ArrayList<MediaType>();
-        acceptedMediaTypes.add(new MediaType("application","json"));
-        headers.setAccept(Collections.singletonList(new MediaType("application","json")));
-        return headers;
-    }
+			return restTemplate.execute(uri, HttpMethod.GET, null, new ResponseExtractor<byte[]>() {
+				@Override
+				public byte[] extractData(ClientHttpResponse response) throws IOException {
+					byte[] bytes = IOUtils.toByteArray(response.getBody());
+					return bytes;
+				}
+			});
+		} catch (URISyntaxException e) {
+			// e.printStackTrace();
+			log.error(e.getMessage(), e);
+		}
 
-    private String getBackenPath(){
-        return "http://"+server+":"+port;
-    }
-
-    private String toQueryParams(Object requestObject){
-        StringBuilder queryParams= new StringBuilder();
-
-        Field[] fields= requestObject.getClass().getDeclaredFields();
-        for (Field f: fields){
-            try {
-                f.setAccessible(true);
-                Object value=f.get(requestObject);
-                if(value!=null && !(value instanceof List) ){
-                    if(queryParams.length()==0)queryParams.append("?");
-                    else queryParams.append("&");
-                    queryParams.append(f.getName()).append("=").append(value);
-                }
-
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            }
-
-        }
-        String params=queryParams.toString();
-
-        params=params.replaceAll(" ", "%20");
-        return params;
-    }
-
-  public byte[] sendGetFile(String prUrl, Object requestObject)  {
-
-        RestTemplate restTemplate = RestTemplateFactory.restFilesTemplate();
-         URI uri= null;
-        String queryParams="";
-            if(requestObject!=null){
-                queryParams=toQueryParams(requestObject);
-            }
-        try {
-            uri = new URI(getBackenPath()+prUrl+queryParams);
-
-            return restTemplate.execute(uri, HttpMethod.GET, null,
-                    new ResponseExtractor<byte[]>() {
-                        @Override
-                        public byte[] extractData(ClientHttpResponse response) throws IOException {
-                             byte[] bytes = IOUtils.toByteArray(response.getBody());
-                             return bytes;
-                       }
-                    });
-        } catch (URISyntaxException e) {
-          //e.printStackTrace();
-          log.error(e.getMessage(), e);
-        }
-
-        return null;
-    }
-
+		return null;
+	}
 
 }

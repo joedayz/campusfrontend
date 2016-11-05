@@ -924,8 +924,6 @@ var ServerHandlerModule = (function () {
                 console.log("ServerHandlerModule :: callServer : success"+ JSON.stringify(error));
 
                 if (error.indexOf("logref") > 0) {
-                    //var errorJson=$.parseJSON(result);
-                    //var message=result.success.pop();
                     var errorList = $.parseJSON(error);
 
                     if(errorList.length>0){

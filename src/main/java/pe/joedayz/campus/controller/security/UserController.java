@@ -89,6 +89,7 @@ public class UserController {
 
     @RequestMapping("/profile")
     public ModelAndView editProfile()throws JsonProcessingException{
+    	
         ModelAndView modelAndView = new ModelAndView("security/user-profile::partial-view");
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String username = ((UserDetails) auth.getPrincipal()).getUsername();

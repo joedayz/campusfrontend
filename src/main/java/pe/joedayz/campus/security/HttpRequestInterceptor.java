@@ -28,7 +28,6 @@ public class HttpRequestInterceptor implements ClientHttpRequestInterceptor {
             throws IOException {
 
         HttpHeaders headers = request.getHeaders();
-        //headers.add("X-User-Agent", "My App v2.1");
         headers.set(SESSION_USER_NAME,getCurrentSessionUser());
 
         headers.setAccept(Collections.singletonList(new MediaType("application","json")));

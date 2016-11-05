@@ -46,10 +46,7 @@ public class RESTAuthenticationEntryPoint implements AuthenticationEntryPoint {
      * relative to the web-app context path (include a leading {@code /}) or an absolute
      * URL.
      */
-//    public RESTAuthenticationEntryPoint(String loginFormUrl) {
-//        Assert.notNull(loginFormUrl, "loginFormUrl cannot be null");
-//        this.loginFormUrl = loginFormUrl;
-//    }
+
     public RESTAuthenticationEntryPoint() {
         this.loginFormUrl = "/login";
     }
@@ -62,6 +59,7 @@ public class RESTAuthenticationEntryPoint implements AuthenticationEntryPoint {
                 StringUtils.hasText(loginFormUrl)
                         && UrlUtils.isValidRedirectUrl(loginFormUrl),
                 "loginFormUrl must be specified and must be a valid redirect URL");
+        
         if (useForward && UrlUtils.isAbsoluteUrl(loginFormUrl)) {
             throw new IllegalArgumentException(
                     "useForward must be false if using an absolute loginFormURL");

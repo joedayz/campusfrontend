@@ -79,6 +79,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 public UserDetails loadUserByUsername(String username)
                         throws UsernameNotFoundException {
                     LOGGER.info("Authentication process init for user {}", username);
+                    
+                    
                     BackendRestInvoker restInvoker= new BackendRestInvoker<List<UserDto>>(server, port);
                     ResponseEntity<UserDto> responseEntity=
                             restInvoker.sendGet("/user/findByName?username=" + username, UserDto.class);
@@ -116,7 +118,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                                 List<SimpleGrantedAuthority> moduleRols = asList(allowedModules)
                                         .stream()
-//                                        .map(m -> new SimpleGrantedAuthority(m.getName()==null?"<<null>>": m.getPermissionType() + "|" + m.getName().toUpperCase()))
                                         .flatMap(mainM -> mainM.getSubModules().stream().map(m -> new SimpleGrantedAuthority(m.getCode()==null?"<<null>>": m.getPermissionType() + "|" + m.getCode().toUpperCase())))
                                         .collect(Collectors.toList());
 
@@ -128,7 +129,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                             @Override
                             public String getPassword() {
-                                //USed to compare credentials
                                 return userDto.getPassword();
                             }
 

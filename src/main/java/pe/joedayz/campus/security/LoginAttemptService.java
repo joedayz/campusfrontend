@@ -59,8 +59,9 @@ public class LoginAttemptService {
         attempts++;
         attemptsCache.put(username, attempts);
 
-        if (attempts == 2){
+        if (attempts == 5){
             logger.warn("Blocking user for too may auth request: " + username);
+            
             BackendRestInvoker restInvoker= new BackendRestInvoker<List<UserDto>>(server, port);
 
             ResponseEntity<String> responseEntity = restInvoker.sendPost("/user/locked", username, String.class);

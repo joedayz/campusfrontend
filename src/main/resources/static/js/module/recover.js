@@ -28,13 +28,13 @@ var RecoverModule = (function () {
 
                 }).done(function(data, textStatus, jqXHR) {
                     console.info("Recovering password successfully!");
-                    //CommonModule.unBlockProgress();
+                    
                     var data = $.parseJSON(jqXHR.responseText)
                     if (data.status === "ERR"){
                         CommonModule.showNotificationError(data.description);
                     } else {
                         CommonModule.showNotificationSuccess(data.description);
-                        //window.location = '/';
+                    
                     }
 
                 }).fail(function(jqXHR, textStatus, errorThrown) {

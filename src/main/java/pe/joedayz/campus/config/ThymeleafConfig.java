@@ -42,7 +42,6 @@ public class ThymeleafConfig implements ApplicationContextAware {
     }
 
     @Bean
-    //made this @Bean (vs private in Thymeleaf migration docs ), otherwise MessageSource wasn't autowired.
     public TemplateEngine templateEngine() {
         SpringTemplateEngine engine = new SpringTemplateEngine();
         engine.setTemplateResolver(templateResolver());

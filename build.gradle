@@ -13,10 +13,6 @@ buildscript {
 }
 
 
-plugins {
-	id "com.moowork.node" version "0.12"
-	id "com.moowork.gulp" version "0.12"
-}
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
@@ -73,21 +69,6 @@ eclipse {
 	}
 }
 
-// configure gradle-node-plugin
-node {
-	version = '5.10.1'
-	npmVersion = '3.8.6'
-	download = true
-	workDir = file("${project.projectDir}/src/main/web/node")
-	nodeModulesDir = file("${project.projectDir}/src/main/web")
-}
-
-// configure gradle-gulp-plugin
-gulp {
-	workDir = file("${project.projectDir}/src/main/web")
-	colors = true
-	bufferOutput = false
-}
 
 task wrapper(type: Wrapper) {
 	gradleVersion = '2.12'

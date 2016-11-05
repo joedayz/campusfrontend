@@ -36,7 +36,7 @@ var RoleSearchModule = (function () {
 
                 this.set("filterRoleCriteria", filterObj);
                 $("#totalRows").text("0");
-                $("#roleResultTable").data('kendoGrid').dataSource.data([]);
+                $("#roleResultTable").data('kendoConfigGrid').dataSource.data([]);
 
             },
             onSearchClick: function () {
@@ -91,7 +91,7 @@ var RoleSearchModule = (function () {
 
         $("#totalRows").text("0");
 
-            $("#roleResultTable").kendoGrid({
+            $("#roleResultTable").kendoConfigGrid({
                 columns: [
                     {
 
@@ -141,7 +141,7 @@ var RoleSearchModule = (function () {
                 sortable: false,
                 selectable: "row",
                 pageable: {
-                    pageSizes: true,
+                    pageSizes: [20, 50, 100, 200, 500],
                     buttonCount: 5,
 
 
@@ -261,11 +261,11 @@ var RoleSearchModule = (function () {
                 
             }
             ,
-            pageSize: 10
+            pageSize: 20
         });
 
 
-        var grid = $("#roleResultTable").data("kendoGrid");
+        var grid = $("#roleResultTable").data("kendoConfigGrid");
 
         if(grid)
             grid.setDataSource(dataSourceGrid);

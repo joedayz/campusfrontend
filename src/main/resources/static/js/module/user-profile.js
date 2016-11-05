@@ -1,4 +1,7 @@
+
 var UserProfileModule=(function(){
+	
+	
     var userViewModel;
  
     function init(value){

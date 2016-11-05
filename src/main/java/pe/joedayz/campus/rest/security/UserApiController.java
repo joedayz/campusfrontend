@@ -70,10 +70,12 @@ public class UserApiController {
 
     @RequestMapping(value = "/updateProfile", method = RequestMethod.POST)
     public ResponseEntity<Long> updateProfile(@RequestBody UserDto request) {
+    	
         BackendRestInvoker restInvoker = new BackendRestInvoker<Long>(server, port);
         ResponseEntity<Long> responseEntity = restInvoker.sendPost("/user/updateProfile", request, Long.class);
         Long processedId = responseEntity.getBody();
         return new ResponseEntity<>(processedId, HttpStatus.OK);
+        
     }
 
     @RequestMapping(value = "/initTemps", method = RequestMethod.POST)

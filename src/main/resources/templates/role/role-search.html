@@ -28,11 +28,21 @@
 <body>
 
 <div class="row" th:fragment="partial-view" id="criteriaRole">
+
+	<style>
+        
+        #roleResultTableGrid .k-grid-content {
+            max-height: 600px;
+        }
+
+    </style>
+    
     <script  th:inline="javascript">
 
         $(document).ready(function() {
             readOnlyModule=/*[[${readOnlyModule}]]*/false;
-
+            gridConfig=/*[[${gridConfig}]]*/[];
+            
             RoleSearchModule.initRoleSearch();
             SecurityModule.securityPermission(readOnlyModule);
 
@@ -133,6 +143,13 @@
 									<label class="control-label">Records found:</label><label class="control-label" id="totalRows"></label>
 								</div>
 								<div class="col-sm-6 text-right">
+									<div class="btn-group">
+										<button data-toggle="dropdown" class="btn btn-default dropdown-toggle-roleResultTable">
+											<span class="fa fa-cogs"></span> CONFIG
+											<span class="caret"></span>
+										</button>
+									</div>
+								
 									<button type="button" class="btn btn-primary action-updateable"
 										data-bind="visible: isVisible, enabled: isEnabled, events: { click: onAddRoleClick }">
 										<span class="fa fa-plus"></span> ADD NEW</button>
