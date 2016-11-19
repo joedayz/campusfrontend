@@ -36,9 +36,6 @@ public class RoleController {
     static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
 
-   // @Autowired
-   // RampAreaService rampAreaService;
-
     @Autowired
     RoleService roleService;
 

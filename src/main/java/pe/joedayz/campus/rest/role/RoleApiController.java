@@ -30,7 +30,8 @@ public class RoleApiController {
     private int port;
 
 
-    @RequestMapping(value = "/search/find", method = RequestMethod.GET, produces = "application/json")
+    @SuppressWarnings("rawtypes")
+	@RequestMapping(value = "/search/find", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     PageableResult find(RoleFilterDto prFilter
     ) {
@@ -38,7 +39,8 @@ public class RoleApiController {
         PageableResult pageableResult = new PageableResult();
          BackendRestInvoker restInvoker = new BackendRestInvoker<PageableResult>(server, port);
 
-        ResponseEntity<PageableResult> responseEntity =
+        @SuppressWarnings("unchecked")
+		ResponseEntity<PageableResult> responseEntity =
                 restInvoker.sendPost("/role/find/", prFilter, PageableResult.class);
 
 

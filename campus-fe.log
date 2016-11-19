@@ -1,841 +1,105 @@
-09:29:58.209 [INFO ] [main] [CampusApplication:48] - Starting CampusApplication on Joses-MacBook-Pro.local with PID 18311 (/Users/josediaz/Projects/campusfrontend/bin started by josediaz in /Users/josediaz/Projects/campusfrontend)
-09:29:58.217 [DEBUG] [main] [CampusApplication:51] - Running with Spring Boot v1.4.0.RELEASE, Spring v4.3.2.RELEASE
-09:29:58.218 [INFO ] [main] [CampusApplication:659] - No active profile set, falling back to default profiles: default
-09:29:58.406 [INFO ] [background-preinit] [Version:30] - HV000001: Hibernate Validator 5.2.4.Final
-09:29:58.654 [INFO ] [main] [AnnotationConfigEmbeddedWebApplicationContext:581] - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@22ef9844: startup date [Sat Nov 05 09:29:58 PET 2016]; root of context hierarchy
-09:29:59.724 [INFO ] [main] [PostProcessorRegistrationDelegate$BeanPostProcessorChecker:328] - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$f257fa21] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-09:30:00.237 [INFO ] [main] [TomcatEmbeddedServletContainer:88] - Tomcat initialized with port(s): 8080 (http)
-09:30:00.251 [INFO ] [main] [StandardService:179] - Starting service Tomcat
-09:30:00.252 [INFO ] [main] [StandardEngine:179] - Starting Servlet Engine: Apache Tomcat/8.5.4
-09:30:00.368 [INFO ] [localhost-startStop-1] [[/]:179] - Initializing Spring embedded WebApplicationContext
-09:30:00.368 [INFO ] [localhost-startStop-1] [ContextLoader:276] - Root WebApplicationContext: initialization completed in 1714 ms
-09:30:00.587 [INFO ] [localhost-startStop-1] [FilterRegistrationBean:258] - Mapping filter: 'characterEncodingFilter' to: [/*]
-09:30:00.588 [INFO ] [localhost-startStop-1] [FilterRegistrationBean:258] - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
-09:30:00.588 [INFO ] [localhost-startStop-1] [FilterRegistrationBean:258] - Mapping filter: 'httpPutFormContentFilter' to: [/*]
-09:30:00.588 [INFO ] [localhost-startStop-1] [FilterRegistrationBean:258] - Mapping filter: 'requestContextFilter' to: [/*]
-09:30:00.590 [INFO ] [localhost-startStop-1] [DelegatingFilterProxyRegistrationBean:258] - Mapping filter: 'springSecurityFilterChain' to: [/*]
-09:30:00.590 [INFO ] [localhost-startStop-1] [ServletRegistrationBean:190] - Mapping servlet: 'dispatcherServlet' to [/]
-09:30:01.143 [INFO ] [main] [RequestMappingHandlerAdapter:534] - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@22ef9844: startup date [Sat Nov 05 09:29:58 PET 2016]; root of context hierarchy
-09:30:01.211 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.IndexController.index()
-09:30:01.214 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/kendo/index]}" onto java.lang.String pe.joedayz.campus.controller.KendoController.index()
-09:30:01.215 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/kendo/grid]}" onto java.lang.String pe.joedayz.campus.controller.KendoController.grid()
-09:30:01.215 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/login]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.LoginController.index()
-09:30:01.216 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/main/index]}" onto java.lang.String pe.joedayz.campus.controller.MainController.index()
-09:30:01.217 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/minor/index]}" onto java.lang.String pe.joedayz.campus.controller.MinorController.index()
-09:30:01.218 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/ping/poke]}" onto public org.springframework.http.ResponseEntity<java.lang.String> pe.joedayz.campus.controller.PingController.poke()
-09:30:01.219 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/reset-password]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.ResetPasswordController.index()
-09:30:01.220 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/curso/novedades]}" onto public org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.curso.CursoController.novedades() throws java.lang.Exception
-09:30:01.221 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/curso/contenido/{key}]}" onto public org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.curso.CursoController.contenido(java.lang.String) throws java.lang.Exception
-09:30:01.222 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/role/search]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.role.RoleController.index() throws java.lang.Exception
-09:30:01.222 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/role/new]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.role.RoleController.create() throws com.fasterxml.jackson.core.JsonProcessingException
-09:30:01.223 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/role/edit]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.role.RoleController.roleEdit(java.lang.Long) throws java.lang.Exception
-09:30:01.230 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/user/search]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.security.UserController.index() throws java.lang.Exception
-09:30:01.230 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/user/new]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.security.UserController.init() throws java.lang.Exception
-09:30:01.230 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/user/edit]}" onto public org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.security.UserController.edit(java.lang.Long) throws com.fasterxml.jackson.core.JsonProcessingException
-09:30:01.231 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/user/profile]}" onto public org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.security.UserController.editProfile() throws com.fasterxml.jackson.core.JsonProcessingException
-09:30:01.231 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/user/find],methods=[GET],produces=[application/json]}" onto public pe.joedayz.campus.dto.UserDto pe.joedayz.campus.controller.security.UserController.findByUsername(java.lang.String)
-09:30:01.232 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/user/find/autocomplete/pricinganalyst],methods=[GET],produces=[application/json]}" onto public java.util.List<pe.joedayz.campus.dto.UserViewDto> pe.joedayz.campus.controller.security.UserController.findPricingAnaLystOld(java.lang.String)
-09:30:01.232 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/user/find/autocompletePricingAnalyst],methods=[GET],produces=[application/json]}" onto public java.util.List<pe.joedayz.campus.dto.UserViewDto> pe.joedayz.campus.controller.security.UserController.findPricingAnalyst(java.lang.String)
-09:30:01.233 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/user/find/autocomplete/commercialaccount],methods=[GET],produces=[application/json]}" onto public java.util.List<pe.joedayz.campus.dto.UserDto> pe.joedayz.campus.controller.security.UserController.findCommercialAccount(java.lang.String)
-09:30:01.233 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/user/find/autocomplete/commercialrep],methods=[GET],produces=[application/json]}" onto public java.util.List<pe.joedayz.campus.dto.UserDto> pe.joedayz.campus.controller.security.UserController.findCommercialRep(java.lang.String)
-09:30:01.235 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/backend/post/**],methods=[POST],produces=[application/json]}" onto public java.lang.String pe.joedayz.campus.rest.BackendController.mirrorRest(java.lang.String,org.springframework.http.HttpMethod,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.net.URISyntaxException
-09:30:01.235 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/backend/get/**],produces=[application/json]}" onto public java.lang.String pe.joedayz.campus.rest.BackendController.mirrorRest(org.springframework.http.HttpMethod,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.net.URISyntaxException
-09:30:01.237 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/generalTable/search/find],methods=[GET],produces=[application/json]}" onto pe.joedayz.campus.dto.PageableResult pe.joedayz.campus.rest.GeneralTableController.find(pe.joedayz.campus.dto.GeneralTableFilterDto)
-09:30:01.237 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/generalTable/search]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.rest.GeneralTableController.search() throws java.lang.Exception
-09:30:01.238 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/generalTable/view]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.rest.GeneralTableController.view(java.lang.Long) throws com.fasterxml.jackson.core.JsonProcessingException
-09:30:01.238 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/generalTable/new]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.rest.GeneralTableController.newGeneralTable() throws com.fasterxml.jackson.core.JsonProcessingException
-09:30:01.239 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/module/search/find],methods=[GET],produces=[application/json]}" onto pe.joedayz.campus.dto.PageableResult pe.joedayz.campus.rest.ModuleController.find(pe.joedayz.campus.dto.ModuleFilterDto)
-09:30:01.240 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/module/search]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.rest.ModuleController.search() throws java.lang.Exception
-09:30:01.241 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/module/view]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.rest.ModuleController.view(java.lang.Long) throws java.lang.Exception
-09:30:01.243 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/parameter/search/find],methods=[GET],produces=[application/json]}" onto pe.joedayz.campus.dto.PageableResult pe.joedayz.campus.rest.ParameterController.find(pe.joedayz.campus.dto.ParameterFilterDto)
-09:30:01.243 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/parameter/search]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.rest.ParameterController.search() throws java.lang.Exception
-09:30:01.244 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/parameter/view]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.rest.ParameterController.view(java.lang.Long) throws java.lang.Exception
-09:30:01.244 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/parameter/find/autocomplete],methods=[GET],produces=[application/json]}" onto public java.util.List<pe.joedayz.campus.dto.ParameterDto> pe.joedayz.campus.rest.ParameterController.findParameters(java.lang.String)
-09:30:01.245 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/security/recover],methods=[POST],produces=[application/json]}" onto public java.lang.String pe.joedayz.campus.rest.SecurityController.requestResetPassword(java.lang.String)
-09:30:01.246 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/security/reset-password],methods=[POST],produces=[application/json]}" onto public java.lang.String pe.joedayz.campus.rest.SecurityController.resetPassword(pe.joedayz.campus.dto.RecoverPasswordDto)
-09:30:01.247 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/cursoApi/temasDisponibles],methods=[GET],produces=[application/json]}" onto java.util.List<pe.joedayz.campus.dto.TemasCursoDto> pe.joedayz.campus.rest.curso.CursoApiController.find(java.lang.String)
-09:30:01.248 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/roleApi/search/find],methods=[GET],produces=[application/json]}" onto pe.joedayz.campus.dto.PageableResult pe.joedayz.campus.rest.role.RoleApiController.find(pe.joedayz.campus.dto.RoleFilterDto)
-09:30:01.249 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/roleApi/delete],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> pe.joedayz.campus.rest.role.RoleApiController.delete(pe.joedayz.campus.dto.RoleViewDto)
-09:30:01.250 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/roleApi/create],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> pe.joedayz.campus.rest.role.RoleApiController.create(pe.joedayz.campus.dto.RoleViewDto)
-09:30:01.252 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/userApi/search],methods=[GET],produces=[application/json]}" onto pe.joedayz.campus.dto.PageableResult pe.joedayz.campus.rest.security.UserApiController.find(pe.joedayz.campus.dto.UserFilterDto)
-09:30:01.254 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/userApi/cleanTemps],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Long> pe.joedayz.campus.rest.security.UserApiController.clean()
-09:30:01.255 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/userApi/create],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Long> pe.joedayz.campus.rest.security.UserApiController.save(pe.joedayz.campus.dto.UserDto)
-09:30:01.256 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/userApi/addRole],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<pe.joedayz.campus.dto.JsonResult> pe.joedayz.campus.rest.security.UserApiController.addRole(long,java.lang.String) throws java.lang.Exception
-09:30:01.257 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/userApi/updateProfile],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Long> pe.joedayz.campus.rest.security.UserApiController.updateProfile(pe.joedayz.campus.dto.UserDto)
-09:30:01.258 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/userApi/initTemps],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Long> pe.joedayz.campus.rest.security.UserApiController.initTemps(pe.joedayz.campus.dto.UserDto)
-09:30:01.258 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/userApi/searchRoles],methods=[GET],produces=[application/json]}" onto public pe.joedayz.campus.dto.PageableResult pe.joedayz.campus.rest.security.UserApiController.searchRoles()
-09:30:01.258 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/userApi/removeRole],methods=[POST],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<pe.joedayz.campus.dto.JsonResult> pe.joedayz.campus.rest.security.UserApiController.removeRole(long)
-09:30:01.261 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
-09:30:01.262 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
-09:30:01.288 [INFO ] [main] [SimpleUrlHandlerMapping:354] - Mapped URL path [/recover] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
-09:30:01.310 [INFO ] [main] [SimpleUrlHandlerMapping:354] - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-09:30:01.310 [INFO ] [main] [SimpleUrlHandlerMapping:354] - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-09:30:01.343 [INFO ] [main] [ExceptionHandlerExceptionResolver:269] - Detected @ExceptionHandler methods in adviceController
-09:30:01.364 [INFO ] [main] [SimpleUrlHandlerMapping:354] - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-09:30:01.921 [INFO ] [main] [AuthenticationManagerConfiguration:169] - 
+03:24:43.073 [INFO ] [main] [CampusApplication:48] - Starting CampusApplication on Joses-MacBook-Pro.local with PID 24383 (/Users/josediaz/Projects/campusfrontend/build/classes/main started by josediaz in /Users/josediaz/Projects/campusfrontend)
+03:24:43.092 [DEBUG] [main] [CampusApplication:51] - Running with Spring Boot v1.3.6.RELEASE, Spring v4.2.7.RELEASE
+03:24:43.093 [INFO ] [main] [CampusApplication:660] - No active profile set, falling back to default profiles: default
+03:24:43.737 [INFO ] [main] [AnnotationConfigApplicationContext:578] - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@7c7b252e: startup date [Sat Nov 19 03:24:43 PET 2016]; root of context hierarchy
+03:24:43.828 [INFO ] [background-preinit] [Version:30] - HV000001: Hibernate Validator 5.2.4.Final
+03:24:44.224 [INFO ] [main] [PostProcessorRegistrationDelegate$BeanPostProcessorChecker:328] - Bean 'encrypt.CONFIGURATION_PROPERTIES' of type [class org.springframework.cloud.bootstrap.encrypt.KeyProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+03:24:44.225 [INFO ] [main] [PostProcessorRegistrationDelegate$BeanPostProcessorChecker:328] - Bean 'encryptionBootstrapConfiguration' of type [class org.springframework.cloud.bootstrap.encrypt.EncryptionBootstrapConfiguration$$EnhancerBySpringCGLIB$$353b62c8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+03:24:44.350 [INFO ] [main] [CampusApplication:57] - Started CampusApplication in 1.892 seconds (JVM running for 2.932)
+03:24:45.669 [INFO ] [main] [PropertySourceBootstrapConfiguration:89] - Located property source: CompositePropertySource [name='configService', propertySources=[MapPropertySource [name='https://github.com/joedayz/config-qa/campus-frontend.yml#default']]]
+03:24:45.675 [INFO ] [main] [CampusApplication:660] - No active profile set, falling back to default profiles: default
+03:24:45.689 [INFO ] [main] [AnnotationConfigEmbeddedWebApplicationContext:578] - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@40f70521: startup date [Sat Nov 19 03:24:45 PET 2016]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@7c7b252e
+03:24:46.977 [INFO ] [main] [GenericScope:230] - BeanFactory id=78e258ec-27ea-3e8d-86d8-7e908cfd6407
+03:24:47.034 [INFO ] [main] [PostProcessorRegistrationDelegate$BeanPostProcessorChecker:328] - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$28d2016f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+03:24:47.076 [INFO ] [main] [PostProcessorRegistrationDelegate$BeanPostProcessorChecker:328] - Bean 'org.springframework.cloud.autoconfigure.RefreshAutoConfiguration$ConfigurationPropertiesRebinderConfiguration' of type [class org.springframework.cloud.autoconfigure.RefreshAutoConfiguration$ConfigurationPropertiesRebinderConfiguration$$EnhancerBySpringCGLIB$$29e63145] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+03:24:47.520 [INFO ] [main] [TomcatEmbeddedServletContainer:81] - Tomcat initialized with port(s): 8080 (http)
+03:24:47.539 [INFO ] [main] [StandardService:180] - Starting service Tomcat
+03:24:47.541 [INFO ] [main] [StandardEngine:180] - Starting Servlet Engine: Apache Tomcat/8.0.36
+03:24:47.658 [INFO ] [localhost-startStop-1] [[/]:180] - Initializing Spring embedded WebApplicationContext
+03:24:47.659 [INFO ] [localhost-startStop-1] [ContextLoader:272] - Root WebApplicationContext: initialization completed in 1969 ms
+03:24:48.028 [INFO ] [localhost-startStop-1] [FilterRegistrationBean:258] - Mapping filter: 'characterEncodingFilter' to: [/*]
+03:24:48.029 [INFO ] [localhost-startStop-1] [FilterRegistrationBean:258] - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+03:24:48.029 [INFO ] [localhost-startStop-1] [FilterRegistrationBean:258] - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+03:24:48.030 [INFO ] [localhost-startStop-1] [FilterRegistrationBean:258] - Mapping filter: 'requestContextFilter' to: [/*]
+03:24:48.031 [INFO ] [localhost-startStop-1] [DelegatingFilterProxyRegistrationBean:258] - Mapping filter: 'springSecurityFilterChain' to: [/*]
+03:24:48.032 [INFO ] [localhost-startStop-1] [ServletRegistrationBean:189] - Mapping servlet: 'dispatcherServlet' to [/]
+03:24:48.557 [INFO ] [localhost-startStop-1] [AuthenticationManagerConfiguration:170] - 
 
-Using default security password: adb07bd3-a2c2-4977-99f7-5bfda01db73a
+Using default security password: b1e295b4-0702-4d34-a7e1-6f9df58c8038
 
-09:30:01.933 [INFO ] [main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/css/**'], []
-09:30:01.933 [INFO ] [main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/js/**'], []
-09:30:01.934 [INFO ] [main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/images/**'], []
-09:30:01.934 [INFO ] [main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/webjars/**'], []
-09:30:01.934 [INFO ] [main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/**/favicon.ico'], []
-09:30:01.934 [INFO ] [main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/error'], []
-09:30:02.028 [INFO ] [main] [DefaultSecurityFilterChain:43] - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5e922647, org.springframework.security.web.context.SecurityContextPersistenceFilter@7ad1caa2, org.springframework.security.web.header.HeaderWriterFilter@3662bdff, org.springframework.security.web.authentication.logout.LogoutFilter@380e1909, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@58a2b917, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@65d8dff8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2149594a, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@59b65dce, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@433c6abb, org.springframework.security.web.session.SessionManagementFilter@4fa822ad, org.springframework.security.web.access.ExceptionTranslationFilter@4860827a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@d5556bf]
-09:30:02.049 [INFO ] [main] [DefaultSecurityFilterChain:43] - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/**']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@51b01550, org.springframework.security.web.context.SecurityContextPersistenceFilter@7d57dbb5, org.springframework.security.web.header.HeaderWriterFilter@5f2de715, org.springframework.security.web.authentication.logout.LogoutFilter@672a1c62, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@459b6c53, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@630b6190, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@532e27ab, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2ef0dd86, org.springframework.security.web.session.SessionManagementFilter@5922d3e9, org.springframework.security.web.access.ExceptionTranslationFilter@737db7f8, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6cd64b3f]
-09:30:02.178 [INFO ] [main] [AnnotationMBeanExporter:431] - Registering beans for JMX exposure on startup
-09:30:02.199 [INFO ] [main] [Http11NioProtocol:179] - Initializing ProtocolHandler ["http-nio-8080"]
-09:30:02.211 [INFO ] [main] [Http11NioProtocol:179] - Starting ProtocolHandler [http-nio-8080]
-09:30:02.228 [INFO ] [main] [NioSelectorPool:179] - Using a shared selector for servlet write/read
-09:30:02.251 [INFO ] [main] [TomcatEmbeddedServletContainer:186] - Tomcat started on port(s): 8080 (http)
-09:30:02.256 [INFO ] [main] [CampusApplication:57] - Started CampusApplication in 4.583 seconds (JVM running for 5.562)
-09:30:12.456 [INFO ] [http-nio-8080-exec-1] [[/]:179] - Initializing Spring FrameworkServlet 'dispatcherServlet'
-09:30:12.456 [INFO ] [http-nio-8080-exec-1] [DispatcherServlet:489] - FrameworkServlet 'dispatcherServlet': initialization started
-09:30:12.473 [INFO ] [http-nio-8080-exec-1] [DispatcherServlet:508] - FrameworkServlet 'dispatcherServlet': initialization completed in 17 ms
-09:30:15.646 [INFO ] [http-nio-8080-exec-7] [SecurityConfig:81] - Authentication process init for user joe
-09:30:15.843 [INFO ] [http-nio-8080-exec-7] [SecurityConfig:89] - User from databaseUserDto{id=135, login='null', firstName='Jose', lastName='Diaz Diaz', userName='joe', status='A'}
-09:30:15.955 [INFO ] [http-nio-8080-exec-1] [IndexController:62] - Is Remember me autenticated false 
-09:30:16.146 [INFO ] [http-nio-8080-exec-1] [IndexController:126] - Allowed modules: ModuleDto{name='Java', url='null', code='C1', permissionType='null', subModules=ModuleDto{name='Oracle Certified Java 6', url='curso.contenido.ocjp6', code='C18', permissionType='W', subModules=[]},ModuleDto{name='Java Associate 7 y 8', url='curso.contenido.javaasocciate78', code='C21', permissionType='W', subModules=[]},ModuleDto{name='Java 7', url='curso.contenido.java7', code='C25', permissionType='W', subModules=[]},ModuleDto{name='Java 8', url='curso.contenido.java8', code='C26', permissionType='W', subModules=[]}},ModuleDto{name='Java EE', url='null', code='C2', permissionType='null', subModules=ModuleDto{name='Spring Framework 2.0', url='curso.contenido.spring2', code='C13', permissionType='W', subModules=[]},ModuleDto{name='Spring Boot', url='curso.contenido.springboot1', code='C14', permissionType='W', subModules=[]},ModuleDto{name='Spring Framework 3.0 y 4.0', url='curso.contenido.spring34', code='C15', permissionType='W', subModules=[]},ModuleDto{name='Spring MVC 4', url='curso.contenido.springmvc4', code='C16', permissionType='W', subModules=[]},ModuleDto{name='Desarrollo de Servicios Web SOAP y REST con Java', url='curso.contenido.serviciosweb1', code='C17', permissionType='W', subModules=[]},ModuleDto{name='Mule ESB', url='curso.contenido.muleesb1', code='C19', permissionType='W', subModules=[]},ModuleDto{name='Introducción a Java Web', url='curso.contenido.introjavaweb', code='C20', permissionType='W', subModules=[]},ModuleDto{name='Vaadin 7', url='curso.contenido.vaadin', code='C23', permissionType='W', subModules=[]},ModuleDto{name='Hibernate', url='curso.contenido.hibernate', code='C27', permissionType='W', subModules=[]},ModuleDto{name='Mybatis', url='curso.contenido.mybatis', code='C28', permissionType='W', subModules=[]},ModuleDto{name='Desarrollo Web con Primefaces', url='curso.contenido.primefaces', code='C29', permissionType='W', subModules=[]},ModuleDto{name='Java EE 7', url='curso.contenido.javaee7', code='C30', permissionType='W', subModules=[]}},ModuleDto{name='Android', url='null', code='C3', permissionType='null', subModules=ModuleDto{name='Iniciando con Android', url='curso.contenido.introandroid', code='C34', permissionType='W', subModules=[]},ModuleDto{name='Almacenamiento de Datos con Android', url='curso.contenido.sqliteandroid', code='C35', permissionType='W', subModules=[]},ModuleDto{name='Integración con Servidores y Mapas', url='curso.contenido.mapasgpsandroid', code='C36', permissionType='W', subModules=[]},ModuleDto{name='Publiguia', url='curso.contenido.publiguiaandroid', code='C37', permissionType='W', subModules=[]}},ModuleDto{name='Devops', url='null', code='C4', permissionType='null', subModules=ModuleDto{name='Devops', url='curso.contenido.devops', code='C22', permissionType='W', subModules=[]}},ModuleDto{name='Ruby', url='null', code='C5', permissionType='null', subModules=ModuleDto{name='Introducción a Ruby on Rails', url='curso.contenido.introror', code='C24', permissionType='W', subModules=[]}},ModuleDto{name='Python', url='null', code='C6', permissionType='null', subModules=ModuleDto{name='Introducción a Python', url='curso.contenido.intropython', code='C31', permissionType='W', subModules=[]},ModuleDto{name='Python para Zombies', url='curso.contenido.pythonparazombies', code='C32', permissionType='W', subModules=[]}},ModuleDto{name='.NET', url='null', code='C7', permissionType='null', subModules=ModuleDto{name='ASP.NET MVC 3', url='curso.contenido.aspnetmvc3', code='C11', permissionType='W', subModules=[]},ModuleDto{name='Test Driven Development con .NET', url='curso.contenido.tddnet', code='C12', permissionType='W', subModules=[]}},ModuleDto{name='Frontend', url='null', code='C8', permissionType='null', subModules=ModuleDto{name='Angular JS', url='curso.contenido.angularjs1', code='C33', permissionType='W', subModules=[]}},ModuleDto{name='Seguridad', url='null', code='SE00', permissionType='null', subModules=ModuleDto{name='Roles', url='role.search', code='RL01', permissionType='W', subModules=[]}}
-09:30:28.036 [ERROR] [http-nio-8080-exec-7] [RestTemplateResponseErrorHandler:15] - Response error: 500 null
-09:33:07.002 [INFO ] [RMI TCP Connection(11)-192.168.1.36] [SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin:125] - Application shutdown requested.
-09:33:07.003 [INFO ] [RMI TCP Connection(11)-192.168.1.36] [AnnotationConfigEmbeddedWebApplicationContext:982] - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@22ef9844: startup date [Sat Nov 05 09:29:58 PET 2016]; root of context hierarchy
-09:33:07.005 [INFO ] [RMI TCP Connection(11)-192.168.1.36] [AnnotationMBeanExporter:449] - Unregistering JMX-exposed beans on shutdown
-09:33:17.293 [INFO ] [main] [CampusApplication:48] - Starting CampusApplication on Joses-MacBook-Pro.local with PID 18324 (/Users/josediaz/Projects/campusfrontend/bin started by josediaz in /Users/josediaz/Projects/campusfrontend)
-09:33:17.300 [DEBUG] [main] [CampusApplication:51] - Running with Spring Boot v1.4.0.RELEASE, Spring v4.3.2.RELEASE
-09:33:17.300 [INFO ] [main] [CampusApplication:659] - No active profile set, falling back to default profiles: default
-09:33:17.411 [INFO ] [background-preinit] [Version:30] - HV000001: Hibernate Validator 5.2.4.Final
-09:33:17.833 [INFO ] [main] [AnnotationConfigEmbeddedWebApplicationContext:581] - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@665e9289: startup date [Sat Nov 05 09:33:17 PET 2016]; root of context hierarchy
-09:33:19.002 [INFO ] [main] [PostProcessorRegistrationDelegate$BeanPostProcessorChecker:328] - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d7ab8b2f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-09:33:19.659 [INFO ] [main] [TomcatEmbeddedServletContainer:88] - Tomcat initialized with port(s): 8080 (http)
-09:33:19.675 [INFO ] [main] [StandardService:179] - Starting service Tomcat
-09:33:19.676 [INFO ] [main] [StandardEngine:179] - Starting Servlet Engine: Apache Tomcat/8.5.4
-09:33:19.787 [INFO ] [localhost-startStop-1] [[/]:179] - Initializing Spring embedded WebApplicationContext
-09:33:19.787 [INFO ] [localhost-startStop-1] [ContextLoader:276] - Root WebApplicationContext: initialization completed in 1954 ms
-09:33:20.117 [INFO ] [localhost-startStop-1] [FilterRegistrationBean:258] - Mapping filter: 'characterEncodingFilter' to: [/*]
-09:33:20.118 [INFO ] [localhost-startStop-1] [FilterRegistrationBean:258] - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
-09:33:20.118 [INFO ] [localhost-startStop-1] [FilterRegistrationBean:258] - Mapping filter: 'httpPutFormContentFilter' to: [/*]
-09:33:20.118 [INFO ] [localhost-startStop-1] [FilterRegistrationBean:258] - Mapping filter: 'requestContextFilter' to: [/*]
-09:33:20.120 [INFO ] [localhost-startStop-1] [DelegatingFilterProxyRegistrationBean:258] - Mapping filter: 'springSecurityFilterChain' to: [/*]
-09:33:20.121 [INFO ] [localhost-startStop-1] [ServletRegistrationBean:190] - Mapping servlet: 'dispatcherServlet' to [/]
-09:33:20.836 [INFO ] [main] [RequestMappingHandlerAdapter:534] - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@665e9289: startup date [Sat Nov 05 09:33:17 PET 2016]; root of context hierarchy
-09:33:20.937 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.IndexController.index()
-09:33:20.939 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/kendo/index]}" onto java.lang.String pe.joedayz.campus.controller.KendoController.index()
-09:33:20.939 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/kendo/grid]}" onto java.lang.String pe.joedayz.campus.controller.KendoController.grid()
-09:33:20.940 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/login]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.LoginController.index()
-09:33:20.941 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/main/index]}" onto java.lang.String pe.joedayz.campus.controller.MainController.index()
-09:33:20.942 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/minor/index]}" onto java.lang.String pe.joedayz.campus.controller.MinorController.index()
-09:33:20.943 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/ping/poke]}" onto public org.springframework.http.ResponseEntity<java.lang.String> pe.joedayz.campus.controller.PingController.poke()
-09:33:20.944 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/reset-password]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.ResetPasswordController.index()
-09:33:20.946 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/curso/novedades]}" onto public org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.curso.CursoController.novedades() throws java.lang.Exception
-09:33:20.947 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/curso/contenido/{key}]}" onto public org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.curso.CursoController.contenido(java.lang.String) throws java.lang.Exception
-09:33:20.948 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/role/search]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.role.RoleController.index() throws java.lang.Exception
-09:33:20.950 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/role/new]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.role.RoleController.create() throws com.fasterxml.jackson.core.JsonProcessingException
-09:33:20.952 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/role/edit]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.role.RoleController.roleEdit(java.lang.Long) throws java.lang.Exception
-09:33:20.966 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/user/search]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.security.UserController.index() throws java.lang.Exception
-09:33:20.966 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/user/new]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.security.UserController.init() throws java.lang.Exception
-09:33:20.967 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/user/edit]}" onto public org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.security.UserController.edit(java.lang.Long) throws com.fasterxml.jackson.core.JsonProcessingException
-09:33:20.968 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/user/profile]}" onto public org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.security.UserController.editProfile() throws com.fasterxml.jackson.core.JsonProcessingException
-09:33:20.969 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/user/find],methods=[GET],produces=[application/json]}" onto public pe.joedayz.campus.dto.UserDto pe.joedayz.campus.controller.security.UserController.findByUsername(java.lang.String)
-09:33:20.970 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/user/find/autocomplete/pricinganalyst],methods=[GET],produces=[application/json]}" onto public java.util.List<pe.joedayz.campus.dto.UserViewDto> pe.joedayz.campus.controller.security.UserController.findPricingAnaLystOld(java.lang.String)
-09:33:20.971 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/user/find/autocompletePricingAnalyst],methods=[GET],produces=[application/json]}" onto public java.util.List<pe.joedayz.campus.dto.UserViewDto> pe.joedayz.campus.controller.security.UserController.findPricingAnalyst(java.lang.String)
-09:33:20.972 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/user/find/autocomplete/commercialaccount],methods=[GET],produces=[application/json]}" onto public java.util.List<pe.joedayz.campus.dto.UserDto> pe.joedayz.campus.controller.security.UserController.findCommercialAccount(java.lang.String)
-09:33:20.973 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/user/find/autocomplete/commercialrep],methods=[GET],produces=[application/json]}" onto public java.util.List<pe.joedayz.campus.dto.UserDto> pe.joedayz.campus.controller.security.UserController.findCommercialRep(java.lang.String)
-09:33:20.974 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/backend/post/**],methods=[POST],produces=[application/json]}" onto public java.lang.String pe.joedayz.campus.rest.BackendController.mirrorRest(java.lang.String,org.springframework.http.HttpMethod,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.net.URISyntaxException
-09:33:20.975 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/backend/get/**],produces=[application/json]}" onto public java.lang.String pe.joedayz.campus.rest.BackendController.mirrorRest(org.springframework.http.HttpMethod,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.net.URISyntaxException
-09:33:20.976 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/generalTable/search/find],methods=[GET],produces=[application/json]}" onto pe.joedayz.campus.dto.PageableResult pe.joedayz.campus.rest.GeneralTableController.find(pe.joedayz.campus.dto.GeneralTableFilterDto)
-09:33:20.977 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/generalTable/search]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.rest.GeneralTableController.search() throws java.lang.Exception
-09:33:20.978 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/generalTable/new]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.rest.GeneralTableController.newGeneralTable() throws com.fasterxml.jackson.core.JsonProcessingException
-09:33:20.979 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/generalTable/view]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.rest.GeneralTableController.view(java.lang.Long) throws com.fasterxml.jackson.core.JsonProcessingException
-09:33:20.980 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/module/search/find],methods=[GET],produces=[application/json]}" onto pe.joedayz.campus.dto.PageableResult pe.joedayz.campus.rest.ModuleController.find(pe.joedayz.campus.dto.ModuleFilterDto)
-09:33:20.987 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/module/search]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.rest.ModuleController.search() throws java.lang.Exception
-09:33:20.988 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/module/view]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.rest.ModuleController.view(java.lang.Long) throws java.lang.Exception
-09:33:20.998 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/parameter/search/find],methods=[GET],produces=[application/json]}" onto pe.joedayz.campus.dto.PageableResult pe.joedayz.campus.rest.ParameterController.find(pe.joedayz.campus.dto.ParameterFilterDto)
-09:33:20.999 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/parameter/search]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.rest.ParameterController.search() throws java.lang.Exception
-09:33:21.001 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/parameter/view]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.rest.ParameterController.view(java.lang.Long) throws java.lang.Exception
-09:33:21.004 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/parameter/find/autocomplete],methods=[GET],produces=[application/json]}" onto public java.util.List<pe.joedayz.campus.dto.ParameterDto> pe.joedayz.campus.rest.ParameterController.findParameters(java.lang.String)
-09:33:21.006 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/security/recover],methods=[POST],produces=[application/json]}" onto public java.lang.String pe.joedayz.campus.rest.SecurityController.requestResetPassword(java.lang.String)
-09:33:21.007 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/security/reset-password],methods=[POST],produces=[application/json]}" onto public java.lang.String pe.joedayz.campus.rest.SecurityController.resetPassword(pe.joedayz.campus.dto.RecoverPasswordDto)
-09:33:21.010 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/cursoApi/temasDisponibles],methods=[GET],produces=[application/json]}" onto java.util.List<pe.joedayz.campus.dto.TemasCursoDto> pe.joedayz.campus.rest.curso.CursoApiController.find(java.lang.String)
-09:33:21.015 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/roleApi/search/find],methods=[GET],produces=[application/json]}" onto pe.joedayz.campus.dto.PageableResult pe.joedayz.campus.rest.role.RoleApiController.find(pe.joedayz.campus.dto.RoleFilterDto)
-09:33:21.016 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/roleApi/delete],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> pe.joedayz.campus.rest.role.RoleApiController.delete(pe.joedayz.campus.dto.RoleViewDto)
-09:33:21.018 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/roleApi/create],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> pe.joedayz.campus.rest.role.RoleApiController.create(pe.joedayz.campus.dto.RoleViewDto)
-09:33:21.021 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/userApi/search],methods=[GET],produces=[application/json]}" onto pe.joedayz.campus.dto.PageableResult pe.joedayz.campus.rest.security.UserApiController.find(pe.joedayz.campus.dto.UserFilterDto)
-09:33:21.022 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/userApi/cleanTemps],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Long> pe.joedayz.campus.rest.security.UserApiController.clean()
-09:33:21.023 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/userApi/create],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Long> pe.joedayz.campus.rest.security.UserApiController.save(pe.joedayz.campus.dto.UserDto)
-09:33:21.024 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/userApi/addRole],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<pe.joedayz.campus.dto.JsonResult> pe.joedayz.campus.rest.security.UserApiController.addRole(long,java.lang.String) throws java.lang.Exception
-09:33:21.025 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/userApi/updateProfile],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Long> pe.joedayz.campus.rest.security.UserApiController.updateProfile(pe.joedayz.campus.dto.UserDto)
-09:33:21.025 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/userApi/initTemps],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Long> pe.joedayz.campus.rest.security.UserApiController.initTemps(pe.joedayz.campus.dto.UserDto)
-09:33:21.026 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/userApi/searchRoles],methods=[GET],produces=[application/json]}" onto public pe.joedayz.campus.dto.PageableResult pe.joedayz.campus.rest.security.UserApiController.searchRoles()
-09:33:21.027 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/userApi/removeRole],methods=[POST],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<pe.joedayz.campus.dto.JsonResult> pe.joedayz.campus.rest.security.UserApiController.removeRole(long)
-09:33:21.029 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
-09:33:21.030 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
-09:33:21.100 [INFO ] [main] [SimpleUrlHandlerMapping:354] - Mapped URL path [/recover] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
-09:33:21.127 [INFO ] [main] [SimpleUrlHandlerMapping:354] - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-09:33:21.128 [INFO ] [main] [SimpleUrlHandlerMapping:354] - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-09:33:21.175 [INFO ] [main] [ExceptionHandlerExceptionResolver:269] - Detected @ExceptionHandler methods in adviceController
-09:33:21.268 [INFO ] [main] [SimpleUrlHandlerMapping:354] - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-09:33:21.938 [INFO ] [main] [AuthenticationManagerConfiguration:169] - 
-
-Using default security password: 10b22888-7cc3-406d-9834-e38a81693fe8
-
-09:33:21.948 [INFO ] [main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/css/**'], []
-09:33:21.948 [INFO ] [main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/js/**'], []
-09:33:21.948 [INFO ] [main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/images/**'], []
-09:33:21.949 [INFO ] [main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/webjars/**'], []
-09:33:21.949 [INFO ] [main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/**/favicon.ico'], []
-09:33:21.949 [INFO ] [main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/error'], []
-09:33:22.153 [INFO ] [main] [DefaultSecurityFilterChain:43] - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@37d3e140, org.springframework.security.web.context.SecurityContextPersistenceFilter@4652c74d, org.springframework.security.web.header.HeaderWriterFilter@72a8361b, org.springframework.security.web.authentication.logout.LogoutFilter@3c18942, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6b9c42bd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5ea7bc4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@785ed99c, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@33324c05, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3e53c4ad, org.springframework.security.web.session.SessionManagementFilter@c48b543, org.springframework.security.web.access.ExceptionTranslationFilter@44dfdd58, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5396eeb1]
-09:33:22.182 [INFO ] [main] [DefaultSecurityFilterChain:43] - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/**']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@45c80312, org.springframework.security.web.context.SecurityContextPersistenceFilter@50e5032c, org.springframework.security.web.header.HeaderWriterFilter@49c1e294, org.springframework.security.web.authentication.logout.LogoutFilter@4a22e4d7, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@16681017, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@545d2560, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@124eb83d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7bd38fed, org.springframework.security.web.session.SessionManagementFilter@7741ae1b, org.springframework.security.web.access.ExceptionTranslationFilter@703e8050, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7841bd30]
-09:33:22.442 [INFO ] [main] [AnnotationMBeanExporter:431] - Registering beans for JMX exposure on startup
-09:33:22.462 [INFO ] [main] [Http11NioProtocol:179] - Initializing ProtocolHandler ["http-nio-8080"]
-09:33:22.477 [INFO ] [main] [Http11NioProtocol:179] - Starting ProtocolHandler [http-nio-8080]
-09:33:22.494 [INFO ] [main] [NioSelectorPool:179] - Using a shared selector for servlet write/read
-09:33:22.523 [INFO ] [main] [TomcatEmbeddedServletContainer:186] - Tomcat started on port(s): 8080 (http)
-09:33:22.532 [INFO ] [main] [CampusApplication:57] - Started CampusApplication in 6.016 seconds (JVM running for 7.63)
-09:33:30.161 [INFO ] [http-nio-8080-exec-1] [[/]:179] - Initializing Spring FrameworkServlet 'dispatcherServlet'
-09:33:30.161 [INFO ] [http-nio-8080-exec-1] [DispatcherServlet:489] - FrameworkServlet 'dispatcherServlet': initialization started
-09:33:30.184 [INFO ] [http-nio-8080-exec-1] [DispatcherServlet:508] - FrameworkServlet 'dispatcherServlet': initialization completed in 23 ms
-09:33:32.980 [INFO ] [http-nio-8080-exec-6] [SecurityConfig:81] - Authentication process init for user joe
-09:33:33.064 [INFO ] [http-nio-8080-exec-6] [SecurityConfig:89] - User from databaseUserDto{id=135, login='null', firstName='Jose', lastName='Diaz Diaz', userName='joe', status='A'}
-09:33:33.180 [INFO ] [http-nio-8080-exec-7] [IndexController:62] - Is Remember me autenticated false 
-09:33:33.348 [INFO ] [http-nio-8080-exec-7] [IndexController:126] - Allowed modules: ModuleDto{name='Java', url='null', code='C1', permissionType='null', subModules=ModuleDto{name='Oracle Certified Java 6', url='curso.contenido.ocjp6', code='C18', permissionType='W', subModules=[]},ModuleDto{name='Java Associate 7 y 8', url='curso.contenido.javaasocciate78', code='C21', permissionType='W', subModules=[]},ModuleDto{name='Java 7', url='curso.contenido.java7', code='C25', permissionType='W', subModules=[]},ModuleDto{name='Java 8', url='curso.contenido.java8', code='C26', permissionType='W', subModules=[]}},ModuleDto{name='Java EE', url='null', code='C2', permissionType='null', subModules=ModuleDto{name='Spring Framework 2.0', url='curso.contenido.spring2', code='C13', permissionType='W', subModules=[]},ModuleDto{name='Spring Boot', url='curso.contenido.springboot1', code='C14', permissionType='W', subModules=[]},ModuleDto{name='Spring Framework 3.0 y 4.0', url='curso.contenido.spring34', code='C15', permissionType='W', subModules=[]},ModuleDto{name='Spring MVC 4', url='curso.contenido.springmvc4', code='C16', permissionType='W', subModules=[]},ModuleDto{name='Desarrollo de Servicios Web SOAP y REST con Java', url='curso.contenido.serviciosweb1', code='C17', permissionType='W', subModules=[]},ModuleDto{name='Mule ESB', url='curso.contenido.muleesb1', code='C19', permissionType='W', subModules=[]},ModuleDto{name='Introducción a Java Web', url='curso.contenido.introjavaweb', code='C20', permissionType='W', subModules=[]},ModuleDto{name='Vaadin 7', url='curso.contenido.vaadin', code='C23', permissionType='W', subModules=[]},ModuleDto{name='Hibernate', url='curso.contenido.hibernate', code='C27', permissionType='W', subModules=[]},ModuleDto{name='Mybatis', url='curso.contenido.mybatis', code='C28', permissionType='W', subModules=[]},ModuleDto{name='Desarrollo Web con Primefaces', url='curso.contenido.primefaces', code='C29', permissionType='W', subModules=[]},ModuleDto{name='Java EE 7', url='curso.contenido.javaee7', code='C30', permissionType='W', subModules=[]}},ModuleDto{name='Android', url='null', code='C3', permissionType='null', subModules=ModuleDto{name='Iniciando con Android', url='curso.contenido.introandroid', code='C34', permissionType='W', subModules=[]},ModuleDto{name='Almacenamiento de Datos con Android', url='curso.contenido.sqliteandroid', code='C35', permissionType='W', subModules=[]},ModuleDto{name='Integración con Servidores y Mapas', url='curso.contenido.mapasgpsandroid', code='C36', permissionType='W', subModules=[]},ModuleDto{name='Publiguia', url='curso.contenido.publiguiaandroid', code='C37', permissionType='W', subModules=[]}},ModuleDto{name='Devops', url='null', code='C4', permissionType='null', subModules=ModuleDto{name='Devops', url='curso.contenido.devops', code='C22', permissionType='W', subModules=[]}},ModuleDto{name='Ruby', url='null', code='C5', permissionType='null', subModules=ModuleDto{name='Introducción a Ruby on Rails', url='curso.contenido.introror', code='C24', permissionType='W', subModules=[]}},ModuleDto{name='Python', url='null', code='C6', permissionType='null', subModules=ModuleDto{name='Introducción a Python', url='curso.contenido.intropython', code='C31', permissionType='W', subModules=[]},ModuleDto{name='Python para Zombies', url='curso.contenido.pythonparazombies', code='C32', permissionType='W', subModules=[]}},ModuleDto{name='.NET', url='null', code='C7', permissionType='null', subModules=ModuleDto{name='ASP.NET MVC 3', url='curso.contenido.aspnetmvc3', code='C11', permissionType='W', subModules=[]},ModuleDto{name='Test Driven Development con .NET', url='curso.contenido.tddnet', code='C12', permissionType='W', subModules=[]}},ModuleDto{name='Frontend', url='null', code='C8', permissionType='null', subModules=ModuleDto{name='Angular JS', url='curso.contenido.angularjs1', code='C33', permissionType='W', subModules=[]}},ModuleDto{name='Seguridad', url='null', code='SE00', permissionType='null', subModules=ModuleDto{name='Roles', url='role.search', code='RL01', permissionType='W', subModules=[]}}
-09:33:43.094 [ERROR] [http-nio-8080-exec-1] [RestTemplateResponseErrorHandler:15] - Response error: 500 null
-09:34:58.249 [INFO ] [http-nio-8080-exec-3] [IndexController:62] - Is Remember me autenticated false 
-09:34:59.161 [INFO ] [http-nio-8080-exec-3] [IndexController:126] - Allowed modules: ModuleDto{name='Java', url='null', code='C1', permissionType='null', subModules=ModuleDto{name='Oracle Certified Java 6', url='curso.contenido.ocjp6', code='C18', permissionType='W', subModules=[]},ModuleDto{name='Java Associate 7 y 8', url='curso.contenido.javaasocciate78', code='C21', permissionType='W', subModules=[]},ModuleDto{name='Java 7', url='curso.contenido.java7', code='C25', permissionType='W', subModules=[]},ModuleDto{name='Java 8', url='curso.contenido.java8', code='C26', permissionType='W', subModules=[]}},ModuleDto{name='Java EE', url='null', code='C2', permissionType='null', subModules=ModuleDto{name='Spring Framework 2.0', url='curso.contenido.spring2', code='C13', permissionType='W', subModules=[]},ModuleDto{name='Spring Boot', url='curso.contenido.springboot1', code='C14', permissionType='W', subModules=[]},ModuleDto{name='Spring Framework 3.0 y 4.0', url='curso.contenido.spring34', code='C15', permissionType='W', subModules=[]},ModuleDto{name='Spring MVC 4', url='curso.contenido.springmvc4', code='C16', permissionType='W', subModules=[]},ModuleDto{name='Desarrollo de Servicios Web SOAP y REST con Java', url='curso.contenido.serviciosweb1', code='C17', permissionType='W', subModules=[]},ModuleDto{name='Mule ESB', url='curso.contenido.muleesb1', code='C19', permissionType='W', subModules=[]},ModuleDto{name='Introducción a Java Web', url='curso.contenido.introjavaweb', code='C20', permissionType='W', subModules=[]},ModuleDto{name='Vaadin 7', url='curso.contenido.vaadin', code='C23', permissionType='W', subModules=[]},ModuleDto{name='Hibernate', url='curso.contenido.hibernate', code='C27', permissionType='W', subModules=[]},ModuleDto{name='Mybatis', url='curso.contenido.mybatis', code='C28', permissionType='W', subModules=[]},ModuleDto{name='Desarrollo Web con Primefaces', url='curso.contenido.primefaces', code='C29', permissionType='W', subModules=[]},ModuleDto{name='Java EE 7', url='curso.contenido.javaee7', code='C30', permissionType='W', subModules=[]}},ModuleDto{name='Android', url='null', code='C3', permissionType='null', subModules=ModuleDto{name='Iniciando con Android', url='curso.contenido.introandroid', code='C34', permissionType='W', subModules=[]},ModuleDto{name='Almacenamiento de Datos con Android', url='curso.contenido.sqliteandroid', code='C35', permissionType='W', subModules=[]},ModuleDto{name='Integración con Servidores y Mapas', url='curso.contenido.mapasgpsandroid', code='C36', permissionType='W', subModules=[]},ModuleDto{name='Publiguia', url='curso.contenido.publiguiaandroid', code='C37', permissionType='W', subModules=[]}},ModuleDto{name='Devops', url='null', code='C4', permissionType='null', subModules=ModuleDto{name='Devops', url='curso.contenido.devops', code='C22', permissionType='W', subModules=[]}},ModuleDto{name='Ruby', url='null', code='C5', permissionType='null', subModules=ModuleDto{name='Introducción a Ruby on Rails', url='curso.contenido.introror', code='C24', permissionType='W', subModules=[]}},ModuleDto{name='Python', url='null', code='C6', permissionType='null', subModules=ModuleDto{name='Introducción a Python', url='curso.contenido.intropython', code='C31', permissionType='W', subModules=[]},ModuleDto{name='Python para Zombies', url='curso.contenido.pythonparazombies', code='C32', permissionType='W', subModules=[]}},ModuleDto{name='.NET', url='null', code='C7', permissionType='null', subModules=ModuleDto{name='ASP.NET MVC 3', url='curso.contenido.aspnetmvc3', code='C11', permissionType='W', subModules=[]},ModuleDto{name='Test Driven Development con .NET', url='curso.contenido.tddnet', code='C12', permissionType='W', subModules=[]}},ModuleDto{name='Frontend', url='null', code='C8', permissionType='null', subModules=ModuleDto{name='Angular JS', url='curso.contenido.angularjs1', code='C33', permissionType='W', subModules=[]}},ModuleDto{name='Seguridad', url='null', code='SE00', permissionType='null', subModules=ModuleDto{name='Roles', url='role.search', code='RL01', permissionType='W', subModules=[]}}
-09:36:35.119 [ERROR] [http-nio-8080-exec-2] [AdviceController:28] - I/O error on POST request for "http://localhost:8999/role/find/": Unexpected end of file from server; nested exception is java.net.SocketException: Unexpected end of file from server
-org.springframework.web.client.ResourceAccessException: I/O error on POST request for "http://localhost:8999/role/find/": Unexpected end of file from server; nested exception is java.net.SocketException: Unexpected end of file from server
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:633)
-	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:595)
-	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:516)
-	at pe.joedayz.campus.rest.BackendRestInvoker.sendPost(BackendRestInvoker.java:81)
-	at pe.joedayz.campus.rest.role.RoleApiController.find(RoleApiController.java:42)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:497)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:221)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:136)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:114)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:897)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:622)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:230)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:317)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:115)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:158)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:169)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:121)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:66)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:214)
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:177)
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:262)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
-	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:87)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
-	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:77)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:108)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:522)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:349)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:1110)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:785)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1425)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: java.net.SocketException: Unexpected end of file from server
-	at sun.net.www.http.HttpClient.parseHTTPHeader(HttpClient.java:792)
-	at sun.net.www.http.HttpClient.parseHTTP(HttpClient.java:647)
-	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1536)
-	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1441)
-	at java.net.HttpURLConnection.getResponseCode(HttpURLConnection.java:480)
-	at org.springframework.http.client.SimpleClientHttpResponse.getRawStatusCode(SimpleClientHttpResponse.java:52)
-	at org.springframework.http.client.AbstractClientHttpResponse.getStatusCode(AbstractClientHttpResponse.java:33)
-	at pe.joedayz.campus.util.RestTemplateResponseErrorHandler.hasError(RestTemplateResponseErrorHandler.java:20)
-	at org.springframework.web.client.RestTemplate.handleResponse(RestTemplate.java:655)
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:620)
-	... 92 common frames omitted
-09:37:40.014 [INFO ] [http-nio-8080-exec-10] [IndexController:62] - Is Remember me autenticated false 
-09:37:41.153 [INFO ] [http-nio-8080-exec-10] [IndexController:126] - Allowed modules: ModuleDto{name='Java', url='null', code='C1', permissionType='null', subModules=ModuleDto{name='Oracle Certified Java 6', url='curso.contenido.ocjp6', code='C18', permissionType='W', subModules=[]},ModuleDto{name='Java Associate 7 y 8', url='curso.contenido.javaasocciate78', code='C21', permissionType='W', subModules=[]},ModuleDto{name='Java 7', url='curso.contenido.java7', code='C25', permissionType='W', subModules=[]},ModuleDto{name='Java 8', url='curso.contenido.java8', code='C26', permissionType='W', subModules=[]}},ModuleDto{name='Java EE', url='null', code='C2', permissionType='null', subModules=ModuleDto{name='Spring Framework 2.0', url='curso.contenido.spring2', code='C13', permissionType='W', subModules=[]},ModuleDto{name='Spring Boot', url='curso.contenido.springboot1', code='C14', permissionType='W', subModules=[]},ModuleDto{name='Spring Framework 3.0 y 4.0', url='curso.contenido.spring34', code='C15', permissionType='W', subModules=[]},ModuleDto{name='Spring MVC 4', url='curso.contenido.springmvc4', code='C16', permissionType='W', subModules=[]},ModuleDto{name='Desarrollo de Servicios Web SOAP y REST con Java', url='curso.contenido.serviciosweb1', code='C17', permissionType='W', subModules=[]},ModuleDto{name='Mule ESB', url='curso.contenido.muleesb1', code='C19', permissionType='W', subModules=[]},ModuleDto{name='Introducción a Java Web', url='curso.contenido.introjavaweb', code='C20', permissionType='W', subModules=[]},ModuleDto{name='Vaadin 7', url='curso.contenido.vaadin', code='C23', permissionType='W', subModules=[]},ModuleDto{name='Hibernate', url='curso.contenido.hibernate', code='C27', permissionType='W', subModules=[]},ModuleDto{name='Mybatis', url='curso.contenido.mybatis', code='C28', permissionType='W', subModules=[]},ModuleDto{name='Desarrollo Web con Primefaces', url='curso.contenido.primefaces', code='C29', permissionType='W', subModules=[]},ModuleDto{name='Java EE 7', url='curso.contenido.javaee7', code='C30', permissionType='W', subModules=[]}},ModuleDto{name='Android', url='null', code='C3', permissionType='null', subModules=ModuleDto{name='Iniciando con Android', url='curso.contenido.introandroid', code='C34', permissionType='W', subModules=[]},ModuleDto{name='Almacenamiento de Datos con Android', url='curso.contenido.sqliteandroid', code='C35', permissionType='W', subModules=[]},ModuleDto{name='Integración con Servidores y Mapas', url='curso.contenido.mapasgpsandroid', code='C36', permissionType='W', subModules=[]},ModuleDto{name='Publiguia', url='curso.contenido.publiguiaandroid', code='C37', permissionType='W', subModules=[]}},ModuleDto{name='Devops', url='null', code='C4', permissionType='null', subModules=ModuleDto{name='Devops', url='curso.contenido.devops', code='C22', permissionType='W', subModules=[]}},ModuleDto{name='Ruby', url='null', code='C5', permissionType='null', subModules=ModuleDto{name='Introducción a Ruby on Rails', url='curso.contenido.introror', code='C24', permissionType='W', subModules=[]}},ModuleDto{name='Python', url='null', code='C6', permissionType='null', subModules=ModuleDto{name='Introducción a Python', url='curso.contenido.intropython', code='C31', permissionType='W', subModules=[]},ModuleDto{name='Python para Zombies', url='curso.contenido.pythonparazombies', code='C32', permissionType='W', subModules=[]}},ModuleDto{name='.NET', url='null', code='C7', permissionType='null', subModules=ModuleDto{name='ASP.NET MVC 3', url='curso.contenido.aspnetmvc3', code='C11', permissionType='W', subModules=[]},ModuleDto{name='Test Driven Development con .NET', url='curso.contenido.tddnet', code='C12', permissionType='W', subModules=[]}},ModuleDto{name='Frontend', url='null', code='C8', permissionType='null', subModules=ModuleDto{name='Angular JS', url='curso.contenido.angularjs1', code='C33', permissionType='W', subModules=[]}},ModuleDto{name='Seguridad', url='null', code='SE00', permissionType='null', subModules=ModuleDto{name='Roles', url='role.search', code='RL01', permissionType='W', subModules=[]}}
-09:45:36.206 [ERROR] [http-nio-8080-exec-1] [AdviceController:28] - I/O error on POST request for "http://localhost:8999/role/find/": Unexpected end of file from server; nested exception is java.net.SocketException: Unexpected end of file from server
-org.springframework.web.client.ResourceAccessException: I/O error on POST request for "http://localhost:8999/role/find/": Unexpected end of file from server; nested exception is java.net.SocketException: Unexpected end of file from server
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:633)
-	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:595)
-	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:516)
-	at pe.joedayz.campus.rest.BackendRestInvoker.sendPost(BackendRestInvoker.java:81)
-	at pe.joedayz.campus.rest.role.RoleApiController.find(RoleApiController.java:42)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:497)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:221)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:136)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:114)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:897)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:622)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:230)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:317)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:115)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:158)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:169)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:121)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:66)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:214)
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:177)
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:262)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
-	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:87)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
-	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:77)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:108)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:522)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:349)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:1110)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:785)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1425)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: java.net.SocketException: Unexpected end of file from server
-	at sun.net.www.http.HttpClient.parseHTTPHeader(HttpClient.java:792)
-	at sun.net.www.http.HttpClient.parseHTTP(HttpClient.java:647)
-	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1536)
-	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1441)
-	at java.net.HttpURLConnection.getResponseCode(HttpURLConnection.java:480)
-	at org.springframework.http.client.SimpleClientHttpResponse.getRawStatusCode(SimpleClientHttpResponse.java:52)
-	at org.springframework.http.client.AbstractClientHttpResponse.getStatusCode(AbstractClientHttpResponse.java:33)
-	at pe.joedayz.campus.util.RestTemplateResponseErrorHandler.hasError(RestTemplateResponseErrorHandler.java:20)
-	at org.springframework.web.client.RestTemplate.handleResponse(RestTemplate.java:655)
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:620)
-	... 92 common frames omitted
-09:50:04.778 [INFO ] [http-nio-8080-exec-2] [IndexController:62] - Is Remember me autenticated false 
-09:50:05.845 [INFO ] [http-nio-8080-exec-2] [IndexController:126] - Allowed modules: ModuleDto{name='Java', url='null', code='C1', permissionType='null', subModules=ModuleDto{name='Oracle Certified Java 6', url='curso.contenido.ocjp6', code='C18', permissionType='W', subModules=[]},ModuleDto{name='Java Associate 7 y 8', url='curso.contenido.javaasocciate78', code='C21', permissionType='W', subModules=[]},ModuleDto{name='Java 7', url='curso.contenido.java7', code='C25', permissionType='W', subModules=[]},ModuleDto{name='Java 8', url='curso.contenido.java8', code='C26', permissionType='W', subModules=[]}},ModuleDto{name='Java EE', url='null', code='C2', permissionType='null', subModules=ModuleDto{name='Spring Framework 2.0', url='curso.contenido.spring2', code='C13', permissionType='W', subModules=[]},ModuleDto{name='Spring Boot', url='curso.contenido.springboot1', code='C14', permissionType='W', subModules=[]},ModuleDto{name='Spring Framework 3.0 y 4.0', url='curso.contenido.spring34', code='C15', permissionType='W', subModules=[]},ModuleDto{name='Spring MVC 4', url='curso.contenido.springmvc4', code='C16', permissionType='W', subModules=[]},ModuleDto{name='Desarrollo de Servicios Web SOAP y REST con Java', url='curso.contenido.serviciosweb1', code='C17', permissionType='W', subModules=[]},ModuleDto{name='Mule ESB', url='curso.contenido.muleesb1', code='C19', permissionType='W', subModules=[]},ModuleDto{name='Introducción a Java Web', url='curso.contenido.introjavaweb', code='C20', permissionType='W', subModules=[]},ModuleDto{name='Vaadin 7', url='curso.contenido.vaadin', code='C23', permissionType='W', subModules=[]},ModuleDto{name='Hibernate', url='curso.contenido.hibernate', code='C27', permissionType='W', subModules=[]},ModuleDto{name='Mybatis', url='curso.contenido.mybatis', code='C28', permissionType='W', subModules=[]},ModuleDto{name='Desarrollo Web con Primefaces', url='curso.contenido.primefaces', code='C29', permissionType='W', subModules=[]},ModuleDto{name='Java EE 7', url='curso.contenido.javaee7', code='C30', permissionType='W', subModules=[]}},ModuleDto{name='Android', url='null', code='C3', permissionType='null', subModules=ModuleDto{name='Iniciando con Android', url='curso.contenido.introandroid', code='C34', permissionType='W', subModules=[]},ModuleDto{name='Almacenamiento de Datos con Android', url='curso.contenido.sqliteandroid', code='C35', permissionType='W', subModules=[]},ModuleDto{name='Integración con Servidores y Mapas', url='curso.contenido.mapasgpsandroid', code='C36', permissionType='W', subModules=[]},ModuleDto{name='Publiguia', url='curso.contenido.publiguiaandroid', code='C37', permissionType='W', subModules=[]}},ModuleDto{name='Devops', url='null', code='C4', permissionType='null', subModules=ModuleDto{name='Devops', url='curso.contenido.devops', code='C22', permissionType='W', subModules=[]}},ModuleDto{name='Ruby', url='null', code='C5', permissionType='null', subModules=ModuleDto{name='Introducción a Ruby on Rails', url='curso.contenido.introror', code='C24', permissionType='W', subModules=[]}},ModuleDto{name='Python', url='null', code='C6', permissionType='null', subModules=ModuleDto{name='Introducción a Python', url='curso.contenido.intropython', code='C31', permissionType='W', subModules=[]},ModuleDto{name='Python para Zombies', url='curso.contenido.pythonparazombies', code='C32', permissionType='W', subModules=[]}},ModuleDto{name='.NET', url='null', code='C7', permissionType='null', subModules=ModuleDto{name='ASP.NET MVC 3', url='curso.contenido.aspnetmvc3', code='C11', permissionType='W', subModules=[]},ModuleDto{name='Test Driven Development con .NET', url='curso.contenido.tddnet', code='C12', permissionType='W', subModules=[]}},ModuleDto{name='Frontend', url='null', code='C8', permissionType='null', subModules=ModuleDto{name='Angular JS', url='curso.contenido.angularjs1', code='C33', permissionType='W', subModules=[]}},ModuleDto{name='Seguridad', url='null', code='SE00', permissionType='null', subModules=ModuleDto{name='Roles', url='role.search', code='RL01', permissionType='W', subModules=[]}}
-09:51:09.842 [INFO ] [http-nio-8080-exec-4] [RoleController:63] - --- role :edit::start ---
-09:51:10.100 [ERROR] [http-nio-8080-exec-4] [RestTemplateResponseErrorHandler:15] - Response error: 500 null
-09:51:10.111 [ERROR] [http-nio-8080-exec-4] [AdviceController:28] - null
-java.lang.NullPointerException: null
-	at pe.joedayz.campus.controller.role.RoleController.roleEdit(RoleController.java:71)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:497)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:221)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:136)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:114)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:897)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:622)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:230)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:317)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:115)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:158)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:169)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:121)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:66)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:214)
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:177)
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:262)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
-	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:87)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
-	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:77)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:108)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:522)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:349)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:1110)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:785)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1425)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.lang.Thread.run(Thread.java:745)
-09:51:10.115 [ERROR] [http-nio-8080-exec-4] [[dispatcherServlet]:181] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
-java.lang.NullPointerException: null
-	at pe.joedayz.campus.controller.role.RoleController.roleEdit(RoleController.java:71)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:497)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:221)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:136)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:114)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:897)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:622)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:230)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:317)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:115)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:158)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:169)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:121)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:66)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:214)
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:177)
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:262)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
-	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:87)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
-	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:77)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:108)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:522)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:349)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:1110)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:785)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1425)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.lang.Thread.run(Thread.java:745)
-09:52:20.194 [INFO ] [http-nio-8080-exec-1] [RoleController:63] - --- role :edit::start ---
-09:55:02.250 [ERROR] [http-nio-8080-exec-1] [AdviceController:28] - I/O error on GET request for "http://localhost:8999/role/find/6": Connection refused; nested exception is java.net.ConnectException: Connection refused
-org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8999/role/find/6": Connection refused; nested exception is java.net.ConnectException: Connection refused
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:633)
-	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:595)
-	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:516)
-	at pe.joedayz.campus.rest.BackendRestInvoker.sendGet(BackendRestInvoker.java:149)
-	at pe.joedayz.campus.service.impl.RoleServiceImpl.find(RoleServiceImpl.java:32)
-	at pe.joedayz.campus.controller.role.RoleController.roleEdit(RoleController.java:67)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:497)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:221)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:136)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:114)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:897)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:622)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:230)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:317)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:115)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:158)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:169)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:121)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:66)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:214)
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:177)
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:262)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
-	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:87)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
-	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:77)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:108)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:522)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:349)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:1110)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:785)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1425)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: java.net.ConnectException: Connection refused
-	at java.net.PlainSocketImpl.socketConnect(Native Method)
-	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
-	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
-	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
-	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
-	at java.net.Socket.connect(Socket.java:589)
-	at java.net.Socket.connect(Socket.java:538)
-	at sun.net.NetworkClient.doConnect(NetworkClient.java:180)
-	at sun.net.www.http.HttpClient.openServer(HttpClient.java:432)
-	at sun.net.www.http.HttpClient.openServer(HttpClient.java:527)
-	at sun.net.www.http.HttpClient.parseHTTPHeader(HttpClient.java:781)
-	at sun.net.www.http.HttpClient.parseHTTP(HttpClient.java:647)
-	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1536)
-	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1441)
-	at java.net.HttpURLConnection.getResponseCode(HttpURLConnection.java:480)
-	at org.springframework.http.client.SimpleBufferingClientHttpRequest.executeInternal(SimpleBufferingClientHttpRequest.java:84)
-	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
-	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:53)
-	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:93)
-	at pe.joedayz.campus.security.HttpRequestInterceptor.intercept(HttpRequestInterceptor.java:35)
-	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:85)
-	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:69)
-	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
-	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:53)
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:619)
-	... 93 common frames omitted
-09:55:38.565 [INFO ] [http-nio-8080-exec-5] [IndexController:62] - Is Remember me autenticated false 
-09:55:39.406 [INFO ] [http-nio-8080-exec-5] [IndexController:126] - Allowed modules: ModuleDto{name='Java', url='null', code='C1', permissionType='null', subModules=ModuleDto{name='Oracle Certified Java 6', url='curso.contenido.ocjp6', code='C18', permissionType='W', subModules=[]},ModuleDto{name='Java Associate 7 y 8', url='curso.contenido.javaasocciate78', code='C21', permissionType='W', subModules=[]},ModuleDto{name='Java 7', url='curso.contenido.java7', code='C25', permissionType='W', subModules=[]},ModuleDto{name='Java 8', url='curso.contenido.java8', code='C26', permissionType='W', subModules=[]}},ModuleDto{name='Java EE', url='null', code='C2', permissionType='null', subModules=ModuleDto{name='Spring Framework 2.0', url='curso.contenido.spring2', code='C13', permissionType='W', subModules=[]},ModuleDto{name='Spring Boot', url='curso.contenido.springboot1', code='C14', permissionType='W', subModules=[]},ModuleDto{name='Spring Framework 3.0 y 4.0', url='curso.contenido.spring34', code='C15', permissionType='W', subModules=[]},ModuleDto{name='Spring MVC 4', url='curso.contenido.springmvc4', code='C16', permissionType='W', subModules=[]},ModuleDto{name='Desarrollo de Servicios Web SOAP y REST con Java', url='curso.contenido.serviciosweb1', code='C17', permissionType='W', subModules=[]},ModuleDto{name='Mule ESB', url='curso.contenido.muleesb1', code='C19', permissionType='W', subModules=[]},ModuleDto{name='Introducción a Java Web', url='curso.contenido.introjavaweb', code='C20', permissionType='W', subModules=[]},ModuleDto{name='Vaadin 7', url='curso.contenido.vaadin', code='C23', permissionType='W', subModules=[]},ModuleDto{name='Hibernate', url='curso.contenido.hibernate', code='C27', permissionType='W', subModules=[]},ModuleDto{name='Mybatis', url='curso.contenido.mybatis', code='C28', permissionType='W', subModules=[]},ModuleDto{name='Desarrollo Web con Primefaces', url='curso.contenido.primefaces', code='C29', permissionType='W', subModules=[]},ModuleDto{name='Java EE 7', url='curso.contenido.javaee7', code='C30', permissionType='W', subModules=[]}},ModuleDto{name='Android', url='null', code='C3', permissionType='null', subModules=ModuleDto{name='Iniciando con Android', url='curso.contenido.introandroid', code='C34', permissionType='W', subModules=[]},ModuleDto{name='Almacenamiento de Datos con Android', url='curso.contenido.sqliteandroid', code='C35', permissionType='W', subModules=[]},ModuleDto{name='Integración con Servidores y Mapas', url='curso.contenido.mapasgpsandroid', code='C36', permissionType='W', subModules=[]},ModuleDto{name='Publiguia', url='curso.contenido.publiguiaandroid', code='C37', permissionType='W', subModules=[]}},ModuleDto{name='Devops', url='null', code='C4', permissionType='null', subModules=ModuleDto{name='Devops', url='curso.contenido.devops', code='C22', permissionType='W', subModules=[]}},ModuleDto{name='Ruby', url='null', code='C5', permissionType='null', subModules=ModuleDto{name='Introducción a Ruby on Rails', url='curso.contenido.introror', code='C24', permissionType='W', subModules=[]}},ModuleDto{name='Python', url='null', code='C6', permissionType='null', subModules=ModuleDto{name='Introducción a Python', url='curso.contenido.intropython', code='C31', permissionType='W', subModules=[]},ModuleDto{name='Python para Zombies', url='curso.contenido.pythonparazombies', code='C32', permissionType='W', subModules=[]}},ModuleDto{name='.NET', url='null', code='C7', permissionType='null', subModules=ModuleDto{name='ASP.NET MVC 3', url='curso.contenido.aspnetmvc3', code='C11', permissionType='W', subModules=[]},ModuleDto{name='Test Driven Development con .NET', url='curso.contenido.tddnet', code='C12', permissionType='W', subModules=[]}},ModuleDto{name='Frontend', url='null', code='C8', permissionType='null', subModules=ModuleDto{name='Angular JS', url='curso.contenido.angularjs1', code='C33', permissionType='W', subModules=[]}},ModuleDto{name='Seguridad', url='null', code='SE00', permissionType='null', subModules=ModuleDto{name='Roles', url='role.search', code='RL01', permissionType='W', subModules=[]}}
-09:55:49.308 [INFO ] [http-nio-8080-exec-9] [RoleController:63] - --- role :edit::start ---
-09:55:49.690 [INFO ] [http-nio-8080-exec-9] [RoleController:83] - --- role:edit::finish ---
-09:56:47.552 [INFO ] [http-nio-8080-exec-5] [RoleController:63] - --- role :edit::start ---
-09:56:47.918 [INFO ] [http-nio-8080-exec-5] [RoleController:83] - --- role:edit::finish ---
-10:00:02.179 [INFO ] [RMI TCP Connection(36)-192.168.1.36] [SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin:125] - Application shutdown requested.
-10:00:02.179 [INFO ] [RMI TCP Connection(36)-192.168.1.36] [AnnotationConfigEmbeddedWebApplicationContext:982] - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@665e9289: startup date [Sat Nov 05 09:33:17 PET 2016]; root of context hierarchy
-10:00:02.182 [INFO ] [RMI TCP Connection(36)-192.168.1.36] [AnnotationMBeanExporter:449] - Unregistering JMX-exposed beans on shutdown
-10:01:23.672 [INFO ] [main] [CampusApplication:48] - Starting CampusApplication on Joses-MacBook-Pro.local with PID 18446 (/Users/josediaz/Projects/campusfrontend/bin started by josediaz in /Users/josediaz/Projects/campusfrontend)
-10:01:23.676 [DEBUG] [main] [CampusApplication:51] - Running with Spring Boot v1.4.0.RELEASE, Spring v4.3.2.RELEASE
-10:01:23.676 [INFO ] [main] [CampusApplication:659] - No active profile set, falling back to default profiles: default
-10:01:23.999 [INFO ] [background-preinit] [Version:30] - HV000001: Hibernate Validator 5.2.4.Final
-10:01:24.107 [INFO ] [main] [AnnotationConfigEmbeddedWebApplicationContext:581] - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@22ef9844: startup date [Sat Nov 05 10:01:24 PET 2016]; root of context hierarchy
-10:01:25.466 [INFO ] [main] [PostProcessorRegistrationDelegate$BeanPostProcessorChecker:328] - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3e693d3] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-10:01:25.980 [INFO ] [main] [TomcatEmbeddedServletContainer:88] - Tomcat initialized with port(s): 8080 (http)
-10:01:25.996 [INFO ] [main] [StandardService:179] - Starting service Tomcat
-10:01:25.997 [INFO ] [main] [StandardEngine:179] - Starting Servlet Engine: Apache Tomcat/8.5.4
-10:01:26.094 [INFO ] [localhost-startStop-1] [[/]:179] - Initializing Spring embedded WebApplicationContext
-10:01:26.094 [INFO ] [localhost-startStop-1] [ContextLoader:276] - Root WebApplicationContext: initialization completed in 1987 ms
-10:01:26.344 [INFO ] [localhost-startStop-1] [FilterRegistrationBean:258] - Mapping filter: 'characterEncodingFilter' to: [/*]
-10:01:26.345 [INFO ] [localhost-startStop-1] [FilterRegistrationBean:258] - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
-10:01:26.346 [INFO ] [localhost-startStop-1] [FilterRegistrationBean:258] - Mapping filter: 'httpPutFormContentFilter' to: [/*]
-10:01:26.346 [INFO ] [localhost-startStop-1] [FilterRegistrationBean:258] - Mapping filter: 'requestContextFilter' to: [/*]
-10:01:26.347 [INFO ] [localhost-startStop-1] [DelegatingFilterProxyRegistrationBean:258] - Mapping filter: 'springSecurityFilterChain' to: [/*]
-10:01:26.349 [INFO ] [localhost-startStop-1] [ServletRegistrationBean:190] - Mapping servlet: 'dispatcherServlet' to [/]
-10:01:26.920 [INFO ] [main] [RequestMappingHandlerAdapter:534] - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@22ef9844: startup date [Sat Nov 05 10:01:24 PET 2016]; root of context hierarchy
-10:01:26.991 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.IndexController.index()
-10:01:26.994 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/kendo/index]}" onto java.lang.String pe.joedayz.campus.controller.KendoController.index()
-10:01:26.994 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/kendo/grid]}" onto java.lang.String pe.joedayz.campus.controller.KendoController.grid()
-10:01:26.995 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/login]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.LoginController.index()
-10:01:26.996 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/main/index]}" onto java.lang.String pe.joedayz.campus.controller.MainController.index()
-10:01:26.998 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/minor/index]}" onto java.lang.String pe.joedayz.campus.controller.MinorController.index()
-10:01:26.999 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/ping/poke]}" onto public org.springframework.http.ResponseEntity<java.lang.String> pe.joedayz.campus.controller.PingController.poke()
-10:01:27.000 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/reset-password]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.ResetPasswordController.index()
-10:01:27.002 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/curso/novedades]}" onto public org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.curso.CursoController.novedades() throws java.lang.Exception
-10:01:27.002 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/curso/contenido/{key}]}" onto public org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.curso.CursoController.contenido(java.lang.String) throws java.lang.Exception
-10:01:27.005 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/role/search]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.role.RoleController.index() throws java.lang.Exception
-10:01:27.005 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/role/new]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.role.RoleController.create() throws com.fasterxml.jackson.core.JsonProcessingException
-10:01:27.005 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/role/edit]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.role.RoleController.roleEdit(java.lang.Long) throws java.lang.Exception
-10:01:27.013 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/user/search]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.security.UserController.index() throws java.lang.Exception
-10:01:27.014 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/user/new]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.security.UserController.init() throws java.lang.Exception
-10:01:27.014 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/user/edit]}" onto public org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.security.UserController.edit(java.lang.Long) throws com.fasterxml.jackson.core.JsonProcessingException
-10:01:27.015 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/user/profile]}" onto public org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.security.UserController.editProfile() throws com.fasterxml.jackson.core.JsonProcessingException
-10:01:27.015 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/user/find],methods=[GET],produces=[application/json]}" onto public pe.joedayz.campus.dto.UserDto pe.joedayz.campus.controller.security.UserController.findByUsername(java.lang.String)
-10:01:27.015 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/user/find/autocomplete/pricinganalyst],methods=[GET],produces=[application/json]}" onto public java.util.List<pe.joedayz.campus.dto.UserViewDto> pe.joedayz.campus.controller.security.UserController.findPricingAnaLystOld(java.lang.String)
-10:01:27.015 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/user/find/autocompletePricingAnalyst],methods=[GET],produces=[application/json]}" onto public java.util.List<pe.joedayz.campus.dto.UserViewDto> pe.joedayz.campus.controller.security.UserController.findPricingAnalyst(java.lang.String)
-10:01:27.016 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/user/find/autocomplete/commercialaccount],methods=[GET],produces=[application/json]}" onto public java.util.List<pe.joedayz.campus.dto.UserDto> pe.joedayz.campus.controller.security.UserController.findCommercialAccount(java.lang.String)
-10:01:27.016 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/user/find/autocomplete/commercialrep],methods=[GET],produces=[application/json]}" onto public java.util.List<pe.joedayz.campus.dto.UserDto> pe.joedayz.campus.controller.security.UserController.findCommercialRep(java.lang.String)
-10:01:27.017 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/backend/post/**],methods=[POST],produces=[application/json]}" onto public java.lang.String pe.joedayz.campus.rest.BackendController.mirrorRest(java.lang.String,org.springframework.http.HttpMethod,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.net.URISyntaxException
-10:01:27.017 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/backend/get/**],produces=[application/json]}" onto public java.lang.String pe.joedayz.campus.rest.BackendController.mirrorRest(org.springframework.http.HttpMethod,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.net.URISyntaxException
-10:01:27.019 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/generalTable/search/find],methods=[GET],produces=[application/json]}" onto pe.joedayz.campus.dto.PageableResult pe.joedayz.campus.rest.GeneralTableController.find(pe.joedayz.campus.dto.GeneralTableFilterDto)
-10:01:27.019 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/generalTable/search]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.rest.GeneralTableController.search() throws java.lang.Exception
-10:01:27.019 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/generalTable/view]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.rest.GeneralTableController.view(java.lang.Long) throws com.fasterxml.jackson.core.JsonProcessingException
-10:01:27.020 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/generalTable/new]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.rest.GeneralTableController.newGeneralTable() throws com.fasterxml.jackson.core.JsonProcessingException
-10:01:27.021 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/module/search/find],methods=[GET],produces=[application/json]}" onto pe.joedayz.campus.dto.PageableResult pe.joedayz.campus.rest.ModuleController.find(pe.joedayz.campus.dto.ModuleFilterDto)
-10:01:27.022 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/module/search]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.rest.ModuleController.search() throws java.lang.Exception
-10:01:27.022 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/module/view]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.rest.ModuleController.view(java.lang.Long) throws java.lang.Exception
-10:01:27.023 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/parameter/search/find],methods=[GET],produces=[application/json]}" onto pe.joedayz.campus.dto.PageableResult pe.joedayz.campus.rest.ParameterController.find(pe.joedayz.campus.dto.ParameterFilterDto)
-10:01:27.024 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/parameter/search]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.rest.ParameterController.search() throws java.lang.Exception
-10:01:27.024 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/parameter/view]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.rest.ParameterController.view(java.lang.Long) throws java.lang.Exception
-10:01:27.025 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/parameter/find/autocomplete],methods=[GET],produces=[application/json]}" onto public java.util.List<pe.joedayz.campus.dto.ParameterDto> pe.joedayz.campus.rest.ParameterController.findParameters(java.lang.String)
-10:01:27.026 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/security/recover],methods=[POST],produces=[application/json]}" onto public java.lang.String pe.joedayz.campus.rest.SecurityController.requestResetPassword(java.lang.String)
-10:01:27.026 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/security/reset-password],methods=[POST],produces=[application/json]}" onto public java.lang.String pe.joedayz.campus.rest.SecurityController.resetPassword(pe.joedayz.campus.dto.RecoverPasswordDto)
-10:01:27.028 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/cursoApi/temasDisponibles],methods=[GET],produces=[application/json]}" onto java.util.List<pe.joedayz.campus.dto.TemasCursoDto> pe.joedayz.campus.rest.curso.CursoApiController.find(java.lang.String)
-10:01:27.030 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/roleApi/search/find],methods=[GET],produces=[application/json]}" onto pe.joedayz.campus.dto.PageableResult pe.joedayz.campus.rest.role.RoleApiController.find(pe.joedayz.campus.dto.RoleFilterDto)
-10:01:27.030 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/roleApi/delete],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> pe.joedayz.campus.rest.role.RoleApiController.delete(pe.joedayz.campus.dto.RoleViewDto)
-10:01:27.031 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/roleApi/create],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> pe.joedayz.campus.rest.role.RoleApiController.create(pe.joedayz.campus.dto.RoleViewDto)
-10:01:27.033 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/userApi/search],methods=[GET],produces=[application/json]}" onto pe.joedayz.campus.dto.PageableResult pe.joedayz.campus.rest.security.UserApiController.find(pe.joedayz.campus.dto.UserFilterDto)
-10:01:27.034 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/userApi/cleanTemps],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Long> pe.joedayz.campus.rest.security.UserApiController.clean()
-10:01:27.035 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/userApi/create],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Long> pe.joedayz.campus.rest.security.UserApiController.save(pe.joedayz.campus.dto.UserDto)
-10:01:27.035 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/userApi/addRole],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<pe.joedayz.campus.dto.JsonResult> pe.joedayz.campus.rest.security.UserApiController.addRole(long,java.lang.String) throws java.lang.Exception
-10:01:27.036 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/userApi/updateProfile],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Long> pe.joedayz.campus.rest.security.UserApiController.updateProfile(pe.joedayz.campus.dto.UserDto)
-10:01:27.037 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/userApi/initTemps],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Long> pe.joedayz.campus.rest.security.UserApiController.initTemps(pe.joedayz.campus.dto.UserDto)
-10:01:27.037 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/userApi/searchRoles],methods=[GET],produces=[application/json]}" onto public pe.joedayz.campus.dto.PageableResult pe.joedayz.campus.rest.security.UserApiController.searchRoles()
-10:01:27.038 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/userApi/removeRole],methods=[POST],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<pe.joedayz.campus.dto.JsonResult> pe.joedayz.campus.rest.security.UserApiController.removeRole(long)
-10:01:27.040 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
-10:01:27.040 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
-10:01:27.062 [INFO ] [main] [SimpleUrlHandlerMapping:354] - Mapped URL path [/recover] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
-10:01:27.081 [INFO ] [main] [SimpleUrlHandlerMapping:354] - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-10:01:27.082 [INFO ] [main] [SimpleUrlHandlerMapping:354] - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-10:01:27.112 [INFO ] [main] [ExceptionHandlerExceptionResolver:269] - Detected @ExceptionHandler methods in adviceController
-10:01:27.140 [INFO ] [main] [SimpleUrlHandlerMapping:354] - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-10:01:27.846 [INFO ] [main] [AuthenticationManagerConfiguration:169] - 
-
-Using default security password: 4b956cd6-a8ee-4c56-9381-ef0d5c662a45
-
-10:01:27.859 [INFO ] [main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/css/**'], []
-10:01:27.859 [INFO ] [main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/js/**'], []
-10:01:27.860 [INFO ] [main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/images/**'], []
-10:01:27.860 [INFO ] [main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/webjars/**'], []
-10:01:27.860 [INFO ] [main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/**/favicon.ico'], []
-10:01:27.860 [INFO ] [main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/error'], []
-10:01:28.012 [INFO ] [main] [DefaultSecurityFilterChain:43] - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@18f55704, org.springframework.security.web.context.SecurityContextPersistenceFilter@4b0b64cc, org.springframework.security.web.header.HeaderWriterFilter@313f8301, org.springframework.security.web.authentication.logout.LogoutFilter@6b6b3572, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@d5556bf, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4860827a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3662bdff, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@3ac3f6f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@67cefd84, org.springframework.security.web.session.SessionManagementFilter@7c2dfa2, org.springframework.security.web.access.ExceptionTranslationFilter@7c601d50, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@49c17ba4]
-10:01:28.048 [INFO ] [main] [DefaultSecurityFilterChain:43] - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/**']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6015a4a5, org.springframework.security.web.context.SecurityContextPersistenceFilter@61ecbee9, org.springframework.security.web.header.HeaderWriterFilter@7c72ecc, org.springframework.security.web.authentication.logout.LogoutFilter@44784e2f, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@2440022a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1bb740f2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2538bc06, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6d0b0da6, org.springframework.security.web.session.SessionManagementFilter@47406941, org.springframework.security.web.access.ExceptionTranslationFilter@29fa6b65, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7e72a6cc]
-10:01:28.237 [INFO ] [main] [AnnotationMBeanExporter:431] - Registering beans for JMX exposure on startup
-10:01:28.265 [INFO ] [main] [Http11NioProtocol:179] - Initializing ProtocolHandler ["http-nio-8080"]
-10:01:28.282 [INFO ] [main] [Http11NioProtocol:179] - Starting ProtocolHandler [http-nio-8080]
-10:01:28.320 [INFO ] [main] [NioSelectorPool:179] - Using a shared selector for servlet write/read
-10:01:28.336 [INFO ] [main] [TomcatEmbeddedServletContainer:186] - Tomcat started on port(s): 8080 (http)
-10:01:28.347 [INFO ] [main] [CampusApplication:57] - Started CampusApplication in 5.238 seconds (JVM running for 6.018)
-10:02:00.717 [INFO ] [http-nio-8080-exec-1] [[/]:179] - Initializing Spring FrameworkServlet 'dispatcherServlet'
-10:02:00.717 [INFO ] [http-nio-8080-exec-1] [DispatcherServlet:489] - FrameworkServlet 'dispatcherServlet': initialization started
-10:02:00.740 [INFO ] [http-nio-8080-exec-1] [DispatcherServlet:508] - FrameworkServlet 'dispatcherServlet': initialization completed in 23 ms
-10:02:08.385 [INFO ] [http-nio-8080-exec-6] [SecurityConfig:81] - Authentication process init for user joe
-10:02:08.472 [INFO ] [http-nio-8080-exec-6] [SecurityConfig:89] - User from databaseUserDto{id=135, login='null', firstName='Jose', lastName='Diaz Diaz', userName='joe', status='A'}
-10:02:08.591 [INFO ] [http-nio-8080-exec-6] [IndexController:62] - Is Remember me autenticated false 
-10:02:08.759 [INFO ] [http-nio-8080-exec-6] [IndexController:126] - Allowed modules: ModuleDto{name='Java', url='null', code='C1', permissionType='null', subModules=ModuleDto{name='Oracle Certified Java 6', url='curso.contenido.ocjp6', code='C18', permissionType='W', subModules=[]},ModuleDto{name='Java Associate 7 y 8', url='curso.contenido.javaasocciate78', code='C21', permissionType='W', subModules=[]},ModuleDto{name='Java 7', url='curso.contenido.java7', code='C25', permissionType='W', subModules=[]},ModuleDto{name='Java 8', url='curso.contenido.java8', code='C26', permissionType='W', subModules=[]}},ModuleDto{name='Java EE', url='null', code='C2', permissionType='null', subModules=ModuleDto{name='Spring Framework 2.0', url='curso.contenido.spring2', code='C13', permissionType='W', subModules=[]},ModuleDto{name='Spring Boot', url='curso.contenido.springboot1', code='C14', permissionType='W', subModules=[]},ModuleDto{name='Spring Framework 3.0 y 4.0', url='curso.contenido.spring34', code='C15', permissionType='W', subModules=[]},ModuleDto{name='Spring MVC 4', url='curso.contenido.springmvc4', code='C16', permissionType='W', subModules=[]},ModuleDto{name='Desarrollo de Servicios Web SOAP y REST con Java', url='curso.contenido.serviciosweb1', code='C17', permissionType='W', subModules=[]},ModuleDto{name='Mule ESB', url='curso.contenido.muleesb1', code='C19', permissionType='W', subModules=[]},ModuleDto{name='Introducción a Java Web', url='curso.contenido.introjavaweb', code='C20', permissionType='W', subModules=[]},ModuleDto{name='Vaadin 7', url='curso.contenido.vaadin', code='C23', permissionType='W', subModules=[]},ModuleDto{name='Hibernate', url='curso.contenido.hibernate', code='C27', permissionType='W', subModules=[]},ModuleDto{name='Mybatis', url='curso.contenido.mybatis', code='C28', permissionType='W', subModules=[]},ModuleDto{name='Desarrollo Web con Primefaces', url='curso.contenido.primefaces', code='C29', permissionType='W', subModules=[]},ModuleDto{name='Java EE 7', url='curso.contenido.javaee7', code='C30', permissionType='W', subModules=[]}},ModuleDto{name='Android', url='null', code='C3', permissionType='null', subModules=ModuleDto{name='Iniciando con Android', url='curso.contenido.introandroid', code='C34', permissionType='W', subModules=[]},ModuleDto{name='Almacenamiento de Datos con Android', url='curso.contenido.sqliteandroid', code='C35', permissionType='W', subModules=[]},ModuleDto{name='Integración con Servidores y Mapas', url='curso.contenido.mapasgpsandroid', code='C36', permissionType='W', subModules=[]},ModuleDto{name='Publiguia', url='curso.contenido.publiguiaandroid', code='C37', permissionType='W', subModules=[]}},ModuleDto{name='Devops', url='null', code='C4', permissionType='null', subModules=ModuleDto{name='Devops', url='curso.contenido.devops', code='C22', permissionType='W', subModules=[]}},ModuleDto{name='Ruby', url='null', code='C5', permissionType='null', subModules=ModuleDto{name='Introducción a Ruby on Rails', url='curso.contenido.introror', code='C24', permissionType='W', subModules=[]}},ModuleDto{name='Python', url='null', code='C6', permissionType='null', subModules=ModuleDto{name='Introducción a Python', url='curso.contenido.intropython', code='C31', permissionType='W', subModules=[]},ModuleDto{name='Python para Zombies', url='curso.contenido.pythonparazombies', code='C32', permissionType='W', subModules=[]}},ModuleDto{name='.NET', url='null', code='C7', permissionType='null', subModules=ModuleDto{name='ASP.NET MVC 3', url='curso.contenido.aspnetmvc3', code='C11', permissionType='W', subModules=[]},ModuleDto{name='Test Driven Development con .NET', url='curso.contenido.tddnet', code='C12', permissionType='W', subModules=[]}},ModuleDto{name='Frontend', url='null', code='C8', permissionType='null', subModules=ModuleDto{name='Angular JS', url='curso.contenido.angularjs1', code='C33', permissionType='W', subModules=[]}},ModuleDto{name='Seguridad', url='null', code='SE00', permissionType='null', subModules=ModuleDto{name='Roles', url='role.search', code='RL01', permissionType='W', subModules=[]}}
-10:02:19.688 [INFO ] [http-nio-8080-exec-10] [RoleController:63] - --- role :edit::start ---
-10:02:20.073 [INFO ] [http-nio-8080-exec-10] [RoleController:83] - --- role:edit::finish ---
+03:24:48.565 [INFO ] [localhost-startStop-1] [DefaultSecurityFilterChain:28] - Creating filter chain: Ant [pattern='/css/**'], []
+03:24:48.565 [INFO ] [localhost-startStop-1] [DefaultSecurityFilterChain:28] - Creating filter chain: Ant [pattern='/js/**'], []
+03:24:48.566 [INFO ] [localhost-startStop-1] [DefaultSecurityFilterChain:28] - Creating filter chain: Ant [pattern='/images/**'], []
+03:24:48.566 [INFO ] [localhost-startStop-1] [DefaultSecurityFilterChain:28] - Creating filter chain: Ant [pattern='/**/favicon.ico'], []
+03:24:48.566 [INFO ] [localhost-startStop-1] [DefaultSecurityFilterChain:28] - Creating filter chain: Ant [pattern='/error'], []
+03:24:48.647 [INFO ] [localhost-startStop-1] [DefaultSecurityFilterChain:28] - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6a20a580, org.springframework.security.web.context.SecurityContextPersistenceFilter@595ff698, org.springframework.security.web.header.HeaderWriterFilter@c5c6ad7, org.springframework.security.web.authentication.logout.LogoutFilter@a159186, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@37f050f7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5a0f8cb8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@50a79e8c, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@5e3a1985, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@45a8bc12, org.springframework.security.web.session.SessionManagementFilter@7cdb8fcc, org.springframework.security.web.access.ExceptionTranslationFilter@3f3c41ce, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@34ad8658]
+03:24:48.662 [INFO ] [localhost-startStop-1] [DefaultSecurityFilterChain:28] - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/**']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2be1e900, org.springframework.security.web.context.SecurityContextPersistenceFilter@1b7d9b4a, org.springframework.security.web.header.HeaderWriterFilter@2dbfe735, org.springframework.security.web.authentication.logout.LogoutFilter@5420e3da, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@237095df, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2594fd16, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@774030de, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2d56e046, org.springframework.security.web.session.SessionManagementFilter@7b48ef2, org.springframework.security.web.access.ExceptionTranslationFilter@2303ba81, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3f30a6a8]
+03:24:49.210 [INFO ] [main] [RequestMappingHandlerAdapter:539] - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@40f70521: startup date [Sat Nov 19 03:24:45 PET 2016]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@7c7b252e
+03:24:49.315 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/curso/novedades]}" onto public org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.curso.CursoController.novedades() throws java.lang.Exception
+03:24:49.317 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/curso/contenido/{key}]}" onto public org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.curso.CursoController.contenido(java.lang.String) throws java.lang.Exception
+03:24:49.318 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.IndexController.index()
+03:24:49.319 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/kendo/index]}" onto java.lang.String pe.joedayz.campus.controller.KendoController.index()
+03:24:49.319 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/kendo/grid]}" onto java.lang.String pe.joedayz.campus.controller.KendoController.grid()
+03:24:49.320 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/login]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.LoginController.index()
+03:24:49.320 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/main/index]}" onto java.lang.String pe.joedayz.campus.controller.MainController.index()
+03:24:49.321 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/minor/index]}" onto java.lang.String pe.joedayz.campus.controller.MinorController.index()
+03:24:49.324 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/ping/poke]}" onto public org.springframework.http.ResponseEntity<java.lang.String> pe.joedayz.campus.controller.PingController.poke()
+03:24:49.325 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/reset-password]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.ResetPasswordController.index()
+03:24:49.328 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/role/search]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.role.RoleController.index() throws java.lang.Exception
+03:24:49.328 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/role/new]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.role.RoleController.create() throws com.fasterxml.jackson.core.JsonProcessingException
+03:24:49.329 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/role/edit]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.role.RoleController.roleEdit(java.lang.Long) throws java.lang.Exception
+03:24:49.332 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/user/search]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.security.UserController.index() throws java.lang.Exception
+03:24:49.333 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/user/new]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.security.UserController.init() throws java.lang.Exception
+03:24:49.333 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/user/edit]}" onto public org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.security.UserController.edit(java.lang.Long) throws com.fasterxml.jackson.core.JsonProcessingException
+03:24:49.334 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/user/profile]}" onto public org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.security.UserController.editProfile() throws com.fasterxml.jackson.core.JsonProcessingException
+03:24:49.334 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/user/find],methods=[GET],produces=[application/json]}" onto public pe.joedayz.campus.dto.UserDto pe.joedayz.campus.controller.security.UserController.findByUsername(java.lang.String)
+03:24:49.334 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/user/find/autocomplete/pricinganalyst],methods=[GET],produces=[application/json]}" onto public java.util.List<pe.joedayz.campus.dto.UserViewDto> pe.joedayz.campus.controller.security.UserController.findPricingAnaLystOld(java.lang.String)
+03:24:49.334 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/user/find/autocompletePricingAnalyst],methods=[GET],produces=[application/json]}" onto public java.util.List<pe.joedayz.campus.dto.UserViewDto> pe.joedayz.campus.controller.security.UserController.findPricingAnalyst(java.lang.String)
+03:24:49.335 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/user/find/autocomplete/commercialaccount],methods=[GET],produces=[application/json]}" onto public java.util.List<pe.joedayz.campus.dto.UserDto> pe.joedayz.campus.controller.security.UserController.findCommercialAccount(java.lang.String)
+03:24:49.335 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/user/find/autocomplete/commercialrep],methods=[GET],produces=[application/json]}" onto public java.util.List<pe.joedayz.campus.dto.UserDto> pe.joedayz.campus.controller.security.UserController.findCommercialRep(java.lang.String)
+03:24:49.336 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/backend/post/**],methods=[POST],produces=[application/json]}" onto public java.lang.String pe.joedayz.campus.rest.BackendController.mirrorRest(java.lang.String,org.springframework.http.HttpMethod,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.net.URISyntaxException
+03:24:49.336 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/backend/get/**],produces=[application/json]}" onto public java.lang.String pe.joedayz.campus.rest.BackendController.mirrorRest(org.springframework.http.HttpMethod,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.net.URISyntaxException
+03:24:49.338 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/cursoApi/temasDisponibles],methods=[GET],produces=[application/json]}" onto java.util.List<pe.joedayz.campus.dto.TemasCursoDto> pe.joedayz.campus.rest.curso.CursoApiController.find(java.lang.String)
+03:24:49.340 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/generalTable/search/find],methods=[GET],produces=[application/json]}" onto pe.joedayz.campus.dto.PageableResult pe.joedayz.campus.rest.GeneralTableController.find(pe.joedayz.campus.dto.GeneralTableFilterDto)
+03:24:49.341 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/generalTable/search]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.rest.GeneralTableController.search() throws java.lang.Exception
+03:24:49.341 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/generalTable/new]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.rest.GeneralTableController.newGeneralTable() throws com.fasterxml.jackson.core.JsonProcessingException
+03:24:49.341 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/generalTable/view]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.rest.GeneralTableController.view(java.lang.Long) throws com.fasterxml.jackson.core.JsonProcessingException
+03:24:49.343 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/module/search/find],methods=[GET],produces=[application/json]}" onto pe.joedayz.campus.dto.PageableResult pe.joedayz.campus.rest.ModuleController.find(pe.joedayz.campus.dto.ModuleFilterDto)
+03:24:49.344 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/module/search]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.rest.ModuleController.search() throws java.lang.Exception
+03:24:49.345 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/module/view]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.rest.ModuleController.view(java.lang.Long) throws java.lang.Exception
+03:24:49.347 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/parameter/search/find],methods=[GET],produces=[application/json]}" onto pe.joedayz.campus.dto.PageableResult pe.joedayz.campus.rest.ParameterController.find(pe.joedayz.campus.dto.ParameterFilterDto)
+03:24:49.347 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/parameter/search]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.rest.ParameterController.search() throws java.lang.Exception
+03:24:49.348 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/parameter/find/autocomplete],methods=[GET],produces=[application/json]}" onto public java.util.List<pe.joedayz.campus.dto.ParameterDto> pe.joedayz.campus.rest.ParameterController.findParameters(java.lang.String)
+03:24:49.348 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/parameter/view]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.rest.ParameterController.view(java.lang.Long) throws java.lang.Exception
+03:24:49.349 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/roleApi/search/find],methods=[GET],produces=[application/json]}" onto pe.joedayz.campus.dto.PageableResult pe.joedayz.campus.rest.role.RoleApiController.find(pe.joedayz.campus.dto.RoleFilterDto)
+03:24:49.349 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/roleApi/delete],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> pe.joedayz.campus.rest.role.RoleApiController.delete(pe.joedayz.campus.dto.RoleViewDto)
+03:24:49.350 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/roleApi/create],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> pe.joedayz.campus.rest.role.RoleApiController.create(pe.joedayz.campus.dto.RoleViewDto)
+03:24:49.351 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/userApi/search],methods=[GET],produces=[application/json]}" onto pe.joedayz.campus.dto.PageableResult pe.joedayz.campus.rest.security.UserApiController.find(pe.joedayz.campus.dto.UserFilterDto)
+03:24:49.352 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/userApi/cleanTemps],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Long> pe.joedayz.campus.rest.security.UserApiController.clean()
+03:24:49.352 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/userApi/create],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Long> pe.joedayz.campus.rest.security.UserApiController.save(pe.joedayz.campus.dto.UserDto)
+03:24:49.353 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/userApi/updateProfile],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Long> pe.joedayz.campus.rest.security.UserApiController.updateProfile(pe.joedayz.campus.dto.UserDto)
+03:24:49.353 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/userApi/initTemps],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Long> pe.joedayz.campus.rest.security.UserApiController.initTemps(pe.joedayz.campus.dto.UserDto)
+03:24:49.353 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/userApi/searchRoles],methods=[GET],produces=[application/json]}" onto public pe.joedayz.campus.dto.PageableResult pe.joedayz.campus.rest.security.UserApiController.searchRoles()
+03:24:49.354 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/userApi/removeRole],methods=[POST],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<pe.joedayz.campus.dto.JsonResult> pe.joedayz.campus.rest.security.UserApiController.removeRole(long)
+03:24:49.354 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/userApi/addRole],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<pe.joedayz.campus.dto.JsonResult> pe.joedayz.campus.rest.security.UserApiController.addRole(long,java.lang.String) throws java.lang.Exception
+03:24:49.355 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/security/recover],methods=[POST],produces=[application/json]}" onto public java.lang.String pe.joedayz.campus.rest.SecurityController.requestResetPassword(java.lang.String)
+03:24:49.355 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/security/reset-password],methods=[POST],produces=[application/json]}" onto public java.lang.String pe.joedayz.campus.rest.SecurityController.resetPassword(pe.joedayz.campus.dto.RecoverPasswordDto)
+03:24:49.358 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+03:24:49.358 [INFO ] [main] [RequestMappingHandlerMapping:534] - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+03:24:49.374 [INFO ] [main] [SimpleUrlHandlerMapping:341] - Mapped URL path [/recover] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+03:24:49.385 [INFO ] [main] [SimpleUrlHandlerMapping:341] - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+03:24:49.385 [INFO ] [main] [SimpleUrlHandlerMapping:341] - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+03:24:49.409 [INFO ] [main] [ExceptionHandlerExceptionResolver:268] - Detected @ExceptionHandler methods in adviceController
+03:24:49.433 [INFO ] [main] [SimpleUrlHandlerMapping:341] - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+03:24:49.737 [INFO ] [main] [AnnotationMBeanExporter:431] - Registering beans for JMX exposure on startup
+03:24:49.748 [INFO ] [main] [AnnotationMBeanExporter:912] - Bean with name 'configurationPropertiesRebinder' has been autodetected for JMX exposure
+03:24:49.749 [INFO ] [main] [AnnotationMBeanExporter:912] - Bean with name 'refreshScope' has been autodetected for JMX exposure
+03:24:49.750 [INFO ] [main] [AnnotationMBeanExporter:912] - Bean with name 'environmentManager' has been autodetected for JMX exposure
+03:24:49.753 [INFO ] [main] [AnnotationMBeanExporter:674] - Located managed bean 'environmentManager': registering with JMX server as MBean [org.springframework.cloud.context.environment:name=environmentManager,type=EnvironmentManager]
+03:24:49.767 [INFO ] [main] [AnnotationMBeanExporter:674] - Located managed bean 'refreshScope': registering with JMX server as MBean [org.springframework.cloud.context.scope.refresh:name=refreshScope,type=RefreshScope]
+03:24:49.778 [INFO ] [main] [AnnotationMBeanExporter:674] - Located managed bean 'configurationPropertiesRebinder': registering with JMX server as MBean [org.springframework.cloud.context.properties:name=configurationPropertiesRebinder,context=40f70521,type=ConfigurationPropertiesRebinder]
+03:24:49.828 [INFO ] [main] [Http11NioProtocol:180] - Initializing ProtocolHandler ["http-nio-8080"]
+03:24:49.836 [INFO ] [main] [Http11NioProtocol:180] - Starting ProtocolHandler ["http-nio-8080"]
+03:24:49.855 [INFO ] [main] [NioSelectorPool:180] - Using a shared selector for servlet write/read
+03:24:49.873 [INFO ] [main] [TomcatEmbeddedServletContainer:162] - Tomcat started on port(s): 8080 (http)
+03:24:49.876 [INFO ] [main] [CampusApplication:57] - Started CampusApplication in 7.583 seconds (JVM running for 8.458)

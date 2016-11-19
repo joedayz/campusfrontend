@@ -69,7 +69,7 @@ var RoleSearchModule = (function () {
 
 
     function configHtmlComponents(rfqModel) {
-       // '/backend/get/autocomplete/market', function(selectedItem, viewModel) {
+
         AutoCompleteModule.autoCompleteConfig($("#name"), 'marketName',
             '/marketApi/find/autocomplete', function(selectedItem, viewModel) {
 
@@ -162,12 +162,6 @@ var RoleSearchModule = (function () {
             accessEditor+='';
         }
 
-//        if(e.isDeleteRole=='Y')
-//        {
-//            accessEditor+='<div class="text-center"><a href="javascript:void(0)" class="link action-updateable" onclick="RoleSearchModule.roleDelete('+e.roleId+');"><span class="ic-delete lead"></span></a></div>';
-//        }else{
-//            accessEditor+='';
-//        }
  
         return accessEditor;
 
@@ -249,7 +243,6 @@ var RoleSearchModule = (function () {
                     var params = new RoleFilter();
                     var paramValues = _.extend(params, filterObj);
 
-                //    if(filterObj.marketId == null){  $("#name").data("kendoAutoComplete").value("");};
 
                     CommonModule.gridReadActionAjax("/roleApi/search/find", options, paramValues);
                 },
