@@ -28,7 +28,7 @@ apply plugin: 'docker'
 project.version = '2.0.0.0'
 
 jar {
-	baseName = 'campus'
+	baseName = 'campus-frontend'
 	version = project.version
 }
 sourceCompatibility = 1.8

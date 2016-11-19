@@ -7,13 +7,13 @@ var RoleSearchModule = (function () {
     var RoleFilter = kendo.Class.extend({
 
         roleName: null,
-        
+
     });
 
 
 
 
- 
+
     function initRoleSearch() {
         initSearchView();
         configHtmlComponents();
@@ -26,10 +26,10 @@ var RoleSearchModule = (function () {
 
         var filterObj = new RoleFilter();
 
-         roleSearchViewModel = kendo.observable({
+        roleSearchViewModel = kendo.observable({
             filterRoleCriteria: filterObj,
             isVisible : true,
-			isEnabled : true,
+            isEnabled : true,
             onCleanClick: function () {
                 CommonModule.cleanNotification();
                 filterObj = new RoleFilter();
@@ -69,7 +69,7 @@ var RoleSearchModule = (function () {
 
 
     function configHtmlComponents(rfqModel) {
-
+        // '/backend/get/autocomplete/market', function(selectedItem, viewModel) {
         AutoCompleteModule.autoCompleteConfig($("#name"), 'marketName',
             '/marketApi/find/autocomplete', function(selectedItem, viewModel) {
 
@@ -91,9 +91,9 @@ var RoleSearchModule = (function () {
 
         $("#totalRows").text("0");
 
-            $("#roleResultTable").kendoConfigGrid({
-                columns: [
-                    {
+        $("#roleResultTable").kendoConfigGrid({
+            columns: [
+                {
 
                     field: "roleId",
                     title: "          ",
@@ -103,51 +103,51 @@ var RoleSearchModule = (function () {
                     attributes: {
                         style: "text-align: right;"
                     }
-                    },
-                    
-                    {
-
-                        field: "roleId",
-                        title: "          ",
-                        width: 40,
-                        template:  editor2     ,
-                        sortable: false,
-                        attributes: {
-                            style: "text-align: right;"
-                        }
-                        }
-                    ,
-                    
-                    {
-                        field: "roleCode",
-                        title: "Code",
-                        sortable: false,
-                        width: "25%"
-                    },
-                    {
-                        field: "roleName",
-                        title: "Name",
-                        sortable: false,
-                        width: "60%"
-                    }, {
-                        field: "roleStatus",
-                        title: "Status",
-                        sortable: false,
-                        width: "15%"
-                    }
-
-                ],
-                pageable: true,
-                sortable: false,
-                selectable: "row",
-                pageable: {
-                    pageSizes: [20, 50, 100, 200, 500],
-                    buttonCount: 5,
-
-
                 },
 
-            });
+                {
+
+                    field: "roleId",
+                    title: "          ",
+                    width: 40,
+                    template:  editor2     ,
+                    sortable: false,
+                    attributes: {
+                        style: "text-align: right;"
+                    }
+                }
+                ,
+
+                {
+                    field: "roleCode",
+                    title: "Code",
+                    sortable: false,
+                    width: "25%"
+                },
+                {
+                    field: "roleName",
+                    title: "Name",
+                    sortable: false,
+                    width: "60%"
+                }, {
+                    field: "roleStatus",
+                    title: "Status",
+                    sortable: false,
+                    width: "15%"
+                }
+
+            ],
+            pageable: true,
+            sortable: false,
+            selectable: "row",
+            pageable: {
+                pageSizes: [20, 50, 100, 200, 500],
+                buttonCount: 5,
+
+
+            },
+
+        });
 
     }
 
@@ -162,29 +162,35 @@ var RoleSearchModule = (function () {
             accessEditor+='';
         }
 
- 
+//        if(e.isDeleteRole=='Y')
+//        {
+//            accessEditor+='<div class="text-center"><a href="javascript:void(0)" class="link action-updateable" onclick="RoleSearchModule.roleDelete('+e.roleId+');"><span class="ic-delete lead"></span></a></div>';
+//        }else{
+//            accessEditor+='';
+//        }
+
         return accessEditor;
 
     }
-    
+
     function editor2(e) {
         var accessDel='';
 
 
         if(e.isDeleteRole=='Y')
         {
-        	accessDel+='<div class="text-center"><a href="javascript:void(0)" class="link action-updateable" onclick="RoleSearchModule.roleDelete('+e.roleId+');"><span class="ic-delete lead"></span></a></div>';
+            accessDel+='<div class="text-center"><a href="javascript:void(0)" class="link action-updateable" onclick="RoleSearchModule.roleDelete('+e.roleId+');"><span class="ic-delete lead"></span></a></div>';
         }else{
-        	accessDel+='';
+            accessDel+='';
         }
- 
+
         return accessDel;
 
     }
 
 
     function roleView(roleId){
- 
+
         CommonModule.navigationStart("#/role.search");
         CommonModule.navigateTo("#/role.edit?roleId="+roleId);
 
@@ -243,18 +249,19 @@ var RoleSearchModule = (function () {
                     var params = new RoleFilter();
                     var paramValues = _.extend(params, filterObj);
 
+                    //    if(filterObj.marketId == null){  $("#name").data("kendoAutoComplete").value("");};
 
                     CommonModule.gridReadActionAjax("/roleApi/search/find", options, paramValues);
                 },
 
 
             },change: function(e) {
-                
-            	$("#totalRows").text(this.total());                	
-                
+
+                $("#totalRows").text(this.total());
+
             }
             ,
-            pageSize: 20
+            pageSize: 500
         });
 
 
@@ -262,7 +269,7 @@ var RoleSearchModule = (function () {
 
         if(grid)
             grid.setDataSource(dataSourceGrid);
-        
+
         console.log("event :: click : Refreshing grid");
 
     }

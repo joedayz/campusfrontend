@@ -8,7 +8,7 @@ var RoleModule = (function () {
     var isCreating = false;
 
     var forceReadOnly ;
-    
+
 
     var dataRamp ;
     var detailRow ;
@@ -17,21 +17,21 @@ var RoleModule = (function () {
     var MarketFilter = kendo.Class.extend({
 
         roleId: null,
- 
+
     });
 
 
     var RampFilter = kendo.Class.extend({
         marketId:null,
-        
+
     });
-    
-    
+
+
     var RoleNew = kendo.Class.extend({
         roleId: null,
         roleName: null,
         roleStatus: null,
-        
+
 
 
     });
@@ -53,7 +53,7 @@ var RoleModule = (function () {
             isEditCode: readCode ,
             modelView: value,
             isVisible : true,
-			isEnabled : true,
+            isEnabled : true,
             onSaveRoleClick: function () {
                 var form = $("#createRoleForm");
 
@@ -119,91 +119,91 @@ var RoleModule = (function () {
             $("#code").addClass("readOnlyInput");
 
         }
-        
-        
-            var data=value.modules;
 
-            $("#moduleResultTable").kendoGrid({
-                indexModules:-1,
-                dataSource: {
-                    transport: {
-                        read: function (o) {
-                            console.log("master read");
 
-                            if(typeof value.modules == "undefined" || value.modules==null) {
+        var data=value.modules;
+
+        $("#moduleResultTable").kendoGrid({
+            indexModules:-1,
+            dataSource: {
+                transport: {
+                    read: function (o) {
+                        console.log("master read");
+
+                        if(typeof value.modules == "undefined" || value.modules==null) {
+                            indexModules = -1;
+
+                        }else{
+                            if(value.modules.length==0){
                                 indexModules = -1;
-
-                            }else{
-                                if(value.modules.length==0){
-                                    indexModules = -1;
-                                }else {
-                                    indexModules = value.modules.length*-1;
-                                    o.success(data);
-                                }
-                             }
-
-                        },
-                        update: function (o) {
-                            console.log("master update");
-
-                            o.success();
-
-                        },
-                        destroy: function (o) {
-                            console.log("master destroy");
-                            o.success();
-                        },
-                        create: function (o) {
-                            console.log("master create");
-                            var record = o.data;
-
-                            record.id = indexModules;
-                            record.marketId=indexModules;
-                            indexModules=(indexModules-1);
-
-                                o.success(record);
-
-                        }
-                    },
-                    schema: {
-                        model: {
-                            id: "moduleId",
-                            fields: {
-                                moduleId: { type: "number" , editable: false  },
-                                name: { editable: false, type: "string" },
-                                permissionType: { editable: true }
+                            }else {
+                                indexModules = value.modules.length*-1;
+                                o.success(data);
                             }
                         }
+
+                    },
+                    update: function (o) {
+                        console.log("master update");
+
+                        o.success();
+
+                    },
+                    destroy: function (o) {
+                        console.log("master destroy");
+                        o.success();
+                    },
+                    create: function (o) {
+                        console.log("master create");
+                        var record = o.data;
+
+                        record.id = indexModules;
+                        record.marketId=indexModules;
+                        indexModules=(indexModules-1);
+
+                        o.success(record);
+
                     }
                 },
-                editable:true,
-                scrollable : true,
-                columns: [
-                    { field: "name", title:"Module", template: editor
-                    },
-                    { field: "permissionType", title: "Permission Type",editor: accesorialDropDownEditor, template: "#=(permissionType.name==null)?'':permissionType.name#" }
+                schema: {
+                    model: {
+                        id: "moduleId",
+                        fields: {
+                            moduleId: { type: "number" , editable: false  },
+                            name: { editable: false, type: "string" },
+                            permissionType: { editable: true }
+                        }
+                    }
+                }
+            },
+            editable:true,
+            scrollable : true,
+            columns: [
+                { field: "name", title:"Module", template: editor
+                },
+                { field: "permissionType", title: "Permission Type",editor: accesorialDropDownEditor, template: "#=(permissionType.name==null)?'':permissionType.name#" }
 
-                ],
-                selectable: false,
-                height: 430
-
-
-            });
-
-
-            gridMarket = $("#moduleResultTable").data("kendoGrid");
-            var expanded = $.map(gridMarket.tbody.children(":has(> .k-hierarchy-cell .k-minus)"), function (row) {
-                return $(row).data("uid");
-            });
-
-            gridMarket.one("dataBound", function () {
-
-                gridMarket.expandRow(gridMarket.tbody.children().filter(function (idx, row) {
-                    return $.inArray($(row).data("uid"), expanded) >= 0;
-                }));
+            ],
+            selectable: false,
+            height: 430
 
 
-            });
+        });
+
+
+        gridMarket = $("#moduleResultTable").data("kendoGrid");
+        var expanded = $.map(gridMarket.tbody.children(":has(> .k-hierarchy-cell .k-minus)"), function (row) {
+            return $(row).data("uid");
+        });
+
+        gridMarket.one("dataBound", function () {
+
+            gridMarket.expandRow(gridMarket.tbody.children().filter(function (idx, row) {
+                return $.inArray($(row).data("uid"), expanded) >= 0;
+            }));
+
+
+        });
 
         console.log("init configHtmlComponents" );
 
@@ -227,7 +227,7 @@ var RoleModule = (function () {
 
         if(options.model.moduleId>=0)
         {
- 
+
             var dropDownList = $('<input  name="' + options.field + '" data-text-field="name" class=" combo k-input" data-value-field="code" data-bind="value:' + options.field + '"/>')
                 .appendTo(container)
                 .kendoDropDownList({
@@ -236,7 +236,7 @@ var RoleModule = (function () {
                     //valuePrimitive: true,
                     select: function (e) {
                         var dataItem = this.dataItem(e.item);
-                       // options.model.permissionType = dataItem.dataItem;
+                        // options.model.permissionType = dataItem.dataItem;
                         options.model.set("permissionType", dataItem.charge);
                     }
                 });
@@ -245,14 +245,14 @@ var RoleModule = (function () {
             if(forceReadOnly ==='Y')
                 dropDownList.prop('readonly', true).prop('disabled', true);
 
-        } 
+        }
 
 
     }
 
     function getStatusMarket() {
 
-          return DropdownBox.getEnumList('activeInactiveStatusEnum');
+        return DropdownBox.getEnumList('activeInactiveStatusEnum');
     }
 
     function roleNew() {
@@ -270,4 +270,3 @@ var RoleModule = (function () {
 
     };
 })();
-
