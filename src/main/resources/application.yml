@@ -1,8 +1,4 @@
-spring:
-  profiles: default
-  sessionTimeOutMinutes: 60
-  min-passwd-length: 8
+server:
+  port: ${vcap.application.port:8080}
 
-backend:
-  server: localhost
-  port: 8999
+
