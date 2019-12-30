@@ -48,3 +48,5 @@ src/main/web/typings/
 
 .idea/
 .idea/workspace.xml
+
+*.iml
