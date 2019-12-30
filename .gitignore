@@ -47,4 +47,4 @@ src/main/web/typings/
 #src/main/resources/static/
 
 .idea/
-
+.idea/workspace.xml
