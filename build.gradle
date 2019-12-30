@@ -1,41 +1,30 @@
 buildscript {
 	ext {
-		springBootVersion = '1.3.6.RELEASE'
+		springBootVersion = '1.4.0.RELEASE'
 	}
 	repositories {
 		mavenCentral()
 	}
 	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}") 
-		classpath 'org.ajoberstar:grgit:1.1.0'
-		classpath('se.transmode.gradle:gradle-docker:1.2')
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 	}
 }
 
-plugins {
-	id "com.moowork.node" version "0.12"
-	id "com.moowork.gulp" version "0.12"
-	id "org.sonarqube" version "2.0.1"
-}
-
-
 apply plugin: 'java'
 apply plugin: 'eclipse'
-apply plugin: 'idea'
 apply plugin: 'spring-boot'
-apply plugin: 'docker'
 
-project.version = '2.0.0.0'
 
 jar {
-	baseName = 'campus-frontend'
-	version = project.version
+	baseName = 'campus'
+	version = '0.0.1-SNAPSHOT'
 }
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 repositories {
 	mavenCentral()
+	mavenLocal()
 }
 
 
@@ -48,16 +37,13 @@ dependencies {
 	compile('org.thymeleaf:thymeleaf:3.0.0.BETA03')
 	compile('org.thymeleaf:thymeleaf-spring4:3.0.0.BETA03')
 	compile('com.google.guava:guava:19.0')
-	
-	compile('org.springframework.cloud:spring-cloud-starter-config:1.0.3.RELEASE')
+
 
 	// poi
 	compile('org.apache.poi:poi-ooxml:3.10.1')
 
 	//Fake for spring security requirements
 	compile('org.springframework:spring-jdbc')
-	compile('joda-time:joda-time:2.1')
-
 
 	// google gson
 	compile('com.google.code.gson:gson:2.6.2')
@@ -65,88 +51,17 @@ dependencies {
 	compile('org.webjars:bootstrap:3.3.4')
 	compile('org.webjars:jquery:2.1.4')
 
+	implementation "javax.xml.bind:jaxb-api:2.2.11"
+	implementation "com.sun.xml.bind:jaxb-core:2.2.11"
+	implementation "com.sun.xml.bind:jaxb-impl:2.2.11"
+	implementation "javax.activation:activation:1.1.1"
+
 	// testing
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
-eclipse {
-	classpath {
-		 containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
-		 containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
-	}
-}
-
-// configure gradle-node-plugin
-node {
-	version = '5.10.1'
-	npmVersion = '3.8.6'
-	download = true
-	workDir = file("${project.projectDir}/src/main/web/node")
-	nodeModulesDir = file("${project.projectDir}/src/main/web")
-}
-
-// configure gradle-gulp-plugin
-gulp {
-	workDir = file("${project.projectDir}/src/main/web")
-	colors = true
-	bufferOutput = false
-}
 
 
-task wrapper(type: Wrapper) {
-	gradleVersion = '2.12'
-}
-
-bootRun {
-	addResources = true
-}
-
-import org.codehaus.groovy.runtime.*
-import org.eclipse.jgit.api.*
-
-def getGitBranchCommit() {
-    try {
-        def git = org.ajoberstar.grgit.Grgit.open(file('.'))
-        def revision = git.head().abbreviatedId
-        return revision
-    } catch (IOException ex) {
-       return "UNKNOWN"
-    }
-
-}
-
-processResources {
-	filesMatching("**/application.properties") {
-		expand (
-				"prodVersion": gradle.gradleVersion,
-				"revision": getGitBranchCommit(),
-				"buildTimestamp": DateGroovyMethods.format(new Date(), 'yyyy-MM-dd HH:mm'),
-				"prodBuild": project.version
-		)
-	}
-}
-
-processResources.outputs.upToDateWhen{ false }
-
-group = 'campusjoedayz'
-task buildDocker(type: Docker, dependsOn: assemble) {
-    push = false
-    applicationName = jar.baseName
-    dockerfile = file('src/main/docker/Dockerfile')
-    doFirst {
-        copy {
-            from jar
-            into stageDir
-        }
-    }
-}
-
-task printVersion {
-	// any code that goes here is part of configuring the task
-	// this code will always get run, even if the task is not executed
-	doLast { // add a task action
-		// any code that goes here is part of executing the task
-		// this code will only get run if and when the task gets executed
-		println project.version
-	}
+springBoot {
+	mainClass = "pe.joedayz.campus.CampusApplication"
 }

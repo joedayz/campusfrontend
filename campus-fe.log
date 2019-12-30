@@ -727,3 +727,230 @@ Using default security password: 71ce6c39-e79b-44d0-8b6a-c1a6db6605dc
 11:51:19.456 [INFO ] [Thread-1] [AnnotationConfigEmbeddedWebApplicationContext:960] - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@55342f40: startup date [Sat Nov 19 11:49:50 PET 2016]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@7c7b252e
 11:51:19.461 [INFO ] [Thread-1] [AnnotationMBeanExporter:449] - Unregistering JMX-exposed beans on shutdown
 11:51:19.474 [INFO ] [Thread-1] [AnnotationMBeanExporter:241] - Unregistering JMX-exposed beans
+22:25:02.596 [INFO ] [main] [CampusApplication:48] - Starting CampusApplication on Joses-MacBook-Pro-2.local with PID 67304 (/Users/josediaz/Downloads/campusfrontend/build/classes/java/main started by josediaz in /Users/josediaz/Downloads/campusfrontend)
+22:25:02.645 [DEBUG] [main] [CampusApplication:51] - Running with Spring Boot v1.4.0.RELEASE, Spring v4.3.2.RELEASE
+22:25:02.648 [INFO ] [main] [CampusApplication:659] - No active profile set, falling back to default profiles: default
+22:25:02.822 [INFO ] [background-preinit] [Version:30] - HV000001: Hibernate Validator 5.2.4.Final
+22:25:03.237 [INFO ] [main] [AnnotationConfigEmbeddedWebApplicationContext:581] - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2a5c8d3f: startup date [Sun Dec 29 22:25:03 PET 2019]; root of context hierarchy
+22:25:04.371 [INFO ] [main] [PostProcessorRegistrationDelegate$BeanPostProcessorChecker:328] - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$40654616] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+22:25:04.835 [INFO ] [main] [TomcatEmbeddedServletContainer:88] - Tomcat initialized with port(s): 8080 (http)
+22:25:04.848 [INFO ] [main] [StandardService:179] - Starting service Tomcat
+22:25:04.850 [INFO ] [main] [StandardEngine:179] - Starting Servlet Engine: Apache Tomcat/8.5.4
+22:25:04.948 [INFO ] [localhost-startStop-1] [[/]:179] - Initializing Spring embedded WebApplicationContext
+22:25:04.948 [INFO ] [localhost-startStop-1] [ContextLoader:276] - Root WebApplicationContext: initialization completed in 1712 ms
+22:25:05.194 [INFO ] [localhost-startStop-1] [FilterRegistrationBean:258] - Mapping filter: 'characterEncodingFilter' to: [/*]
+22:25:05.195 [INFO ] [localhost-startStop-1] [FilterRegistrationBean:258] - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+22:25:05.195 [INFO ] [localhost-startStop-1] [FilterRegistrationBean:258] - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+22:25:05.196 [INFO ] [localhost-startStop-1] [FilterRegistrationBean:258] - Mapping filter: 'requestContextFilter' to: [/*]
+22:25:05.197 [INFO ] [localhost-startStop-1] [DelegatingFilterProxyRegistrationBean:258] - Mapping filter: 'springSecurityFilterChain' to: [/*]
+22:25:05.198 [INFO ] [localhost-startStop-1] [ServletRegistrationBean:190] - Mapping servlet: 'dispatcherServlet' to [/]
+22:25:05.741 [WARN ] [main] [AnnotationConfigEmbeddedWebApplicationContext:549] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'indexController': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'prodVersion' in string value "${prodVersion}"
+22:25:05.746 [INFO ] [main] [StandardService:179] - Stopping service Tomcat
+22:25:05.772 [WARN ] [main] [SpringApplication:91] - Error handling failed (Error creating bean with name 'delegatingApplicationListener' defined in class path resource [org/springframework/security/config/annotation/web/configuration/WebSecurityConfiguration.class]: Initialization of bean failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration': Initialization of bean failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importRegistry' is defined)
+22:25:05.781 [ERROR] [main] [SpringApplication:838] - Application startup failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'indexController': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'prodVersion' in string value "${prodVersion}"
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:355)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1214)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:543)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:776)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:861)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:541)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:369)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:313)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1185)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1174)
+	at pe.joedayz.campus.CampusApplication.main(CampusApplication.java:12)
+Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'prodVersion' in string value "${prodVersion}"
+	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:174)
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:126)
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:219)
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:193)
+	at org.springframework.core.env.AbstractPropertyResolver.resolveNestedPlaceholders(AbstractPropertyResolver.java:210)
+	at org.springframework.core.env.PropertySourcesPropertyResolver.getProperty(PropertySourcesPropertyResolver.java:83)
+	at org.springframework.core.env.PropertySourcesPropertyResolver.getProperty(PropertySourcesPropertyResolver.java:61)
+	at org.springframework.core.env.AbstractEnvironment.getProperty(AbstractEnvironment.java:531)
+	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer$1.getProperty(PropertySourcesPlaceholderConfigurer.java:132)
+	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer$1.getProperty(PropertySourcesPlaceholderConfigurer.java:129)
+	at org.springframework.core.env.PropertySourcesPropertyResolver.getProperty(PropertySourcesPropertyResolver.java:80)
+	at org.springframework.core.env.PropertySourcesPropertyResolver.getPropertyAsRawString(PropertySourcesPropertyResolver.java:71)
+	at org.springframework.core.env.AbstractPropertyResolver$1.resolvePlaceholder(AbstractPropertyResolver.java:222)
+	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:147)
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:126)
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:219)
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:193)
+	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer$2.resolveStringValue(PropertySourcesPlaceholderConfigurer.java:172)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:813)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1039)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1019)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:566)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:349)
+	... 17 common frames omitted
+22:25:49.899 [INFO ] [main] [CampusApplication:48] - Starting CampusApplication on Joses-MacBook-Pro-2.local with PID 67365 (/Users/josediaz/Downloads/campusfrontend/build/classes/java/main started by josediaz in /Users/josediaz/Downloads/campusfrontend)
+22:25:49.901 [DEBUG] [main] [CampusApplication:51] - Running with Spring Boot v1.4.0.RELEASE, Spring v4.3.2.RELEASE
+22:25:49.902 [INFO ] [main] [CampusApplication:659] - No active profile set, falling back to default profiles: default
+22:25:50.048 [INFO ] [background-preinit] [Version:30] - HV000001: Hibernate Validator 5.2.4.Final
+22:25:50.199 [INFO ] [main] [AnnotationConfigEmbeddedWebApplicationContext:581] - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@45c7e403: startup date [Sun Dec 29 22:25:50 PET 2019]; root of context hierarchy
+22:25:51.585 [INFO ] [main] [PostProcessorRegistrationDelegate$BeanPostProcessorChecker:328] - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$1fce63bf] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+22:25:51.941 [INFO ] [main] [TomcatEmbeddedServletContainer:88] - Tomcat initialized with port(s): 8080 (http)
+22:25:51.951 [INFO ] [main] [StandardService:179] - Starting service Tomcat
+22:25:51.953 [INFO ] [main] [StandardEngine:179] - Starting Servlet Engine: Apache Tomcat/8.5.4
+22:25:52.014 [INFO ] [localhost-startStop-1] [[/]:179] - Initializing Spring embedded WebApplicationContext
+22:25:52.014 [INFO ] [localhost-startStop-1] [ContextLoader:276] - Root WebApplicationContext: initialization completed in 1815 ms
+22:25:52.156 [INFO ] [localhost-startStop-1] [FilterRegistrationBean:258] - Mapping filter: 'characterEncodingFilter' to: [/*]
+22:25:52.158 [INFO ] [localhost-startStop-1] [FilterRegistrationBean:258] - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+22:25:52.160 [INFO ] [localhost-startStop-1] [FilterRegistrationBean:258] - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+22:25:52.161 [INFO ] [localhost-startStop-1] [FilterRegistrationBean:258] - Mapping filter: 'requestContextFilter' to: [/*]
+22:25:52.162 [INFO ] [localhost-startStop-1] [DelegatingFilterProxyRegistrationBean:258] - Mapping filter: 'springSecurityFilterChain' to: [/*]
+22:25:52.163 [INFO ] [localhost-startStop-1] [ServletRegistrationBean:190] - Mapping servlet: 'dispatcherServlet' to [/]
+22:25:52.718 [INFO ] [main] [RequestMappingHandlerAdapter:534] - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@45c7e403: startup date [Sun Dec 29 22:25:50 PET 2019]; root of context hierarchy
+22:25:52.798 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.IndexController.index()
+22:25:52.800 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/kendo/index]}" onto java.lang.String pe.joedayz.campus.controller.KendoController.index()
+22:25:52.801 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/kendo/grid]}" onto java.lang.String pe.joedayz.campus.controller.KendoController.grid()
+22:25:52.802 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/login]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.LoginController.index()
+22:25:52.803 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/main/index]}" onto java.lang.String pe.joedayz.campus.controller.MainController.index()
+22:25:52.804 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/minor/index]}" onto java.lang.String pe.joedayz.campus.controller.MinorController.index()
+22:25:52.805 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/ping/poke]}" onto public org.springframework.http.ResponseEntity<java.lang.String> pe.joedayz.campus.controller.PingController.poke()
+22:25:52.805 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/reset-password]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.ResetPasswordController.index()
+22:25:52.807 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/curso/novedades]}" onto public org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.curso.CursoController.novedades() throws java.lang.Exception
+22:25:52.809 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/curso/contenido/{key}]}" onto public org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.curso.CursoController.contenido(java.lang.String) throws java.lang.Exception
+22:25:52.810 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/role/search]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.role.RoleController.index() throws java.lang.Exception
+22:25:52.811 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/role/new]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.role.RoleController.create() throws com.fasterxml.jackson.core.JsonProcessingException
+22:25:52.811 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/role/edit]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.role.RoleController.roleEdit(java.lang.Long) throws java.lang.Exception
+22:25:52.818 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/user/search]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.security.UserController.index() throws java.lang.Exception
+22:25:52.819 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/user/new]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.security.UserController.init() throws java.lang.Exception
+22:25:52.820 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/user/edit]}" onto public org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.security.UserController.edit(java.lang.Long) throws com.fasterxml.jackson.core.JsonProcessingException
+22:25:52.821 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/user/profile]}" onto public org.springframework.web.servlet.ModelAndView pe.joedayz.campus.controller.security.UserController.editProfile() throws com.fasterxml.jackson.core.JsonProcessingException
+22:25:52.822 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/user/find],methods=[GET],produces=[application/json]}" onto public pe.joedayz.campus.dto.UserDto pe.joedayz.campus.controller.security.UserController.findByUsername(java.lang.String)
+22:25:52.822 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/user/find/autocomplete/pricinganalyst],methods=[GET],produces=[application/json]}" onto public java.util.List<pe.joedayz.campus.dto.UserViewDto> pe.joedayz.campus.controller.security.UserController.findPricingAnaLystOld(java.lang.String)
+22:25:52.823 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/user/find/autocompletePricingAnalyst],methods=[GET],produces=[application/json]}" onto public java.util.List<pe.joedayz.campus.dto.UserViewDto> pe.joedayz.campus.controller.security.UserController.findPricingAnalyst(java.lang.String)
+22:25:52.824 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/user/find/autocomplete/commercialaccount],methods=[GET],produces=[application/json]}" onto public java.util.List<pe.joedayz.campus.dto.UserDto> pe.joedayz.campus.controller.security.UserController.findCommercialAccount(java.lang.String)
+22:25:52.825 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/user/find/autocomplete/commercialrep],methods=[GET],produces=[application/json]}" onto public java.util.List<pe.joedayz.campus.dto.UserDto> pe.joedayz.campus.controller.security.UserController.findCommercialRep(java.lang.String)
+22:25:52.827 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/backend/post/**],methods=[POST],produces=[application/json]}" onto public java.lang.String pe.joedayz.campus.rest.BackendController.mirrorRest(java.lang.String,org.springframework.http.HttpMethod,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.net.URISyntaxException
+22:25:52.827 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/backend/get/**],produces=[application/json]}" onto public java.lang.String pe.joedayz.campus.rest.BackendController.mirrorRest(org.springframework.http.HttpMethod,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.net.URISyntaxException
+22:25:52.828 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/generalTable/search/find],methods=[GET],produces=[application/json]}" onto pe.joedayz.campus.dto.PageableResult pe.joedayz.campus.rest.GeneralTableController.find(pe.joedayz.campus.dto.GeneralTableFilterDto)
+22:25:52.829 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/generalTable/search]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.rest.GeneralTableController.search() throws java.lang.Exception
+22:25:52.829 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/generalTable/view]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.rest.GeneralTableController.view(java.lang.Long) throws com.fasterxml.jackson.core.JsonProcessingException
+22:25:52.829 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/generalTable/new]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.rest.GeneralTableController.newGeneralTable() throws com.fasterxml.jackson.core.JsonProcessingException
+22:25:52.830 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/module/search/find],methods=[GET],produces=[application/json]}" onto pe.joedayz.campus.dto.PageableResult pe.joedayz.campus.rest.ModuleController.find(pe.joedayz.campus.dto.ModuleFilterDto)
+22:25:52.831 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/module/search]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.rest.ModuleController.search() throws java.lang.Exception
+22:25:52.831 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/module/view]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.rest.ModuleController.view(java.lang.Long) throws java.lang.Exception
+22:25:52.832 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/parameter/search/find],methods=[GET],produces=[application/json]}" onto pe.joedayz.campus.dto.PageableResult pe.joedayz.campus.rest.ParameterController.find(pe.joedayz.campus.dto.ParameterFilterDto)
+22:25:52.833 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/parameter/search]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.rest.ParameterController.search() throws java.lang.Exception
+22:25:52.833 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/parameter/view]}" onto org.springframework.web.servlet.ModelAndView pe.joedayz.campus.rest.ParameterController.view(java.lang.Long) throws java.lang.Exception
+22:25:52.833 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/parameter/find/autocomplete],methods=[GET],produces=[application/json]}" onto public java.util.List<pe.joedayz.campus.dto.ParameterDto> pe.joedayz.campus.rest.ParameterController.findParameters(java.lang.String)
+22:25:52.834 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/security/recover],methods=[POST],produces=[application/json]}" onto public java.lang.String pe.joedayz.campus.rest.SecurityController.requestResetPassword(java.lang.String)
+22:25:52.834 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/security/reset-password],methods=[POST],produces=[application/json]}" onto public java.lang.String pe.joedayz.campus.rest.SecurityController.resetPassword(pe.joedayz.campus.dto.RecoverPasswordDto)
+22:25:52.835 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/cursoApi/temasDisponibles],methods=[GET],produces=[application/json]}" onto java.util.List<pe.joedayz.campus.dto.TemasCursoDto> pe.joedayz.campus.rest.curso.CursoApiController.find(java.lang.String)
+22:25:52.836 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/roleApi/search/find],methods=[GET],produces=[application/json]}" onto pe.joedayz.campus.dto.PageableResult pe.joedayz.campus.rest.role.RoleApiController.find(pe.joedayz.campus.dto.RoleFilterDto)
+22:25:52.837 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/roleApi/delete],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> pe.joedayz.campus.rest.role.RoleApiController.delete(pe.joedayz.campus.dto.RoleViewDto)
+22:25:52.837 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/roleApi/create],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> pe.joedayz.campus.rest.role.RoleApiController.create(pe.joedayz.campus.dto.RoleViewDto)
+22:25:52.839 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/userApi/search],methods=[GET],produces=[application/json]}" onto pe.joedayz.campus.dto.PageableResult pe.joedayz.campus.rest.security.UserApiController.find(pe.joedayz.campus.dto.UserFilterDto)
+22:25:52.839 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/userApi/cleanTemps],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Long> pe.joedayz.campus.rest.security.UserApiController.clean()
+22:25:52.839 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/userApi/create],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Long> pe.joedayz.campus.rest.security.UserApiController.save(pe.joedayz.campus.dto.UserDto)
+22:25:52.840 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/userApi/addRole],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<pe.joedayz.campus.dto.JsonResult> pe.joedayz.campus.rest.security.UserApiController.addRole(long,java.lang.String) throws java.lang.Exception
+22:25:52.840 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/userApi/updateProfile],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Long> pe.joedayz.campus.rest.security.UserApiController.updateProfile(pe.joedayz.campus.dto.UserDto)
+22:25:52.840 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/userApi/initTemps],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Long> pe.joedayz.campus.rest.security.UserApiController.initTemps(pe.joedayz.campus.dto.UserDto)
+22:25:52.841 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/userApi/searchRoles],methods=[GET],produces=[application/json]}" onto public pe.joedayz.campus.dto.PageableResult pe.joedayz.campus.rest.security.UserApiController.searchRoles()
+22:25:52.841 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/userApi/removeRole],methods=[POST],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<pe.joedayz.campus.dto.JsonResult> pe.joedayz.campus.rest.security.UserApiController.removeRole(long)
+22:25:52.843 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+22:25:52.843 [INFO ] [main] [RequestMappingHandlerMapping:543] - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+22:25:52.856 [INFO ] [main] [SimpleUrlHandlerMapping:354] - Mapped URL path [/recover] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+22:25:52.868 [INFO ] [main] [SimpleUrlHandlerMapping:354] - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+22:25:52.868 [INFO ] [main] [SimpleUrlHandlerMapping:354] - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+22:25:52.887 [INFO ] [main] [ExceptionHandlerExceptionResolver:269] - Detected @ExceptionHandler methods in adviceController
+22:25:52.902 [INFO ] [main] [SimpleUrlHandlerMapping:354] - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+22:25:53.959 [INFO ] [main] [AuthenticationManagerConfiguration:169] - 
+
+Using default security password: 8dfe061a-a71e-420e-a2d3-029320caf224
+
+22:25:53.973 [INFO ] [main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/css/**'], []
+22:25:53.973 [INFO ] [main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/js/**'], []
+22:25:53.974 [INFO ] [main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/images/**'], []
+22:25:53.974 [INFO ] [main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/webjars/**'], []
+22:25:53.975 [INFO ] [main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/**/favicon.ico'], []
+22:25:53.977 [INFO ] [main] [DefaultSecurityFilterChain:43] - Creating filter chain: Ant [pattern='/error'], []
+22:25:54.055 [INFO ] [main] [DefaultSecurityFilterChain:43] - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1e58512c, org.springframework.security.web.context.SecurityContextPersistenceFilter@2436ea2f, org.springframework.security.web.header.HeaderWriterFilter@1ba359bd, org.springframework.security.web.authentication.logout.LogoutFilter@53ec2968, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@25290bca, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@20cece0b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1aabf50d, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@508a65bf, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@210308d5, org.springframework.security.web.session.SessionManagementFilter@673919a7, org.springframework.security.web.access.ExceptionTranslationFilter@13d9261f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5c77ba8f]
+22:25:54.085 [INFO ] [main] [DefaultSecurityFilterChain:43] - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/**']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4eba373c, org.springframework.security.web.context.SecurityContextPersistenceFilter@1effd53c, org.springframework.security.web.header.HeaderWriterFilter@31ee2fdb, org.springframework.security.web.authentication.logout.LogoutFilter@558756be, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@433348bc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@46c269e0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6920614, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@767a014e, org.springframework.security.web.session.SessionManagementFilter@262816a8, org.springframework.security.web.access.ExceptionTranslationFilter@60f70249, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2f236de0]
+22:25:54.292 [INFO ] [main] [AnnotationMBeanExporter:431] - Registering beans for JMX exposure on startup
+22:25:54.308 [INFO ] [main] [Http11NioProtocol:179] - Initializing ProtocolHandler ["http-nio-8080"]
+22:25:54.322 [INFO ] [main] [Http11NioProtocol:179] - Starting ProtocolHandler [http-nio-8080]
+22:25:54.339 [INFO ] [main] [NioSelectorPool:179] - Using a shared selector for servlet write/read
+22:25:54.350 [INFO ] [main] [TomcatEmbeddedServletContainer:186] - Tomcat started on port(s): 8080 (http)
+22:25:54.355 [INFO ] [main] [CampusApplication:57] - Started CampusApplication in 4.945 seconds (JVM running for 5.893)
+22:26:09.957 [INFO ] [http-nio-8080-exec-1] [[/]:179] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+22:26:09.957 [INFO ] [http-nio-8080-exec-1] [DispatcherServlet:489] - FrameworkServlet 'dispatcherServlet': initialization started
+22:26:09.978 [INFO ] [http-nio-8080-exec-1] [DispatcherServlet:508] - FrameworkServlet 'dispatcherServlet': initialization completed in 20 ms
+22:26:14.270 [INFO ] [http-nio-8080-exec-7] [SecurityConfig:81] - Authentication process init for user admin
+22:26:14.637 [INFO ] [http-nio-8080-exec-7] [SecurityConfig:89] - User from databasenull
+22:26:14.638 [INFO ] [http-nio-8080-exec-7] [SecurityConfig:92] - User not found in database null
+22:26:14.640 [ERROR] [http-nio-8080-exec-7] [UsernamePasswordAuthenticationFilter:221] - An internal error occurred while trying to authenticate the user.
+org.springframework.security.authentication.InternalAuthenticationServiceException: The username you have entered cannot be found in our database.
+	at org.springframework.security.authentication.dao.DaoAuthenticationProvider.retrieveUser(DaoAuthenticationProvider.java:126)
+	at org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider.authenticate(AbstractUserDetailsAuthenticationProvider.java:144)
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:174)
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:199)
+	at org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter.attemptAuthentication(UsernamePasswordAuthenticationFilter.java:94)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:212)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:121)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:66)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:214)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:177)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:262)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:87)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:77)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:108)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:522)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:349)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:1110)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:785)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1425)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: pe.joedayz.campus.security.UserNotFoundException: The username you have entered cannot be found in our database.
+	at pe.joedayz.campus.config.SecurityConfig$1.loadUserByUsername(SecurityConfig.java:93)
+	at org.springframework.security.authentication.dao.DaoAuthenticationProvider.retrieveUser(DaoAuthenticationProvider.java:114)
+	... 54 common frames omitted
+22:26:21.385 [INFO ] [Thread-12] [AnnotationConfigEmbeddedWebApplicationContext:982] - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@45c7e403: startup date [Sun Dec 29 22:25:50 PET 2019]; root of context hierarchy
+22:26:21.388 [INFO ] [Thread-12] [AnnotationMBeanExporter:449] - Unregistering JMX-exposed beans on shutdown
